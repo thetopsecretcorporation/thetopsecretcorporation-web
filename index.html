@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Top Secret Corporation</title>
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Variables ── */
+    :root {
+      --bg:        #080808;
+      --accent:    #c00000;
+      --accent-dk: #3a0000;
+      --text:      #d0d0d0;
+      --glow:      #ff1a1a;
+    }
+
+    /* ── Background grid texture ── */
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(58, 0, 0, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58, 0, 0, 0.18) 1px, transparent 1px);
+      background-size: 48px 48px;
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ── Subtle vignette ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.72) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Center stage ── */
+    .stage {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 780px;
+      width: 100%;
+    }
+
+    /* ── Decorative rule above ── */
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.4rem;
+      opacity: 0.45;
+    }
+
+    .rule::before,
+    .rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .rule-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── Company name ── */
+    h1 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: clamp(1.6rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.15;
+      /* subtle red glow */
+      text-shadow:
+        0 0 18px rgba(192, 0, 0, 0.55),
+        0 0 42px rgba(192, 0, 0, 0.22);
+      transition: text-shadow 0.35s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    h1:hover {
+      text-shadow:
+        0 0 12px rgba(255, 26, 26, 0.75),
+        0 0 36px rgba(255, 26, 26, 0.38),
+        0 0 72px rgba(255, 26, 26, 0.15);
+    }
+
+    /* ── Underline accent bar ── */
+    .name-bar {
+      display: block;
+      width: 64px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2rem auto 1.6rem;
+      box-shadow: 0 0 8px rgba(192, 0, 0, 0.6);
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      font-style: italic;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      opacity: 0.62;
+    }
+
+    /* ── Decorative rule below ── */
+    .rule-bottom {
+      margin-top: 2.4rem;
+    }
+
+    /* ── Classification stamp ── */
+    .stamp {
+      display: inline-block;
+      margin-top: 3.5rem;
+      border: 1px solid var(--accent-dk);
+      padding: 0.35rem 1.1rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.35;
+      font-family: 'Courier New', Courier, monospace;
+      font-style: normal;
+    }
+
+    /* ── Responsive tweaks ── */
+    @media (max-width: 480px) {
+      h1 {
+        letter-spacing: 0.12em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <div class="rule" aria-hidden="true">
+      <span class="rule-diamond"></span>
+    </div>
+
+    <h1>The Top Secret Corporation</h1>
+    <span class="name-bar" aria-hidden="true"></span>
+
+    <p class="tagline">&ldquo;We know what we&rsquo;re doing. Mostly.&rdquo;</p>
+
+    <div class="rule rule-bottom" aria-hidden="true">
+      <span class="rule-diamond"></span>
+    </div>
+
+    <div class="stamp" aria-hidden="true">Classified &mdash; Eyes Only</div>
+  </main>
+</body>
+</html>
