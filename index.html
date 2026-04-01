@@ -300,7 +300,6 @@
     .mission-thumb,
     .about-visual::before,
     .agent-photo {
-      background-image: url("./assets/hero-grid.png");
       background-size: cover;
       background-repeat: no-repeat;
     }
@@ -308,7 +307,8 @@
     .hero-media {
       position: absolute;
       inset: 0;
-      background-position: center center;
+      background-image: url("./assets/hero.png");
+      background-position: 70% center;
       transform: scale(1.02);
     }
 
@@ -518,7 +518,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-position: center center;
+      background-image: url("./assets/who_we_are.png");
+      background-position: center 55%;
       transform: scale(1.06);
     }
 
@@ -589,6 +590,7 @@
     .mission-thumb {
       position: relative;
       min-height: 194px;
+      background-image: url("./assets/hero-grid.png");
       background-position: center center;
     }
 
@@ -663,8 +665,37 @@
     .agent-photo {
       min-height: 220px;
       position: relative;
-      background-position: center center;
       isolation: isolate;
+    }
+
+    .agent-photo-number2 {
+      background-image: url("./assets/number2.png");
+      background-position: center 20%;
+    }
+
+    .agent-photo-dexter {
+      background-image: url("./assets/dexter.png");
+      background-position: 30% 25%;
+    }
+
+    .agent-photo-albert {
+      background-image: url("./assets/albert.png");
+      background-position: 40% 20%;
+    }
+
+    .agent-photo-sherlock {
+      background-image: url("./assets/sherlock.png");
+      background-position: center 20%;
+    }
+
+    .agent-photo-iris {
+      background-image: url("./assets/iris.png");
+      background-position: 30% 25%;
+    }
+
+    .agent-photo-jimmy {
+      background-image: url("./assets/jimmy.png");
+      background-position: center 15%;
     }
 
     .agent-photo::before {
@@ -903,7 +934,7 @@
       .hero-media {
         bottom: auto;
         height: 600px;
-        background-position: center top;
+        background-position: 65% 20%;
       }
 
       .hero-media::before {
@@ -1197,7 +1228,7 @@
 
           <div class="agent-grid">
             <article class="agent-card">
-              <div class="agent-photo" aria-hidden="true">
+              <div class="agent-photo agent-photo-number2" aria-hidden="true">
                 <span class="agent-badge">Operations / command</span>
               </div>
               <div class="agent-content">
@@ -1210,7 +1241,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo" aria-hidden="true">
+              <div class="agent-photo agent-photo-dexter" aria-hidden="true">
                 <span class="agent-badge">Engineering / systems</span>
               </div>
               <div class="agent-content">
@@ -1223,7 +1254,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo" aria-hidden="true">
+              <div class="agent-photo agent-photo-albert" aria-hidden="true">
                 <span class="agent-badge">Research / intelligence</span>
               </div>
               <div class="agent-content">
@@ -1236,7 +1267,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo" aria-hidden="true">
+              <div class="agent-photo agent-photo-sherlock" aria-hidden="true">
                 <span class="agent-badge">Investigation / analysis</span>
               </div>
               <div class="agent-content">
@@ -1249,7 +1280,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo" aria-hidden="true">
+              <div class="agent-photo agent-photo-iris" aria-hidden="true">
                 <span class="agent-badge">Design / interface</span>
               </div>
               <div class="agent-content">
@@ -1262,7 +1293,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo" aria-hidden="true">
+              <div class="agent-photo agent-photo-jimmy" aria-hidden="true">
                 <span class="agent-badge">Automation / support</span>
               </div>
               <div class="agent-content">
