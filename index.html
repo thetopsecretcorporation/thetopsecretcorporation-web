@@ -617,22 +617,6 @@
       background: rgba(11, 15, 20, 0.08);
     }
 
-    .mission-chip {
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      z-index: 1;
-      min-height: 28px;
-      padding: 5px 13px;
-      border-radius: 4px;
-      border: 1px solid rgba(227, 58, 58, 0.72);
-      background: rgba(11, 15, 20, 0.92);
-      color: var(--ember);
-      font-size: 12px;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
     .mission-content {
       display: grid;
       gap: 14px;
@@ -670,6 +654,10 @@
       background: var(--slate);
       color: var(--night);
       padding: 124px 0;
+    }
+
+    .agents-section .section-body {
+      color: var(--text-dark-soft);
     }
 
     .agent-card {
@@ -722,24 +710,6 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(227, 58, 58, 0.14) 0%, rgba(11, 15, 20, 0.08) 100%);
-    }
-
-    .agent-badge {
-      position: absolute;
-      left: 16px;
-      top: 16px;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      padding: 5px 12px;
-      border-radius: 4px;
-      border: 1px solid rgba(227, 58, 58, 0.28);
-      background: rgba(229, 233, 238, 0.82);
-      color: var(--ember-depth);
-      font-size: 12px;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
     }
 
     .agent-content {
@@ -1184,9 +1154,7 @@
 
           <div class="mission-grid">
             <article class="mission-card">
-              <div class="mission-thumb mission-thumb-engineering">
-                <span class="mission-chip">Engineering</span>
-              </div>
+              <div class="mission-thumb mission-thumb-engineering"></div>
               <div class="mission-content">
                 <h3>Engineering</h3>
                 <p class="mission-copy">
@@ -1200,9 +1168,7 @@
             </article>
 
             <article class="mission-card">
-              <div class="mission-thumb mission-thumb-research">
-                <span class="mission-chip">Research</span>
-              </div>
+              <div class="mission-thumb mission-thumb-research"></div>
               <div class="mission-content">
                 <h3>Research</h3>
                 <p class="mission-copy">
@@ -1216,9 +1182,7 @@
             </article>
 
             <article class="mission-card">
-              <div class="mission-thumb mission-thumb-consulting">
-                <span class="mission-chip">Consulting</span>
-              </div>
+              <div class="mission-thumb mission-thumb-consulting"></div>
               <div class="mission-content">
                 <h3>Consulting</h3>
                 <p class="mission-copy">
@@ -1253,9 +1217,7 @@
 
           <div class="agent-grid">
             <article class="agent-card">
-              <div class="agent-photo agent-photo-number2" aria-hidden="true">
-                <span class="agent-badge">Operations / command</span>
-              </div>
+              <div class="agent-photo agent-photo-number2" aria-hidden="true"></div>
               <div class="agent-content">
                 <h3>Number 2</h3>
                 <p class="agent-copy">
@@ -1266,9 +1228,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo agent-photo-dexter" aria-hidden="true">
-                <span class="agent-badge">Engineering / systems</span>
-              </div>
+              <div class="agent-photo agent-photo-dexter" aria-hidden="true"></div>
               <div class="agent-content">
                 <h3>Dexter</h3>
                 <p class="agent-copy">
@@ -1279,9 +1239,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo agent-photo-albert" aria-hidden="true">
-                <span class="agent-badge">Research / intelligence</span>
-              </div>
+              <div class="agent-photo agent-photo-albert" aria-hidden="true"></div>
               <div class="agent-content">
                 <h3>Albert</h3>
                 <p class="agent-copy">
@@ -1292,9 +1250,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo agent-photo-sherlock" aria-hidden="true">
-                <span class="agent-badge">Investigation / analysis</span>
-              </div>
+              <div class="agent-photo agent-photo-sherlock" aria-hidden="true"></div>
               <div class="agent-content">
                 <h3>Sherlock</h3>
                 <p class="agent-copy">
@@ -1305,9 +1261,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo agent-photo-iris" aria-hidden="true">
-                <span class="agent-badge">Design / interface</span>
-              </div>
+              <div class="agent-photo agent-photo-iris" aria-hidden="true"></div>
               <div class="agent-content">
                 <h3>Iris</h3>
                 <p class="agent-copy">
@@ -1318,9 +1272,7 @@
             </article>
 
             <article class="agent-card">
-              <div class="agent-photo agent-photo-jimmy" aria-hidden="true">
-                <span class="agent-badge">Growth / social / performance</span>
-              </div>
+              <div class="agent-photo agent-photo-jimmy" aria-hidden="true"></div>
               <div class="agent-content">
                 <h3>Jimmy</h3>
                 <p class="agent-copy">
