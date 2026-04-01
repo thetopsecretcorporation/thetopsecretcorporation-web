@@ -193,7 +193,6 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-banner::after,
     .media-card::after,
     .lane-card::after,
     .contact-panel::after {
@@ -208,25 +207,33 @@
     .hero-banner {
       min-height: 650px;
       background:
-        radial-gradient(circle at 70% 25%, rgba(255,255,255,0.18), transparent 20%),
-        radial-gradient(circle at 60% 18%, rgba(223, 69, 69, 0.18), transparent 24%),
-        linear-gradient(90deg, rgba(8, 12, 18, 0.96) 0%, rgba(8, 12, 18, 0.72) 42%, rgba(8, 12, 18, 0.28) 68%, rgba(8, 12, 18, 0.72) 100%),
-        linear-gradient(135deg, #0f141c 0%, #1a2029 32%, #3c3235 54%, #1b1920 72%, #10151d 100%);
+        radial-gradient(circle at 76% 18%, rgba(255,255,255,0.22), transparent 12%),
+        radial-gradient(circle at 68% 24%, rgba(223, 69, 69, 0.2), transparent 22%),
+        radial-gradient(circle at 80% 40%, rgba(255,255,255,0.08), transparent 18%),
+        linear-gradient(90deg, rgba(8, 12, 18, 0.97) 0%, rgba(8, 12, 18, 0.76) 40%, rgba(8, 12, 18, 0.22) 68%, rgba(8, 12, 18, 0.74) 100%),
+        linear-gradient(135deg, #0f141c 0%, #1a2029 30%, #3c3235 53%, #1b1920 71%, #10151d 100%);
     }
 
     .hero-banner::before {
-      content: "Hero image placeholder";
+      content: "";
       position: absolute;
-      right: 22px;
-      top: 22px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(9, 13, 19, 0.78);
-      border: 1px solid var(--line-soft);
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0 58%, rgba(255,255,255,0.06) 58% 59%, transparent 59% 100%),
+        linear-gradient(120deg, transparent 0 68%, rgba(255,255,255,0.05) 68% 69%, transparent 69% 100%),
+        radial-gradient(circle at 82% 50%, rgba(255,255,255,0.18) 0 1px, transparent 1px 100%);
+      background-size: auto, auto, 24px 24px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--line);
+      border-radius: inherit;
+      pointer-events: none;
     }
 
     .hero-copy {
@@ -382,12 +389,20 @@
     .media-card {
       min-height: 402px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)),
-        linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.06) 75%, transparent 75%, transparent),
-        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent),
-        linear-gradient(180deg, #d9dde3 0%, #adb4be 100%);
-      background-size: auto, 28px 28px, 28px 28px, auto;
-      background-position: 0 0, 0 0, 14px 14px, 0 0;
+        radial-gradient(circle at 78% 20%, rgba(255,255,255,0.7), transparent 12%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, #eef2f7 0%, #cfd5de 44%, #a5aebc 100%);
+    }
+
+    .media-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, transparent 0 48%, rgba(15, 20, 29, 0.18) 48% 50%, transparent 50% 100%),
+        linear-gradient(135deg, transparent 0 58%, rgba(15, 20, 29, 0.16) 58% 60%, transparent 60% 100%),
+        linear-gradient(0deg, rgba(255,255,255,0.26), rgba(255,255,255,0));
+      opacity: 0.9;
     }
 
     .media-overlay {
@@ -402,7 +417,16 @@
       backdrop-filter: blur(10px);
     }
 
+    .overlay-kicker {
+      color: rgba(236, 239, 244, 0.72);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
     .overlay-title {
+      margin-top: 8px;
       font-size: 13px;
       font-weight: 700;
       line-height: 1.35;
@@ -481,28 +505,32 @@
       border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.12);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
-        linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent),
-        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent),
-        linear-gradient(180deg, #f0f3f7 0%, #bcc4cf 100%);
-      background-size: auto, 24px 24px, 24px 24px, auto;
-      background-position: 0 0, 0 0, 12px 12px, 0 0;
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.68), transparent 13%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, #eef2f7 0%, #ced5de 44%, #b1bbc9 100%);
       position: relative;
       overflow: hidden;
     }
 
     .lane-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(130deg, transparent 0 46%, rgba(15, 20, 29, 0.18) 46% 48%, transparent 48% 100%),
+        linear-gradient(130deg, transparent 0 58%, rgba(15, 20, 29, 0.16) 58% 60%, transparent 60% 100%);
+      opacity: 0.85;
+    }
+
+    .lane-visual::after {
       content: attr(data-label);
       position: absolute;
-      top: 12px;
       left: 12px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: rgba(9, 13, 19, 0.72);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
+      bottom: 12px;
+      color: rgba(15, 20, 29, 0.74);
       font-size: 9px;
-      letter-spacing: 0.14em;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -753,10 +781,11 @@
           </div>
         </div>
 
-        <aside class="media-card" aria-label="About graphic placeholder">
+        <aside class="media-card" aria-label="About graphic">
           <div class="media-overlay">
-            <div class="overlay-title">Supporting image placeholder</div>
-            <div class="overlay-copy">Reserved for final art from the approved design system.</div>
+            <div class="overlay-kicker">Visual system</div>
+            <div class="overlay-title">Structured signals over decorative noise.</div>
+            <div class="overlay-copy">A restrained editorial treatment keeps the interface readable while still carrying the brand’s covert, precision-first tone.</div>
           </div>
         </aside>
       </div>
@@ -784,7 +813,7 @@
               Enter lane
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
             </a>
-            <div class="lane-visual" data-label="Engineering image placeholder" role="img" aria-label="Engineering initiative placeholder visual"></div>
+            <div class="lane-visual" data-label="Engineering" role="img" aria-label="Engineering initiative visual"></div>
           </article>
 
           <article class="lane-card">
@@ -794,7 +823,7 @@
               Enter lane
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
             </a>
-            <div class="lane-visual" data-label="Research image placeholder" role="img" aria-label="Research initiative placeholder visual"></div>
+            <div class="lane-visual" data-label="Research" role="img" aria-label="Research initiative visual"></div>
           </article>
 
           <article class="lane-card">
@@ -804,7 +833,7 @@
               Enter lane
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
             </a>
-            <div class="lane-visual" data-label="Consulting image placeholder" role="img" aria-label="Consulting initiative placeholder visual"></div>
+            <div class="lane-visual" data-label="Consulting" role="img" aria-label="Consulting initiative visual"></div>
           </article>
         </div>
       </div>
