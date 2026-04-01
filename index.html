@@ -785,6 +785,26 @@
       padding-top: 4px;
     }
 
+    .form-status {
+      min-height: 1.5rem;
+      margin: 0;
+      color: rgba(244, 241, 234, 0.72);
+    }
+
+    .form-status.is-success {
+      color: #9be7b1;
+    }
+
+    .form-status.is-error {
+      color: #ff9b9b;
+    }
+
+    .button[disabled] {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
+    }
+
     .footer {
       background: var(--night);
       padding-bottom: 30px;
@@ -1263,7 +1283,14 @@
               For new projects, strategic questions, or sensitive requests, send the essentials and we’ll route the briefing to the right team.
             </p>
 
-            <form class="contact-form">
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/mbdpkkoa"
+              method="post"
+              data-success-message="Briefing received. We may or may not get back to you."
+              data-error-message="Transmission failed. Try again in a moment, or email us directly if the matter is unusually classified."
+              data-loading-message="Encrypting briefing…"
+            >
               <div class="field-group">
                 <label class="field-label" for="contact-name">Name</label>
                 <input id="contact-name" name="name" type="text" placeholder="Your name" />
@@ -1283,7 +1310,8 @@
                 <button class="button button-primary" type="submit">Send request</button>
               </div>
 
-              <p class="field-note">Placeholder intake form for now — ready to wire into a real submission flow.</p>
+              <p class="form-status" aria-live="polite"></p>
+              <p class="field-note">Low-volume intake, routed through a quiet external drop box.</p>
             </form>
           </div>
         </div>
@@ -1346,6 +1374,72 @@
 
       window.addEventListener('scroll', syncHeaderState, { passive: true });
       syncHeaderState();
+
+      const contactForm = document.querySelector('.contact-form');
+
+      if (!contactForm) {
+        return;
+      }
+
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const statusMessage = contactForm.querySelector('.form-status');
+      const defaultButtonLabel = submitButton ? submitButton.textContent : 'Send request';
+
+      const setStatus = function (message, state) {
+        if (!statusMessage) {
+          return;
+        }
+
+        statusMessage.textContent = message || '';
+        statusMessage.classList.remove('is-success', 'is-error');
+
+        if (state) {
+          statusMessage.classList.add(state);
+        }
+      };
+
+      contactForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        setStatus('');
+
+        if (!submitButton) {
+          return;
+        }
+
+        const action = contactForm.getAttribute('action');
+
+        if (!action) {
+          setStatus('Form delivery is not connected yet. Wire this form to Formspree, FormSubmit, or another endpoint in the form action attribute.', 'is-error');
+          return;
+        }
+
+        const formData = new FormData(contactForm);
+
+        submitButton.disabled = true;
+        submitButton.textContent = contactForm.dataset.loadingMessage || 'Encrypting briefing…';
+
+        try {
+          const response = await fetch(action, {
+            method: (contactForm.getAttribute('method') || 'POST').toUpperCase(),
+            headers: {
+              Accept: 'application/json'
+            },
+            body: formData
+          });
+
+          if (!response.ok) {
+            throw new Error('Request failed');
+          }
+
+          contactForm.reset();
+          setStatus(contactForm.dataset.successMessage || 'Briefing received. We may or may not get back to you.', 'is-success');
+        } catch (error) {
+          setStatus(contactForm.dataset.errorMessage || 'Transmission failed. Try again in a moment, or email us directly if the matter is unusually classified.', 'is-error');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = defaultButtonLabel;
+        }
+      });
     }());
   </script>
 </body>
