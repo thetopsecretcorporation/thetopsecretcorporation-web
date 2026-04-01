@@ -589,9 +589,24 @@
 
     .mission-thumb {
       position: relative;
-      min-height: 194px;
+      min-height: 272px;
       background-image: url("./assets/hero-grid.png");
       background-position: center center;
+    }
+
+    .mission-thumb-engineering {
+      background-image: url("./assets/initiative_1/cover.png"), url("./assets/hero-grid.png");
+      background-position: center 34%, center center;
+    }
+
+    .mission-thumb-research {
+      background-image: url("./assets/initiative_2/cover.png"), url("./assets/hero-grid.png");
+      background-position: center 36%, center center;
+    }
+
+    .mission-thumb-consulting {
+      background-image: url("./assets/initiative_3/cover.png"), url("./assets/hero-grid.png");
+      background-position: center 32%, center center;
     }
 
     .mission-thumb::after {
@@ -663,10 +678,11 @@
     }
 
     .agent-photo {
-      min-height: 220px;
+      min-height: 308px;
       position: relative;
       isolation: isolate;
-      background-size: 90% auto;
+      background-size: 88% auto;
+      background-position: center 22%;
       background-color: #dfe5ea;
     }
 
@@ -1032,9 +1048,12 @@
         gap: 24px;
       }
 
-      .mission-thumb,
+      .mission-thumb {
+        min-height: 240px;
+      }
+
       .agent-photo {
-        min-height: 210px;
+        min-height: 276px;
       }
 
       .mission-content,
@@ -1164,7 +1183,7 @@
 
           <div class="mission-grid">
             <article class="mission-card">
-              <div class="mission-thumb">
+              <div class="mission-thumb mission-thumb-engineering">
                 <span class="mission-chip">Engineering</span>
               </div>
               <div class="mission-content">
@@ -1180,7 +1199,7 @@
             </article>
 
             <article class="mission-card">
-              <div class="mission-thumb">
+              <div class="mission-thumb mission-thumb-research">
                 <span class="mission-chip">Research</span>
               </div>
               <div class="mission-content">
@@ -1196,7 +1215,7 @@
             </article>
 
             <article class="mission-card">
-              <div class="mission-thumb">
+              <div class="mission-thumb mission-thumb-consulting">
                 <span class="mission-chip">Consulting</span>
               </div>
               <div class="mission-content">
