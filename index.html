@@ -175,33 +175,29 @@
       align-items: center;
       justify-content: center;
       min-height: 40px;
-      padding: 0 16px;
-      border: 1px solid rgba(196, 202, 211, 0.18);
-      border-radius: 999px;
-      background: rgba(229, 233, 238, 0.02);
-      color: var(--slate);
-      transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease, opacity 140ms ease;
+      padding: 0 6px 10px;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: rgba(229, 233, 238, 0.74);
+      transition: border-color 140ms ease, color 140ms ease, transform 140ms ease, opacity 140ms ease;
     }
 
     .nav-link:hover,
     .nav-link:focus-visible,
     .nav-link.is-active {
       border-color: rgba(227, 58, 58, 0.72);
-      background: rgba(227, 58, 58, 0.1);
       color: var(--slate);
       transform: translateY(-1px);
     }
 
     .nav-cta {
-      background: var(--ember);
-      border-color: var(--ember);
-      box-shadow: 0 10px 22px rgba(122, 15, 16, 0.22);
+      margin-left: 10px;
     }
 
     .nav-cta:hover,
     .nav-cta:focus-visible {
-      background: #f04646;
-      border-color: #f04646;
+      border-color: rgba(227, 58, 58, 0.86);
+      color: var(--slate);
     }
 
     .mobile-menu-button {
@@ -378,12 +374,12 @@
       font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.08em;
-      transition: opacity 140ms ease, transform 140ms ease, border-color 140ms ease;
+      transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
     }
 
     .button:hover,
     .button:focus-visible {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .button-primary {
@@ -392,10 +388,24 @@
       box-shadow: 0 10px 22px rgba(122, 15, 16, 0.22);
     }
 
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: #ef4747;
+      box-shadow: 0 16px 30px rgba(122, 15, 16, 0.32);
+    }
+
     .button-secondary {
-      border-color: rgba(227, 58, 58, 0.72);
+      border-color: rgba(227, 58, 58, 0.56);
       color: var(--ember);
-      background: transparent;
+      background: rgba(227, 58, 58, 0.02);
+      box-shadow: 0 0 0 rgba(122, 15, 16, 0);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      background: rgba(227, 58, 58, 0.08);
+      border-color: rgba(227, 58, 58, 0.82);
+      box-shadow: 0 12px 24px rgba(5, 12, 23, 0.18);
     }
 
     .section-light {
@@ -643,14 +653,14 @@
     }
 
     .contact-panel {
-      width: min(100%, 680px);
+      width: 100%;
       padding: 36px;
       display: grid;
       gap: 18px;
     }
 
     .contact-body {
-      max-width: 548px;
+      max-width: none;
       font-size: 18px;
     }
 
@@ -784,9 +794,12 @@
       .nav-link {
         width: 100%;
         justify-content: flex-start;
-        border-radius: 10px;
         min-height: 48px;
-        padding: 0 14px;
+        padding: 0 0 8px;
+      }
+
+      .nav-cta {
+        margin-left: 0;
       }
 
       .mobile-menu-button {
@@ -1089,23 +1102,36 @@
           <div class="agent-grid">
             <article class="agent-card">
               <div class="agent-photo" aria-hidden="true">
-                <span class="agent-badge">Placeholder portrait / ops</span>
+                <span class="agent-badge">Operations / command</span>
               </div>
               <div class="agent-content">
-                <h3>Operator One</h3>
+                <h3>Number 2</h3>
                 <p class="agent-copy">
-                  Monitors active workflows, keeps projects moving, and turns vague requests into orderly execution without needing a 14-message follow-up chain.
+                  Runs operations, keeps missions moving, and turns rough requests into coordinated execution without letting details fall through the floor.
                 </p>
-                <div class="agent-meta">Specialty: coordination + routing</div>
+                <div class="agent-meta">Specialty: operations + coordination</div>
               </div>
             </article>
 
             <article class="agent-card">
               <div class="agent-photo" aria-hidden="true">
-                <span class="agent-badge">Placeholder portrait / analysis</span>
+                <span class="agent-badge">Engineering / systems</span>
               </div>
               <div class="agent-content">
-                <h3>Operator Two</h3>
+                <h3>Dexter</h3>
+                <p class="agent-copy">
+                  Builds, debugs, and ships the technical work with a bias toward durable structure, clean execution, and fewer future headaches.
+                </p>
+                <div class="agent-meta">Specialty: engineering + delivery</div>
+              </div>
+            </article>
+
+            <article class="agent-card">
+              <div class="agent-photo" aria-hidden="true">
+                <span class="agent-badge">Research / intelligence</span>
+              </div>
+              <div class="agent-content">
+                <h3>Albert</h3>
                 <p class="agent-copy">
                   Handles research sweeps, synthesis, and briefing prep so decisions arrive with context, evidence, and fewer unpleasant surprises.
                 </p>
@@ -1115,14 +1141,40 @@
 
             <article class="agent-card">
               <div class="agent-photo" aria-hidden="true">
-                <span class="agent-badge">Placeholder portrait / build</span>
+                <span class="agent-badge">Investigation / analysis</span>
               </div>
               <div class="agent-content">
-                <h3>Operator Three</h3>
+                <h3>Sherlock</h3>
                 <p class="agent-copy">
-                  Builds, revises, and ships digital systems with a bias toward clean implementation, durable structure, and mercifully little drama.
+                  Digs through messy signals, traces the important thread, and surfaces the kind of findings that save time and avoid bad assumptions.
                 </p>
-                <div class="agent-meta">Specialty: execution + delivery</div>
+                <div class="agent-meta">Specialty: analysis + investigation</div>
+              </div>
+            </article>
+
+            <article class="agent-card">
+              <div class="agent-photo" aria-hidden="true">
+                <span class="agent-badge">Design / interface</span>
+              </div>
+              <div class="agent-content">
+                <h3>Iris</h3>
+                <p class="agent-copy">
+                  Shapes interfaces, refines visual systems, and keeps the experience sharp, cohesive, and a little more elegant than it strictly needed to be.
+                </p>
+                <div class="agent-meta">Specialty: design + UX direction</div>
+              </div>
+            </article>
+
+            <article class="agent-card">
+              <div class="agent-photo" aria-hidden="true">
+                <span class="agent-badge">Automation / support</span>
+              </div>
+              <div class="agent-content">
+                <h3>Jimmy</h3>
+                <p class="agent-copy">
+                  Handles support tasks, automations, and operational busywork so the rest of the team can stay focused on higher-leverage moves.
+                </p>
+                <div class="agent-meta">Specialty: automation + support</div>
               </div>
             </article>
           </div>
