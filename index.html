@@ -3,25 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Top Secret Corporation designs sharp systems, stealthy experiences, and high-confidence operations for ambitious ideas." />
+  <meta name="description" content="The Top Secret Corporation canonical briefing interface." />
   <title>The Top Secret Corporation</title>
   <style>
     :root {
-      --night: #0b0f14;
-      --night-2: #121821;
-      --night-3: #1a2230;
-      --ember: #e33a3a;
-      --ember-deep: #7a0f10;
-      --slate: #e5e9ee;
-      --platinum: #c4cad3;
-      --muted: #94a0b2;
-      --panel: rgba(18, 24, 33, 0.8);
-      --panel-strong: rgba(12, 17, 24, 0.92);
-      --line: rgba(196, 202, 211, 0.18);
-      --shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --container: 1180px;
+      --bg: #0b0f14;
+      --bg-soft: #101722;
+      --panel: #10151c;
+      --panel-2: #121821;
+      --text: #e5e9ee;
+      --muted: rgba(196, 202, 211, 0.62);
+      --line: rgba(196, 202, 211, 0.22);
+      --line-soft: rgba(196, 202, 211, 0.12);
+      --accent: #e33a3a;
+      --accent-soft: rgba(227, 58, 58, 0.16);
+      --shadow: 0 12px 24px rgba(5, 12, 23, 0.2);
+      --container: 1220px;
+      --radius: 10px;
     }
 
     * {
@@ -31,41 +29,16 @@
     }
 
     html {
+      background: var(--bg);
       scroll-behavior: smooth;
-      background: var(--night);
     }
 
     body {
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--slate);
-      background:
-        radial-gradient(circle at top left, rgba(196, 202, 211, 0.12), transparent 34%),
-        radial-gradient(circle at top right, rgba(196, 202, 211, 0.08), transparent 28%),
-        linear-gradient(180deg, #0b0f14 0%, #101722 48%, #0c1017 100%);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(rgba(196, 202, 211, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196, 202, 211, 0.045) 1px, transparent 1px);
-      background-size: 52px 52px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 92%);
-      z-index: 0;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.5) 100%);
-      z-index: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
     }
 
     a {
@@ -74,121 +47,215 @@
     }
 
     img {
-      display: block;
       max-width: 100%;
+      display: block;
     }
 
-    .container {
-      width: min(calc(100% - 2rem), var(--container));
+    .page {
+      width: min(calc(100% - 48px), var(--container));
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
+      padding-bottom: 32px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.76rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--platinum);
-      opacity: 0.9;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 2.5rem;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(227, 58, 58, 0.1), rgba(227, 58, 58, 0.9));
-    }
-
-    .site-header {
-      padding: 1.25rem 0;
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 4;
-      backdrop-filter: blur(18px);
-      background: rgba(11, 15, 20, 0.72);
-      border-bottom: 1px solid rgba(196, 202, 211, 0.08);
+      z-index: 10;
+      background: rgba(11, 15, 20, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav {
+    .topbar-inner {
+      width: min(calc(100% - 48px), var(--container));
+      margin: 0 auto;
+      min-height: 65px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand,
+    .brand-lockup,
+    .nav,
+    .menu-button,
+    .hero-actions,
+    .contact-actions,
+    .split,
+    .mission-cards,
+    .contact-grid,
+    .footer {
+      display: flex;
+    }
+
+    .brand,
+    .brand-lockup,
+    .nav,
+    .menu-button {
+      align-items: center;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .brand-mark {
-      width: 3rem;
-      height: 3rem;
-      border: 1px solid rgba(227, 58, 58, 0.35);
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, rgba(227, 58, 58, 0.16), rgba(227, 58, 58, 0.04));
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      font-size: 0.95rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      background: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
-    .brand-copy strong {
-      display: block;
-      font-size: 0.92rem;
-      letter-spacing: 0.16em;
+    .brand-lockup {
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      font-family: "Space Grotesk", Inter, sans-serif;
+      white-space: nowrap;
     }
 
-    .brand-copy span {
+    .nav {
+      gap: 28px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 0.82rem;
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: var(--platinum);
-      font-size: 0.92rem;
+    .nav a:hover,
+    .nav a:focus-visible,
+    .menu-button:hover,
+    .menu-button:focus-visible,
+    .button:hover,
+    .button:focus-visible,
+    .lane-link:hover,
+    .lane-link:focus-visible {
+      color: var(--text);
     }
 
-    .nav-links a {
-      opacity: 0.8;
-      transition: opacity 160ms ease, color 160ms ease;
+    .menu-button {
+      display: none;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
     }
 
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      opacity: 1;
-      color: #fff;
+    .menu-button svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .button-row {
-      display: flex;
+    .section {
+      padding: 64px 0 0;
+    }
+
+    .hero {
+      padding-top: 56px;
+    }
+
+    .hero-banner {
+      position: relative;
+      min-height: 660px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(7, 11, 17, 0.2), rgba(7, 11, 17, 0.76)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--line);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 760px);
+      padding: 88px 72px 72px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    .button,
+    .lane-link,
+    .contact-value,
+    .overlay-title {
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      max-width: 9ch;
+    }
+
+    .hero-copy p,
+    .intro-copy p,
+    .contact-copy p,
+    .lane-card > p,
+    .overlay-copy,
+    .subcopy {
+      color: var(--muted);
+    }
+
+    .hero-copy p {
+      margin-top: 24px;
+      max-width: 610px;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .hero-actions,
+    .contact-actions {
       flex-wrap: wrap;
-      gap: 0.9rem;
+      gap: 12px;
+      margin-top: 28px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 3rem;
-      padding: 0 1.15rem;
-      border-radius: 999px;
+      min-height: 48px;
+      padding: 14px 24px;
+      border-radius: 8px;
       border: 1px solid transparent;
-      font-weight: 600;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
     }
 
     .button:hover,
@@ -197,766 +264,524 @@
     }
 
     .button-primary {
-      background: linear-gradient(180deg, #f04b4b 0%, var(--ember) 100%);
-      color: white;
-      box-shadow: 0 14px 28px rgba(227, 58, 58, 0.24);
-    }
-
-    .button-primary:hover,
-    .button-primary:focus-visible {
-      box-shadow: 0 18px 36px rgba(227, 58, 58, 0.32);
+      background: var(--accent);
+      box-shadow: 0 10px 22px rgba(122, 15, 16, 0.22);
     }
 
     .button-secondary {
-      border-color: rgba(196, 202, 211, 0.18);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--slate);
+      border-color: rgba(227, 58, 58, 0.72);
+      color: var(--accent);
+      background: transparent;
     }
 
-    .hero {
-      padding: 4.5rem 0 2rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-      gap: 2rem;
+    .split {
+      gap: 24px;
       align-items: stretch;
     }
 
-    .hero-copy {
-      padding: 1rem 0;
+    .split > * {
+      flex: 1;
+      min-width: 0;
     }
 
-    .hero h1 {
-      margin-top: 1.2rem;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 0.93;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-      max-width: 10ch;
-      text-wrap: balance;
+    .intro-copy {
+      padding-top: 16px;
     }
 
-    .hero .lede {
-      margin-top: 1.4rem;
-      max-width: 38rem;
-      color: var(--platinum);
-      font-size: clamp(1rem, 1.9vw, 1.14rem);
-      line-height: 1.75;
+    h2 {
+      margin-top: 12px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      max-width: 11ch;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin: 1.5rem 0 2rem;
+    .intro-copy p,
+    .contact-copy p {
+      margin-top: 20px;
+      max-width: 560px;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
-    .chip {
-      padding: 0.52rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(196, 202, 211, 0.16);
-      color: var(--platinum);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(255, 255, 255, 0.03);
+    .subcopy {
+      margin-top: 24px;
+      max-width: 560px;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
-    .hero-panel {
-      position: relative;
-      border-radius: 28px;
-      border: 1px solid rgba(196, 202, 211, 0.14);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
-        linear-gradient(180deg, rgba(18, 24, 33, 0.92), rgba(11, 15, 20, 0.96));
+    .media-card,
+    .lane-card,
+    .contact-panel {
+      background: var(--panel-2);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
+      position: relative;
       overflow: hidden;
-      min-height: 32rem;
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    .hero-panel::before {
+    .media-card::after,
+    .lane-card::after,
+    .contact-panel::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 18% 22%, rgba(196, 202, 211, 0.12), transparent 22%),
-        linear-gradient(135deg, transparent 0 55%, rgba(227, 58, 58, 0.08) 100%);
+      border: 1px solid var(--line-soft);
+      border-radius: inherit;
       pointer-events: none;
     }
 
-    .panel-topline,
-    .panel-bottomline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      color: var(--platinum);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.72rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-visual {
-      position: relative;
-      z-index: 1;
-      margin: 1rem 0;
-      flex: 1;
-      border-radius: 22px;
-      border: 1px solid rgba(196, 202, 211, 0.14);
+    .media-card {
+      min-height: 480px;
       background:
-        linear-gradient(180deg, rgba(11, 15, 20, 0.2), rgba(11, 15, 20, 0.72)),
-        url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.2rem;
+        linear-gradient(180deg, rgba(8, 13, 20, 0.12), rgba(8, 13, 20, 0.68)),
+        url("https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
     }
 
-    .hero-visual::before {
-      content: "";
+    .media-overlay {
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(196, 202, 211, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196, 202, 211, 0.06) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mix-blend-mode: screen;
-      opacity: 0.5;
-    }
-
-    .overlay-tile {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 19rem);
-      padding: 1rem;
-      border-radius: 18px;
-      border: 1px solid rgba(196, 202, 211, 0.18);
-      background: rgba(11, 15, 20, 0.82);
+      right: 24px;
+      bottom: 24px;
+      width: min(100% - 48px, 280px);
+      padding: 18px 18px 20px;
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      background: rgba(229, 233, 238, 0.03);
       backdrop-filter: blur(10px);
     }
 
-    .overlay-tile span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .overlay-title {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
-    .overlay-tile strong {
-      display: block;
-      margin-top: 0.5rem;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: 1.4rem;
-      line-height: 1.15;
+    .overlay-copy {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.55;
     }
 
-    .metrics {
-      padding: 1rem 0 4rem;
-    }
-
-    .metrics-grid,
-    .capability-grid,
-    .story-grid,
-    .cta-grid {
+    .lanes-header {
       display: grid;
-      gap: 1rem;
+      gap: 12px;
+      margin-bottom: 24px;
+      max-width: 720px;
     }
 
-    .metrics-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .panel {
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-    }
-
-    .metric {
-      padding: 1.35rem;
-    }
-
-    .metric span {
-      display: block;
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    .lanes-header p {
       color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
     }
 
-    .metric strong {
-      display: block;
-      margin-top: 0.75rem;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(1.7rem, 3vw, 2.35rem);
-      line-height: 1;
+    .mission-cards {
+      gap: 24px;
     }
 
-    .metric p {
-      margin-top: 0.8rem;
-      color: var(--platinum);
-      line-height: 1.6;
-      font-size: 0.95rem;
+    .lane-card {
+      flex-direction: column;
+      min-height: 480px;
+      padding: 28px;
     }
 
-    section {
-      padding: 2.25rem 0;
-      position: relative;
-      z-index: 1;
+    .lane-card h3 {
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
     }
 
-    .section-heading {
-      display: grid;
-      gap: 0.9rem;
-      margin-bottom: 1.5rem;
-      max-width: 44rem;
+    .lane-card > p {
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
-    .section-heading h2,
-    .story-copy h2,
-    .cta-copy h2 {
-      font-family: "Space Grotesk", Inter, sans-serif;
-      text-transform: uppercase;
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      font-size: clamp(2rem, 4vw, 3.35rem);
+    .lane-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--text);
     }
 
-    .section-heading p,
-    .story-copy p,
-    .cta-copy p {
-      color: var(--platinum);
-      line-height: 1.75;
-      font-size: 1rem;
+    .lane-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .capability-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .card {
-      padding: 1.5rem;
+    .lane-visual {
+      margin-top: auto;
+      min-height: 210px;
+      border-radius: 8px;
+      border: 1px solid var(--line-soft);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
     }
 
-    .card::before {
-      content: "";
+    .lane-visual::before {
+      content: "Placeholder visual";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%);
-      pointer-events: none;
-    }
-
-    .card-number {
-      color: rgba(227, 58, 58, 0.92);
-      font-family: Consolas, "SFMono-Regular", monospace;
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
+      top: 14px;
+      left: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(11, 15, 20, 0.76);
+      border: 1px solid var(--line-soft);
+      color: var(--text);
+      font-size: 10px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    .card h3 {
-      margin-top: 1rem;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      text-transform: uppercase;
-      font-size: 1.28rem;
-      line-height: 1.1;
+    .visual-engineering {
+      background-image:
+        linear-gradient(180deg, rgba(8, 13, 20, 0.18), rgba(8, 13, 20, 0.7)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80");
     }
 
-    .card p {
-      margin-top: 0.95rem;
-      color: var(--platinum);
-      line-height: 1.75;
-      font-size: 0.96rem;
+    .visual-research {
+      background-image:
+        linear-gradient(180deg, rgba(8, 13, 20, 0.18), rgba(8, 13, 20, 0.7)),
+        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80");
     }
 
-    .card ul {
-      list-style: none;
-      margin-top: 1.1rem;
-      display: grid;
-      gap: 0.7rem;
-      color: var(--platinum);
-      font-size: 0.92rem;
+    .visual-consulting {
+      background-image:
+        linear-gradient(180deg, rgba(8, 13, 20, 0.18), rgba(8, 13, 20, 0.7)),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
     }
 
-    .card li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-
-    .card li::before {
-      content: "◆";
-      color: var(--ember);
-      font-size: 0.7rem;
-      line-height: 1.3rem;
-    }
-
-    .story-grid,
-    .cta-grid {
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    .contact-grid {
+      gap: 24px;
       align-items: stretch;
     }
 
-    .story-visual,
-    .cta-panel {
-      min-height: 100%;
+    .contact-copy {
+      padding-top: 20px;
     }
 
-    .story-visual {
-      padding: 1rem;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      gap: 1rem;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
-        linear-gradient(180deg, rgba(18, 24, 33, 0.9), rgba(11, 15, 20, 0.96));
+    .contact-panel {
+      padding: 28px;
     }
 
-    .story-placeholder {
-      border-radius: 20px;
-      min-height: 22rem;
-      border: 1px solid rgba(196, 202, 211, 0.15);
-      background:
-        linear-gradient(180deg, rgba(11, 15, 20, 0.24), rgba(11, 15, 20, 0.8)),
-        url("https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
+    .contact-panel-top {
+      margin-bottom: 28px;
     }
 
-    .story-placeholder::after {
-      content: "PLACEHOLDER INTELLIGENCE VISUAL";
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      padding: 0.45rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #fff;
-      background: rgba(11, 15, 20, 0.7);
-      border: 1px solid rgba(196, 202, 211, 0.16);
+    .contact-panel-top h3 {
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
-    .story-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.85rem;
-    }
-
-    .story-stat {
-      padding: 1rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(196, 202, 211, 0.12);
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .story-stat strong {
-      display: block;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: 1.4rem;
-    }
-
-    .story-stat span {
-      display: block;
-      margin-top: 0.4rem;
+    .contact-panel-top p {
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.7;
       color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.72rem;
     }
 
-    .story-copy,
-    .cta-copy {
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.1rem;
+    .contact-row {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line-soft);
+      margin-bottom: 20px;
     }
 
-    .story-list {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 0.3rem;
-    }
-
-    .story-item {
-      padding: 1rem 1rem 1rem 1.1rem;
-      border-left: 2px solid rgba(227, 58, 58, 0.75);
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 0 12px 12px 0;
-    }
-
-    .story-item strong {
-      display: block;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #fff;
-    }
-
-    .story-item span {
-      display: block;
-      margin-top: 0.45rem;
-      color: var(--platinum);
-      line-height: 1.65;
-      font-size: 0.95rem;
-    }
-
-    .cta-panel {
-      padding: 1rem;
-      background:
-        radial-gradient(circle at top right, rgba(227, 58, 58, 0.12), transparent 30%),
-        linear-gradient(180deg, rgba(18, 24, 33, 0.95), rgba(11, 15, 20, 0.98));
-      display: grid;
-      gap: 1rem;
-    }
-
-    .cta-stack {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .cta-rail {
-      padding: 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(196, 202, 211, 0.12);
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .cta-rail span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .cta-rail strong {
-      display: block;
-      margin-top: 0.45rem;
-      font-size: 1.02rem;
-      line-height: 1.45;
-    }
-
+    .contact-label,
     footer {
-      padding: 1rem 0 2.5rem;
-      position: relative;
-      z-index: 1;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .footer-bar {
-      border-top: 1px solid rgba(196, 202, 211, 0.12);
-      padding-top: 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+    .contact-value {
+      display: block;
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .footer {
       justify-content: space-between;
-      gap: 0.75rem;
-      color: var(--muted);
-      font-size: 0.92rem;
+      gap: 16px;
+      margin-top: 56px;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--line);
     }
 
     @media (max-width: 1024px) {
-      .hero-grid,
-      .story-grid,
-      .cta-grid,
-      .capability-grid,
-      .metrics-grid {
-        grid-template-columns: 1fr 1fr;
+      .split,
+      .mission-cards,
+      .contact-grid {
+        flex-direction: column;
       }
 
-      .hero-grid > :first-child,
-      .story-grid > :first-child,
-      .cta-grid > :first-child {
-        grid-column: 1 / -1;
+      .hero-banner {
+        min-height: 560px;
+      }
+
+      .hero-copy {
+        padding: 64px 40px 40px;
+      }
+
+      h1 {
+        max-width: 10ch;
       }
     }
 
     @media (max-width: 720px) {
-      .site-header {
-        position: relative;
+      .page,
+      .topbar-inner {
+        width: min(calc(100% - 40px), 375px);
       }
 
-      .nav,
-      .nav-links,
-      .hero-meta,
-      .button-row,
-      .footer-bar {
-        align-items: flex-start;
+      .topbar-inner {
+        min-height: 49px;
+        padding: 16px 0;
       }
 
-      .nav,
-      .footer-bar {
-        flex-direction: column;
+      .nav {
+        display: none;
       }
 
-      .nav-links {
-        flex-wrap: wrap;
+      .menu-button {
+        display: inline-flex;
+      }
+
+      .section {
+        padding-top: 48px;
       }
 
       .hero {
-        padding-top: 2.5rem;
+        padding-top: 0;
       }
 
-      .hero-grid,
-      .story-grid,
-      .cta-grid,
-      .capability-grid,
-      .metrics-grid,
-      .story-stats {
-        grid-template-columns: 1fr;
+      .hero-banner {
+        min-height: 682px;
       }
 
-      .hero-panel {
-        min-height: 27rem;
+      .hero-copy {
+        width: 100%;
+        padding: 160px 20px 28px;
       }
 
-      .hero h1,
-      .section-heading h2,
-      .story-copy h2,
-      .cta-copy h2 {
-        text-wrap: pretty;
+      h1 {
+        margin-top: 18px;
+        font-size: 50px;
+        line-height: 0.96;
+        max-width: 8ch;
+      }
+
+      .hero-copy p,
+      .intro-copy p,
+      .contact-copy p,
+      .lanes-header p {
+        font-size: 14px;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .media-card {
+        min-height: 420px;
+      }
+
+      .media-overlay {
+        right: 20px;
+        bottom: 20px;
+        width: calc(100% - 40px);
+      }
+
+      .lane-card,
+      .contact-panel {
+        padding: 20px;
+      }
+
+      .lane-card {
+        min-height: 360px;
+      }
+
+      .lane-visual {
+        min-height: 168px;
+      }
+
+      .footer {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="The Top Secret Corporation home">
-        <div class="brand-mark" aria-hidden="true">TSC</div>
-        <div class="brand-copy">
-          <strong>The Top Secret Corporation</strong>
-          <span>Classified systems. Clear execution.</span>
-        </div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Top Secret Corp home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-lockup">Top Secret Corp.</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#mission">Mission</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About us</a>
+        <a href="#initiatives">Initiatives</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <button class="menu-button" type="button" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"></path>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
+  <main id="top" class="page">
+    <section class="section hero" aria-label="Hero">
+      <div class="hero-banner">
         <div class="hero-copy">
-          <span class="eyebrow">01 — Strategic confidence</span>
-          <h1>Built for bold, secretive, high-stakes ideas.</h1>
-          <p class="lede">
-            The Top Secret Corporation turns sharp concepts into polished digital experiences, brand systems,
-            and operational tools that feel precise from the first briefing to the final handoff.
+          <span class="eyebrow">Canonical briefing interface</span>
+          <h1>The Top Secret Corporation</h1>
+          <p>
+            Welcome to the canonical briefing interface. Precision-forward, technologically astute,
+            and a little mischievous. Do not distribute to uncleared personnel.
           </p>
-
-          <div class="hero-meta" aria-label="Key focus areas">
-            <span class="chip">Web experiences</span>
-            <span class="chip">Internal systems</span>
-            <span class="chip">AI-enabled workflows</span>
-          </div>
-
-          <div class="button-row">
-            <a class="button button-primary" href="#contact">Initiate contact</a>
-            <a class="button button-secondary" href="#capabilities">Review capabilities</a>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Initialize briefing</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <aside class="hero-panel" aria-label="Featured operations panel">
-          <div class="panel-topline">
-            <span>Eyes only</span>
-            <span>Live briefing</span>
-          </div>
+    <section id="about" class="section" aria-label="About us">
+      <div class="split">
+        <div class="intro-copy">
+          <span class="eyebrow">About us</span>
+          <h2>Quietly overbuilt tools for complicated briefs.</h2>
+          <p>
+            Prototype systems, controlled infrastructure, and quietly overbuilt tools designed to perform
+            when the briefing gets complicated.
+          </p>
+          <p class="subcopy">
+            The structure follows the Figma layout directly: a text-led introduction paired with a supporting
+            graphic panel and compact overlay treatment.
+          </p>
+        </div>
 
-          <div class="hero-visual">
-            <div class="overlay-tile">
-              <span>Operational focus</span>
-              <strong>Designing modern systems that still know how to make an entrance.</strong>
-            </div>
-          </div>
-
-          <div class="panel-bottomline">
-            <span>Status: active</span>
-            <span>Placeholder visual approved</span>
+        <aside class="media-card" aria-label="About us graphic placeholder">
+          <div class="media-overlay">
+            <div class="overlay-title">About us graphic</div>
+            <div class="overlay-copy">Placeholder image used for implementation while matching the Figma panel composition.</div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="metrics" aria-label="Performance highlights">
-      <div class="container metrics-grid">
-        <article class="panel metric">
-          <span>Approach</span>
-          <strong>01</strong>
-          <p>Problem-first engineering that keeps the work sharp, useful, and scalable.</p>
+    <section id="initiatives" class="section" aria-label="Initiatives">
+      <div class="lanes-header">
+        <span class="eyebrow">Active lanes</span>
+        <h2>Three active lanes.</h2>
+        <p>Three active lanes, each visualized in the same bold illustrated language as the main briefing banner.</p>
+      </div>
+
+      <div class="mission-cards">
+        <article class="lane-card">
+          <h3>Engineering initiative</h3>
+          <p>Systems work, product mechanics, and implementation-heavy requests that need structure, clarity, and delivery discipline.</p>
+          <a class="lane-link" href="#contact">
+            Enter lane
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+          </a>
+          <div class="lane-visual visual-engineering" role="img" aria-label="Engineering initiative placeholder visual"></div>
         </article>
-        <article class="panel metric">
-          <span>Signal</span>
-          <strong>Fast</strong>
-          <p>Focused execution with enough structure to survive past launch day.</p>
+
+        <article class="lane-card">
+          <h3>Research initiative</h3>
+          <p>Exploration, synthesis, and intelligence gathering for ideas that need sharper framing before they can move.</p>
+          <a class="lane-link" href="#contact">
+            Enter lane
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+          </a>
+          <div class="lane-visual visual-research" role="img" aria-label="Research initiative placeholder visual"></div>
         </article>
-        <article class="panel metric">
-          <span>Output</span>
-          <strong>Clean</strong>
-          <p>Design systems, product surfaces, and experiences that feel controlled and intentional.</p>
-        </article>
-        <article class="panel metric">
-          <span>Tone</span>
-          <strong>Quietly dangerous</strong>
-          <p>Serious by default, playful in precisely the right amount.</p>
+
+        <article class="lane-card">
+          <h3>Consulting initiative</h3>
+          <p>Strategic advisory, execution planning, and controlled operating guidance for leadership-level questions.</p>
+          <a class="lane-link" href="#contact">
+            Enter lane
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+          </a>
+          <div class="lane-visual visual-consulting" role="img" aria-label="Consulting initiative placeholder visual"></div>
         </article>
       </div>
     </section>
 
-    <section id="capabilities">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">02 — Capabilities</span>
-          <h2>Everything the mission needs. Nothing it doesn’t.</h2>
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Contact</span>
+          <h2>Open a controlled channel.</h2>
           <p>
-            The new homepage reframes the corporation as a modern operator: disciplined brand presentation,
-            structured information panels, and clear calls to action without losing the classified mystique.
+            For general inquiries, speculative partnerships, or politely worded internal requests,
+            this is the place to start. Placeholder details for now, but the structure is ready for real contacts when needed.
           </p>
         </div>
 
-        <div class="capability-grid">
-          <article class="panel card">
-            <span class="card-number">02A</span>
-            <h3>Digital command surfaces</h3>
-            <p>High-clarity websites, landing pages, and product shells that blend atmosphere with conversion-minded structure.</p>
-            <ul>
-              <li>Responsive page systems</li>
-              <li>Editorial hero sections</li>
-              <li>Structured conversion pathways</li>
-            </ul>
-          </article>
-
-          <article class="panel card">
-            <span class="card-number">02B</span>
-            <h3>Operational design</h3>
-            <p>Interfaces that feel like briefings, not clutter — with strong hierarchy, metadata rows, and deliberate panel behavior.</p>
-            <ul>
-              <li>Information-dense layouts</li>
-              <li>Component-driven design language</li>
-              <li>Accessible visual contrast</li>
-            </ul>
-          </article>
-
-          <article class="panel card">
-            <span class="card-number">02C</span>
-            <h3>Brand intelligence</h3>
-            <p>A visual system rooted in night tones, metallic neutrals, and ember accents that punctuate rather than overwhelm.</p>
-            <ul>
-              <li>Controlled color hierarchy</li>
-              <li>Modernized classified aesthetic</li>
-              <li>Future-proof content sections</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="mission">
-      <div class="container story-grid">
-        <div class="panel story-visual">
-          <div class="story-placeholder" role="img" aria-label="Placeholder surveillance-inspired mission visual"></div>
-          <div class="story-stats">
-            <div class="story-stat">
-              <strong>12-col</strong>
-              <span>Responsive grid</span>
-            </div>
-            <div class="story-stat">
-              <strong>AA+</strong>
-              <span>Contrast target</span>
-            </div>
-            <div class="story-stat">
-              <strong>100%</strong>
-              <span>Static deployable</span>
-            </div>
+        <aside class="contact-panel" aria-label="Contact details panel">
+          <div class="contact-panel-top">
+            <h3>Contact channels</h3>
+            <p>Structured rows and dual actions aligned to the desktop and mobile Figma layouts.</p>
           </div>
-        </div>
 
-        <div class="panel story-copy">
-          <span class="eyebrow">03 — Mission</span>
-          <h2>A homepage that looks like the company finally means business.</h2>
-          <p>
-            The prior page was a clean placeholder. This redesign upgrades it into a brand-forward homepage with a proper hero,
-            multi-section narrative, panelized content, and a stronger sense of credibility for future expansion.
-          </p>
-
-          <div class="story-list">
-            <div class="story-item">
-              <strong>Sharper brand presentation</strong>
-              <span>Replaced the minimal holding page with a fuller narrative structure and stronger visual hierarchy.</span>
-            </div>
-            <div class="story-item">
-              <strong>Placeholder imagery where needed</strong>
-              <span>Used cinematic placeholder visuals to establish composition while keeping implementation lightweight.</span>
-            </div>
-            <div class="story-item">
-              <strong>Ready for iteration</strong>
-              <span>The layout now supports future sections, copy refreshes, and eventual replacement with final design assets.</span>
-            </div>
+          <div class="contact-row">
+            <span class="contact-label">Primary channel</span>
+            <span class="contact-value">contact@topsecret.example</span>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="contact">
-      <div class="container cta-grid">
-        <div class="panel cta-copy">
-          <span class="eyebrow">04 — Contact</span>
-          <h2>Ready to brief the corporation?</h2>
-          <p>
-            If you have a product, operation, or digital front that needs sharper execution,
-            this new homepage sets the tone: controlled, capable, and unmistakably Top Secret.
-          </p>
-          <div class="button-row">
-            <a class="button button-primary" href="mailto:contact@thetopsecretcorporation.com">contact@thetopsecretcorporation.com</a>
-            <a class="button button-secondary" href="#top">Return to top</a>
+          <div class="contact-row">
+            <span class="contact-label">Secure line</span>
+            <span class="contact-value">+00 (555) 010-2026</span>
           </div>
-        </div>
 
-        <aside class="panel cta-panel" aria-label="Contact detail panels">
-          <div class="cta-stack">
-            <div class="cta-rail">
-              <span>Primary directive</span>
-              <strong>Modern homepage foundation implemented in the live static site codebase.</strong>
-            </div>
-            <div class="cta-rail">
-              <span>Visual posture</span>
-              <strong>Night-based gradients, ember accents, platinum borders, and structured panel taxonomy.</strong>
-            </div>
-            <div class="cta-rail">
-              <span>Next move</span>
-              <strong>Swap placeholder copy and imagery with final approved content once the Figma source is confirmed.</strong>
-            </div>
+          <div class="contact-row">
+            <span class="contact-label">Response window</span>
+            <span class="contact-value">Within 1–2 business days.</span>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:contact@topsecret.example">Open channel</a>
+            <a class="button button-secondary" href="#top">Download briefing</a>
           </div>
         </aside>
       </div>
     </section>
+
+    <footer class="footer">
+      <span>© 2026 The Top Secret Corporation. Confidential.</span>
+      <span>// Audio surveillance: muted</span>
+    </footer>
   </main>
-
-  <footer>
-    <div class="container footer-bar">
-      <span>© The Top Secret Corporation</span>
-      <span>Classified systems, modern execution.</span>
-    </div>
-  </footer>
 </body>
 </html>
