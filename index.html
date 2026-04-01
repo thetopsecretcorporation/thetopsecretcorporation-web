@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="The Top Secret Corporation canonical briefing interface for engineering, research, and consulting missions."
+    content="The Top Secret Corporation canonical briefing interface for engineering, research, consulting, and agent-powered missions."
   />
   <title>The Top Secret Corporation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,6 +30,7 @@
       --shadow-panel: 0 12px 24px rgba(5, 12, 23, 0.2);
       --radius: 10px;
       --container: 1440px;
+      --header-height: 96px;
     }
 
     * {
@@ -71,7 +72,6 @@
 
     .site-shell {
       position: relative;
-      overflow: hidden;
       background:
         linear-gradient(rgba(196, 202, 211, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(196, 202, 211, 0.04) 1px, transparent 1px),
@@ -94,32 +94,34 @@
     }
 
     .header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 20;
+      left: 0;
+      right: 0;
+      z-index: 40;
       backdrop-filter: blur(16px);
-      background: rgba(11, 15, 20, 0.72);
+      background: rgba(11, 15, 20, 0.82);
+      border-bottom: 1px solid var(--line-strong);
     }
 
     .header-inner {
       width: min(calc(100% - 64px), var(--container));
       margin: 0 auto;
-      min-height: 59px;
+      min-height: var(--header-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 32px;
       padding: 22px 0 19px;
-      border-bottom: 1px solid var(--line-strong);
     }
 
     .brand,
     .brand-mark,
     .nav,
+    .nav-links,
     .mobile-menu-button,
     .hero-actions,
     .section-header,
-    .contact-buttons,
     .meta-line,
     .footer-inner {
       display: flex;
@@ -133,6 +135,8 @@
       font-size: 12px;
       font-weight: 500;
       white-space: nowrap;
+      position: relative;
+      z-index: 2;
     }
 
     .brand-mark {
@@ -155,40 +159,75 @@
     }
 
     .nav {
-      gap: 36px;
+      gap: 14px;
+      margin-left: auto;
+    }
+
+    .nav-links {
+      gap: 12px;
       text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.08em;
+      font-size: 12px;
+      letter-spacing: 0.1em;
     }
 
-    .nav a {
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.2em;
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid rgba(196, 202, 211, 0.18);
+      border-radius: 999px;
+      background: rgba(229, 233, 238, 0.02);
+      color: var(--slate);
+      transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease, opacity 140ms ease;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible,
-    .button:hover,
-    .button:focus-visible,
-    .mobile-menu-button:hover,
-    .mobile-menu-button:focus-visible {
-      opacity: 0.88;
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.is-active {
+      border-color: rgba(227, 58, 58, 0.72);
+      background: rgba(227, 58, 58, 0.1);
+      color: var(--slate);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      background: var(--ember);
+      border-color: var(--ember);
+      box-shadow: 0 10px 22px rgba(122, 15, 16, 0.22);
+    }
+
+    .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background: #f04646;
+      border-color: #f04646;
     }
 
     .mobile-menu-button {
       display: none;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      border: 0;
-      background: transparent;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(196, 202, 211, 0.18);
+      border-radius: 999px;
+      background: rgba(229, 233, 238, 0.02);
       cursor: pointer;
+      position: relative;
+      z-index: 2;
     }
 
     .mobile-menu-button img {
       width: 24px;
       height: 24px;
+    }
+
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .page-content {
+      padding-top: var(--header-height);
     }
 
     .hero {
@@ -200,7 +239,8 @@
 
     .hero-media,
     .mission-thumb,
-    .about-visual::before {
+    .about-visual::before,
+    .agent-photo {
       background-image: url("./assets/hero-grid.png");
       background-size: cover;
       background-repeat: no-repeat;
@@ -279,7 +319,8 @@
     .button,
     .clearance,
     .footer-copy,
-    .contact-label {
+    .contact-label,
+    .field-label {
       text-transform: uppercase;
     }
 
@@ -302,16 +343,17 @@
     .section-body,
     .mission-copy,
     .contact-body,
-    .contact-description,
-    .contact-value,
-    .contact-card-body {
+    .field-note,
+    .agent-copy,
+    .contact-value {
       line-height: 1.55;
     }
 
     .hero-body,
     .mission-copy,
     .contact-body,
-    .contact-card-body {
+    .field-note,
+    .agent-copy {
       color: var(--text-soft);
     }
 
@@ -320,8 +362,7 @@
       font-size: 18px;
     }
 
-    .hero-actions,
-    .contact-buttons {
+    .hero-actions {
       gap: 12px;
       flex-wrap: wrap;
     }
@@ -454,15 +495,16 @@
       flex: 0 0 auto;
     }
 
-    .mission-grid {
+    .mission-grid,
+    .agent-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
     .mission-card,
-    .contact-panel,
-    .contact-directory {
+    .agent-card,
+    .contact-panel {
       background: var(--night-2);
       border-radius: var(--radius);
       box-shadow: var(--shadow-panel);
@@ -498,11 +540,6 @@
       text-transform: uppercase;
     }
 
-    .mission-chip.neutral {
-      border-color: rgba(196, 202, 211, 0.4);
-      color: var(--slate);
-    }
-
     .mission-content {
       display: grid;
       gap: 14px;
@@ -536,18 +573,77 @@
       opacity: 0.82;
     }
 
+    .agents-section {
+      background: var(--slate);
+      color: var(--night);
+      padding: 124px 0;
+    }
+
+    .agent-card {
+      background: #f2f5f8;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(11, 15, 20, 0.08);
+    }
+
+    .agent-photo {
+      min-height: 220px;
+      position: relative;
+      background-position: center center;
+      isolation: isolate;
+    }
+
+    .agent-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(227, 58, 58, 0.14) 0%, rgba(11, 15, 20, 0.08) 100%);
+    }
+
+    .agent-badge {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(227, 58, 58, 0.28);
+      background: rgba(229, 233, 238, 0.82);
+      color: var(--ember-depth);
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .agent-content {
+      padding: 24px 22px 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .agent-copy {
+      color: rgba(11, 15, 20, 0.72);
+      font-size: 16px;
+    }
+
+    .agent-meta {
+      padding-top: 16px;
+      border-top: 1px solid rgba(11, 15, 20, 0.08);
+      color: rgba(11, 15, 20, 0.54);
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
     .contact-section {
       background: var(--night);
       padding: 120px 0 124px;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 711px) minmax(0, 637px);
-      gap: 28px;
-    }
-
     .contact-panel {
+      width: min(100%, 680px);
       padding: 36px;
       display: grid;
       gap: 18px;
@@ -558,57 +654,61 @@
       font-size: 18px;
     }
 
-    .contact-card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      padding-top: 8px;
-    }
-
-    .contact-card {
-      background: rgba(229, 233, 238, 0.03);
-      border-radius: 4px;
-      padding: 16px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .contact-card h3 {
-      font-size: 16px;
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-
-    .contact-card-body {
-      color: var(--text-soft);
-      font-size: 14px;
-    }
-
-    .contact-directory {
-      padding: 28px;
+    .contact-form {
       display: grid;
       gap: 16px;
+      padding-top: 10px;
     }
 
-    .directory-row {
+    .field-group {
       display: grid;
       gap: 8px;
-      padding-bottom: 17px;
-      border-bottom: 1px solid var(--line-soft);
     }
 
-    .contact-label,
+    .field-label,
     .footer-copy {
       color: var(--text-muted);
       font-size: 12px;
       letter-spacing: 0.11em;
     }
 
-    .contact-value {
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(196, 202, 211, 0.16);
+      border-radius: 8px;
+      background: rgba(229, 233, 238, 0.03);
       color: var(--slate);
-      font-size: 16px;
-      font-weight: 700;
-      word-break: break-word;
+      padding: 14px 16px;
+      transition: border-color 140ms ease, background 140ms ease;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(196, 202, 211, 0.48);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: rgba(227, 58, 58, 0.72);
+      background: rgba(229, 233, 238, 0.05);
+    }
+
+    .contact-form textarea {
+      min-height: 144px;
+      resize: vertical;
+    }
+
+    .field-note {
+      font-size: 14px;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 4px;
     }
 
     .footer {
@@ -626,8 +726,7 @@
     @media (max-width: 1100px) {
       .about-grid,
       .mission-grid,
-      .contact-grid,
-      .contact-card-grid {
+      .agent-grid {
         grid-template-columns: 1fr;
       }
 
@@ -638,13 +737,16 @@
       }
 
       .about-visual,
-      .contact-panel,
-      .contact-directory {
+      .contact-panel {
         min-height: auto;
       }
     }
 
     @media (max-width: 720px) {
+      :root {
+        --header-height: 82px;
+      }
+
       .container,
       .header-inner,
       .hero-inner {
@@ -652,12 +754,39 @@
       }
 
       .header-inner {
-        min-height: 49px;
+        min-height: var(--header-height);
         padding: 16px 0 17px;
       }
 
       .nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 20px;
+        right: 20px;
+        margin-left: 0;
         display: none;
+      }
+
+      .nav.is-open {
+        display: block;
+      }
+
+      .nav-links {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+        border: 1px solid rgba(196, 202, 211, 0.14);
+        border-radius: 14px;
+        background: rgba(11, 15, 20, 0.96);
+        box-shadow: var(--shadow-panel);
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 10px;
+        min-height: 48px;
+        padding: 0 14px;
       }
 
       .mobile-menu-button {
@@ -712,7 +841,8 @@
 
       .hero-body,
       .section-body,
-      .contact-body {
+      .contact-body,
+      .agent-copy {
         font-size: 16px;
       }
 
@@ -721,7 +851,7 @@
       }
 
       .hero-actions,
-      .contact-buttons {
+      .form-actions {
         flex-direction: column;
       }
 
@@ -731,7 +861,8 @@
         padding: 15px 24px;
       }
 
-      .section-light {
+      .section-light,
+      .agents-section {
         padding: 80px 0;
       }
 
@@ -758,15 +889,18 @@
         letter-spacing: 0.04em;
       }
 
-      .mission-grid {
+      .mission-grid,
+      .agent-grid {
         gap: 24px;
       }
 
-      .mission-thumb {
+      .mission-thumb,
+      .agent-photo {
         min-height: 210px;
       }
 
-      .mission-content {
+      .mission-content,
+      .agent-content {
         padding: 24px 20px;
       }
 
@@ -780,16 +914,12 @@
       }
 
       .contact-section {
-        padding: 160px 0 80px;
+        padding: 120px 0 80px;
       }
 
-      .contact-panel,
-      .contact-directory {
+      .contact-panel {
+        width: 100%;
         padding: 28px 20px;
-      }
-
-      .contact-card-grid {
-        gap: 12px;
       }
 
       .footer {
@@ -812,19 +942,23 @@
           <span>Top Secret Corp.</span>
         </a>
 
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="#top">Home</a>
-          <a href="#about">About</a>
-          <a href="#initiatives">Current projects</a>
+        <nav class="nav" aria-label="Primary navigation" id="site-nav">
+          <div class="nav-links">
+            <a class="nav-link" href="#top">Home</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#initiatives">Projects</a>
+            <a class="nav-link" href="#agents">Agents</a>
+            <a class="nav-link nav-cta" href="#contact">Contact</a>
+          </div>
         </nav>
 
-        <button class="mobile-menu-button" type="button" aria-label="Menu">
+        <button class="mobile-menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" id="mobile-menu-button">
           <img src="./assets/menu.svg" alt="" aria-hidden="true" />
         </button>
       </div>
     </header>
 
-    <main id="top">
+    <main id="top" class="page-content">
       <section class="hero" aria-label="Hero">
         <div class="hero-media" aria-hidden="true"></div>
         <div class="classified-pill">Highly classified</div>
@@ -883,7 +1017,7 @@
               </p>
             </div>
 
-            <a class="button button-secondary button-inline" href="#contact">View archives</a>
+            <a class="button button-secondary button-inline" href="#agents">Meet the agents</a>
           </div>
 
           <div class="mission-grid">
@@ -921,12 +1055,12 @@
 
             <article class="mission-card">
               <div class="mission-thumb">
-                <span class="mission-chip neutral">Consulting</span>
+                <span class="mission-chip">Consulting</span>
               </div>
               <div class="mission-content">
                 <h3>Consulting</h3>
                 <p class="mission-copy">
-                  Advisory support for sensitive initiatives, strategic planning, and executive-level problem solving with a controlled operational edge.
+                  Advisory support for sensitive initiatives, strategic planning, and executive-level problem solving with the same deliberate operational edge.
                 </p>
                 <div class="meta-line">
                   <span class="clearance">Clearance: Level 1</span>
@@ -938,61 +1072,95 @@
         </div>
       </section>
 
-      <section id="contact" class="contact-section" aria-label="Request a secure conversation">
-        <div class="container contact-grid">
-          <div class="contact-panel">
-            <span class="eyebrow">// 03. Get in touch</span>
-            <h2>Request a secure conversation</h2>
-            <p class="contact-body">
-              For general inquiries, speculative partnerships, or politely worded internal requests,
-              this is the place to start. Placeholder details for now, but the structure is ready for real contacts when needed.
-            </p>
-
-            <div class="contact-card-grid">
-              <article class="contact-card">
-                <h3>General desk</h3>
-                <p class="contact-card-body">
-                  Placeholder routing for introductions, handoffs, and internal coordination.
-                </p>
-              </article>
-
-              <article class="contact-card">
-                <h3>Project intake</h3>
-                <p class="contact-card-body">
-                  Use this lane for new initiatives, review cycles, and strategic brief requests.
-                </p>
-              </article>
-
-              <article class="contact-card">
-                <h3>Press &amp; records</h3>
-                <p class="contact-card-body">
-                  For official notes, archived materials, and the occasional carefully approved statement.
-                </p>
-              </article>
+      <section id="agents" class="agents-section" aria-label="Agents">
+        <div class="container">
+          <div class="section-header">
+            <div class="copy-stack">
+              <span class="eyebrow">// 03. Embedded operators</span>
+              <h2>The agents</h2>
+              <p class="section-body">
+                Our agents handle the repetitive, the technical, and the time-sensitive work so human operators can stay focused on judgment, direction, and outcomes.
+              </p>
             </div>
+
+            <a class="button button-secondary button-inline" href="#contact">Assign a mission</a>
           </div>
 
-          <aside class="contact-directory">
-            <div class="directory-row">
-              <span class="contact-label">Primary channel</span>
-              <span class="contact-value">contact@topsecret.example</span>
-            </div>
+          <div class="agent-grid">
+            <article class="agent-card">
+              <div class="agent-photo" aria-hidden="true">
+                <span class="agent-badge">Placeholder portrait / ops</span>
+              </div>
+              <div class="agent-content">
+                <h3>Operator One</h3>
+                <p class="agent-copy">
+                  Monitors active workflows, keeps projects moving, and turns vague requests into orderly execution without needing a 14-message follow-up chain.
+                </p>
+                <div class="agent-meta">Specialty: coordination + routing</div>
+              </div>
+            </article>
 
-            <div class="directory-row">
-              <span class="contact-label">Secure line</span>
-              <span class="contact-value">+00 (555) 010-2026</span>
-            </div>
+            <article class="agent-card">
+              <div class="agent-photo" aria-hidden="true">
+                <span class="agent-badge">Placeholder portrait / analysis</span>
+              </div>
+              <div class="agent-content">
+                <h3>Operator Two</h3>
+                <p class="agent-copy">
+                  Handles research sweeps, synthesis, and briefing prep so decisions arrive with context, evidence, and fewer unpleasant surprises.
+                </p>
+                <div class="agent-meta">Specialty: research + synthesis</div>
+              </div>
+            </article>
 
-            <div class="directory-row">
-              <span class="contact-label">Response window</span>
-              <span class="contact-value">Within 1–2 business days, barring dramatic developments.</span>
-            </div>
+            <article class="agent-card">
+              <div class="agent-photo" aria-hidden="true">
+                <span class="agent-badge">Placeholder portrait / build</span>
+              </div>
+              <div class="agent-content">
+                <h3>Operator Three</h3>
+                <p class="agent-copy">
+                  Builds, revises, and ships digital systems with a bias toward clean implementation, durable structure, and mercifully little drama.
+                </p>
+                <div class="agent-meta">Specialty: execution + delivery</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-            <div class="contact-buttons">
-              <a class="button button-primary" href="mailto:contact@topsecret.example">Open channel</a>
-              <a class="button button-secondary" href="#top">Download briefing</a>
-            </div>
-          </aside>
+      <section id="contact" class="contact-section" aria-label="Request a secure conversation">
+        <div class="container">
+          <div class="contact-panel">
+            <span class="eyebrow">// 04. Secure intake</span>
+            <h2>Request a secure conversation</h2>
+            <p class="contact-body">
+              For new projects, strategic questions, or sensitive requests, send the essentials and we’ll route the briefing to the right team.
+            </p>
+
+            <form class="contact-form">
+              <div class="field-group">
+                <label class="field-label" for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" placeholder="Your name" />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" placeholder="you@company.com" />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="What do you need help with?"></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Send request</button>
+              </div>
+
+              <p class="field-note">Placeholder intake form for now — ready to wire into a real submission flow.</p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
@@ -1004,5 +1172,41 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      const nav = document.getElementById('site-nav');
+      const menuButton = document.getElementById('mobile-menu-button');
+      const navLinks = nav ? nav.querySelectorAll('a') : [];
+
+      if (!nav || !menuButton) {
+        return;
+      }
+
+      const closeMenu = function () {
+        nav.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open menu');
+      };
+
+      const toggleMenu = function () {
+        const isOpen = nav.classList.toggle('is-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      };
+
+      menuButton.addEventListener('click', toggleMenu);
+
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 720) {
+          closeMenu();
+        }
+      });
+    }());
+  </script>
 </body>
 </html>
