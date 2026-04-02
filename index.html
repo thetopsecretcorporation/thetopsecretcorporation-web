@@ -1215,9 +1215,9 @@
               <div class="agent-content">
                 <h3>Number 2</h3>
                 <p class="agent-copy">
-                  Runs operations, keeps missions moving, and turns rough requests into coordinated execution without letting details fall through the floor.
+                  Runs point on operations, translates rough requests into actual plans, and keeps moving parts aligned when the mission starts to sprawl.
                 </p>
-                <div class="agent-meta">Specialty: operations + coordination</div>
+                <div class="agent-meta">Specialty: Operations + command</div>
               </div>
             </article>
 
@@ -1226,9 +1226,9 @@
               <div class="agent-content">
                 <h3>Dexter</h3>
                 <p class="agent-copy">
-                  Builds, debugs, and ships the technical work with a bias toward durable structure, clean execution, and fewer future headaches.
+                  Builds the machinery. Ships code, fixes problems, and turns technical intent into stable systems with minimal drama.
                 </p>
-                <div class="agent-meta">Specialty: engineering + delivery</div>
+                <div class="agent-meta">Specialty: Engineering + delivery</div>
               </div>
             </article>
 
@@ -1237,9 +1237,9 @@
               <div class="agent-content">
                 <h3>Albert</h3>
                 <p class="agent-copy">
-                  Handles research sweeps, synthesis, and briefing prep so decisions arrive with context, evidence, and fewer unpleasant surprises.
+                  Finds the signal, organizes the evidence, and turns sprawling inputs into briefings that are actually useful.
                 </p>
-                <div class="agent-meta">Specialty: research + synthesis</div>
+                <div class="agent-meta">Specialty: Research + synthesis</div>
               </div>
             </article>
 
@@ -1248,9 +1248,9 @@
               <div class="agent-content">
                 <h3>Sherlock</h3>
                 <p class="agent-copy">
-                  Digs through messy signals, traces the important thread, and surfaces the kind of findings that save time and avoid bad assumptions.
+                  Handles deep investigation, pattern tracing, and inconvenient questions before bad assumptions become expensive ones.
                 </p>
-                <div class="agent-meta">Specialty: analysis + investigation</div>
+                <div class="agent-meta">Specialty: Analysis + investigation</div>
               </div>
             </article>
 
@@ -1259,9 +1259,9 @@
               <div class="agent-content">
                 <h3>Iris</h3>
                 <p class="agent-copy">
-                  Shapes interfaces, refines visual systems, and keeps the experience sharp, cohesive, and a little more elegant than it strictly needed to be.
+                  Shapes the interface, sharpens the visual system, and makes sure the experience looks as controlled as the operation behind it.
                 </p>
-                <div class="agent-meta">Specialty: design + UX direction</div>
+                <div class="agent-meta">Specialty: Design + UX direction</div>
               </div>
             </article>
 
@@ -1270,22 +1270,22 @@
               <div class="agent-content">
                 <h3>Jimmy</h3>
                 <p class="agent-copy">
-                  Turns ideas into attention-grabbing content, launch angles, and campaign hooks that get consumed, shared, and acted on across social.
+                  Turns strategy into attention. Messaging, positioning, launch angles, and campaign hooks designed to get noticed and acted on.
                 </p>
-                <div class="agent-meta">Specialty: Marketing + Engagement</div>
+                <div class="agent-meta">Specialty: Marketing + growth</div>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="contact-section" aria-label="Request a secure conversation">
+      <section id="contact" class="contact-section" aria-label="Open a secure channel">
         <div class="container">
           <div class="contact-panel">
-            <span class="eyebrow">// 04. Secure intake</span>
-            <h2>Request a secure conversation</h2>
+            <span class="eyebrow">// 04. Open a channel</span>
+            <h2>Open a secure channel</h2>
             <p class="contact-body">
-              For new projects, strategic questions, or sensitive requests, send the essentials and we’ll route the briefing to the right team.
+              Have a project, a sensitive problem, or a brief that needs competent hands? Send the essentials. We’ll route it to the right operator.
             </p>
 
             <form
@@ -1293,30 +1293,30 @@
               action="https://formspree.io/f/mbdpkkoa"
               method="post"
               data-success-message="Briefing received. We may or may not get back to you."
-              data-error-message="Transmission failed. Try again in a moment, or email us directly if the matter is unusually classified."
-              data-loading-message="Encrypting briefing…"
+              data-error-message="Transmission failed. Try again in a moment. If the matter is unusually sensitive, use a more discreet channel."
+              data-loading-message="Routing briefing..."
             >
               <div class="field-group">
                 <label class="field-label" for="contact-name">Name</label>
-                <input id="contact-name" name="name" type="text" placeholder="Your name" />
+                <input id="contact-name" name="name" type="text" placeholder="Your name or alias" />
               </div>
 
               <div class="field-group">
                 <label class="field-label" for="contact-email">Email</label>
-                <input id="contact-email" name="email" type="email" placeholder="you@company.com" />
+                <input id="contact-email" name="email" type="email" placeholder="name@company.com" />
               </div>
 
               <div class="field-group">
                 <label class="field-label" for="contact-message">Message</label>
-                <textarea id="contact-message" name="message" placeholder="What do you need help with?"></textarea>
+                <textarea id="contact-message" name="message" placeholder="What are you trying to build, solve, or figure out?"></textarea>
               </div>
 
               <div class="form-actions">
-                <button class="button button-primary" type="submit">Send request</button>
+                <button class="button button-primary" type="submit">Send briefing</button>
               </div>
 
               <p class="form-status" aria-live="polite"></p>
-              <p class="field-note">Low-volume intake, routed through a quiet external drop box.</p>
+              <p class="field-note">Low-volume intake. Briefs are reviewed by humans, agents, or both.</p>
             </form>
           </div>
         </div>
@@ -1325,8 +1325,8 @@
 
     <footer class="footer">
       <div class="container footer-inner">
-        <span class="footer-copy">© 2026 The Top Secret Corporation. Confidential.</span>
-        <span class="footer-copy">// Audio surveillance: muted</span>
+        <span class="footer-copy">© 2026 The Top Secret Corporation. All quiet on our end.</span>
+        <span class="footer-copy">// Surveillance status: selectively inactive</span>
       </div>
     </footer>
   </div>
@@ -1421,7 +1421,7 @@
         const formData = new FormData(contactForm);
 
         submitButton.disabled = true;
-        submitButton.textContent = contactForm.dataset.loadingMessage || 'Encrypting briefing…';
+        submitButton.textContent = contactForm.dataset.loadingMessage || 'Routing briefing...';
 
         try {
           const response = await fetch(action, {
@@ -1439,7 +1439,7 @@
           contactForm.reset();
           setStatus(contactForm.dataset.successMessage || 'Briefing received. We may or may not get back to you.', 'is-success');
         } catch (error) {
-          setStatus(contactForm.dataset.errorMessage || 'Transmission failed. Try again in a moment, or email us directly if the matter is unusually classified.', 'is-error');
+          setStatus(contactForm.dataset.errorMessage || 'Transmission failed. Try again in a moment. If the matter is unusually sensitive, use a more discreet channel.', 'is-error');
         } finally {
           submitButton.disabled = false;
           submitButton.textContent = defaultButtonLabel;
