@@ -189,6 +189,7 @@ const buildPage = (reports) => `<!DOCTYPE html>
 
     .brand {
       gap: 12px;
+      flex: 0 0 auto;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: 11px;
@@ -218,11 +219,16 @@ const buildPage = (reports) => `<!DOCTYPE html>
     }
 
     .nav {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1 1 auto;
       gap: 14px;
-      margin-left: auto;
+      margin-left: 24px;
+      min-width: 0;
     }
 
     .nav-links {
+      justify-content: flex-end;
       gap: 8px;
       text-transform: uppercase;
       font-size: 12px;
