@@ -1075,18 +1075,19 @@
   <div class="site-shell">
     <header class="header">
       <div class="header-inner">
-        <a class="brand" href="#top" aria-label="The Top Secret Corporation home">
+        <a class="brand" href="/" aria-label="The Top Secret Corporation home">
           <span class="brand-mark" aria-hidden="true"></span>
           <span>The Top Secret Corporation</span>
         </a>
 
         <nav class="nav" aria-label="Primary navigation" id="site-nav">
           <div class="nav-links">
-            <a class="nav-link" href="#top">Home</a>
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#initiatives">Initiatives</a>
-            <a class="nav-link" href="#agents">Agents</a>
-            <a class="nav-link nav-cta" href="#contact">Contact</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/#about">About</a>
+            <a class="nav-link" href="/#initiatives">Initiatives</a>
+            <a class="nav-link" href="/#agents">Agents</a>
+            <a class="nav-link" href="/research/">Research</a>
+            <a class="nav-link nav-cta" href="/#contact">Contact</a>
           </div>
         </nav>
 
@@ -1119,8 +1120,8 @@
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="#contact">Initialize briefing</a>
-              <a class="button button-secondary" href="#initiatives">See capabilities</a>
+              <a class="button button-primary" href="/#contact">Initialize briefing</a>
+              <a class="button button-secondary" href="/#initiatives">See capabilities</a>
             </div>
           </div>
         </div>
@@ -1156,7 +1157,7 @@
               </p>
             </div>
 
-            <a class="button button-secondary button-inline" href="#agents">Meet the agents</a>
+            <a class="button button-secondary button-inline" href="/#agents">Meet the agents</a>
           </div>
 
           <div class="mission-grid">
@@ -1216,7 +1217,7 @@
               </p>
             </div>
 
-            <a class="button button-secondary button-inline" href="#contact">Assign a mission</a>
+            <a class="button button-secondary button-inline" href="/#contact">Assign a mission</a>
           </div>
 
           <div class="agent-grid">
@@ -1363,121 +1364,6 @@
     </footer>
   </div>
 
-  <script>
-    (function () {
-      const header = document.querySelector('.header');
-      const nav = document.getElementById('site-nav');
-      const menuButton = document.getElementById('mobile-menu-button');
-      const navLinks = nav ? nav.querySelectorAll('a') : [];
-
-      if (!header || !nav || !menuButton) {
-        return;
-      }
-
-      const closeMenu = function () {
-        nav.classList.remove('is-open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Open menu');
-      };
-
-      const toggleMenu = function () {
-        const isOpen = nav.classList.toggle('is-open');
-        menuButton.setAttribute('aria-expanded', String(isOpen));
-        menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-      };
-
-      const syncHeaderState = function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 12 || nav.classList.contains('is-open'));
-      };
-
-      menuButton.addEventListener('click', function () {
-        toggleMenu();
-        syncHeaderState();
-      });
-
-      navLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-          closeMenu();
-          syncHeaderState();
-        });
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 720) {
-          closeMenu();
-        }
-        syncHeaderState();
-      });
-
-      window.addEventListener('scroll', syncHeaderState, { passive: true });
-      syncHeaderState();
-
-      const contactForm = document.querySelector('.contact-form');
-
-      if (!contactForm) {
-        return;
-      }
-
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      const statusMessage = contactForm.querySelector('.form-status');
-      const defaultButtonLabel = submitButton ? submitButton.textContent : 'Send request';
-
-      const setStatus = function (message, state) {
-        if (!statusMessage) {
-          return;
-        }
-
-        statusMessage.textContent = message || '';
-        statusMessage.classList.remove('is-success', 'is-error');
-
-        if (state) {
-          statusMessage.classList.add(state);
-        }
-      };
-
-      contactForm.addEventListener('submit', async function (event) {
-        event.preventDefault();
-        setStatus('');
-
-        if (!submitButton) {
-          return;
-        }
-
-        const action = contactForm.getAttribute('action');
-
-        if (!action) {
-          setStatus('Form delivery is not connected yet. Wire this form to Formspree, FormSubmit, or another endpoint in the form action attribute.', 'is-error');
-          return;
-        }
-
-        const formData = new FormData(contactForm);
-
-        submitButton.disabled = true;
-        submitButton.textContent = contactForm.dataset.loadingMessage || 'Routing briefing...';
-
-        try {
-          const response = await fetch(action, {
-            method: (contactForm.getAttribute('method') || 'POST').toUpperCase(),
-            headers: {
-              Accept: 'application/json'
-            },
-            body: formData
-          });
-
-          if (!response.ok) {
-            throw new Error('Request failed');
-          }
-
-          contactForm.reset();
-          setStatus(contactForm.dataset.successMessage || 'Briefing received. We may or may not get back to you.', 'is-success');
-        } catch (error) {
-          setStatus(contactForm.dataset.errorMessage || 'Transmission failed. Try again in a moment. If the matter is unusually sensitive, use a more discreet channel.', 'is-error');
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = defaultButtonLabel;
-        }
-      });
-    }());
-  </script>
+  <script src="./assets/site.js"></script>
 </body>
 </html>
