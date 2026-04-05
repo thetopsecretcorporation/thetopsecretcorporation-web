@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A practical comparison of Claude Code and OpenClaw across setup, delegation, tooling, mobile access, and best-fit use cases." />
+  <meta name="research-title" content="Claude Code vs OpenClaw" />
+  <meta name="research-date" content="2026-04-05" />
+  <meta name="research-author" content="Albert" />
+  <meta name="research-summary" content="A practical comparison of Claude Code and OpenClaw across setup, delegation, tooling, mobile access, and best-fit use cases." />
+  <title>Claude Code vs OpenClaw — Research Briefing</title>
+  <style>
+    :root {
+      --night: #0B0F14;
+      --night-2: #10151C;
+      --night-3: #121922;
+      --ember: #E33A3A;
+      --ember-depth: #7A0F10;
+      --slate: #E5E9EE;
+      --platinum: #C4CAD3;
+      --text-soft: rgba(229,233,238,0.72);
+      --text-muted: rgba(196,202,211,0.62);
+      --text-dark-soft: rgba(11,15,20,0.76);
+      --line: rgba(196,202,211,0.18);
+      --line-strong: rgba(196,202,211,0.42);
+      --line-soft: rgba(196,202,211,0.12);
+      --card-light: #f2f5f8;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background:
+        linear-gradient(rgba(196,202,211,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,202,211,0.04) 1px, transparent 1px),
+        var(--night);
+      background-size: 28px 28px;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    .container {
+      width: min(1280px, calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 84px 0 72px;
+      background:
+        linear-gradient(90deg, rgba(11,15,20,0.95) 0%, rgba(11,15,20,0.88) 45%, rgba(11,15,20,0.72) 100%),
+        linear-gradient(180deg, rgba(227,58,58,0.18) 0%, rgba(122,15,16,0.10) 32%, rgba(11,15,20,0.82) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .brandbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 42px;
+      color: var(--platinum);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      background: var(--ember);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      left: 4px;
+      top: 4px;
+      background: var(--night);
+    }
+
+    .eyebrow {
+      color: var(--ember);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(40px, 4.2vw, 60px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      max-width: 980px;
+    }
+
+    .hero-kicker {
+      max-width: 860px;
+      font-size: 20px;
+      color: var(--text-soft);
+      margin: 0 0 28px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      border: 1px solid rgba(227,58,58,0.36);
+      background: rgba(227,58,58,0.12);
+      color: var(--ember);
+      border-radius: 4px;
+      padding: 8px 10px;
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    main { padding: 52px 0 120px; }
+
+    .section {
+      margin-bottom: 28px;
+      background: var(--night-2);
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      box-shadow: 0 12px 24px rgba(5,12,23,0.2);
+      overflow: hidden;
+    }
+
+    .section-inner { padding: 28px 26px; }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 3vw, 42px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    p, li {
+      font-size: 16px;
+      color: var(--text-soft);
+    }
+
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 8px; }
+
+    .summary-grid,
+    .twocol,
+    .capability-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .twocol {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .capability-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .card {
+      background: var(--night-3);
+      border: 1px solid rgba(196,202,211,0.08);
+      border-radius: 10px;
+      padding: 22px;
+    }
+
+    .light-section {
+      background: var(--slate);
+      color: var(--night);
+    }
+
+    .light-section .section-inner { color: var(--night); }
+    .light-section p,
+    .light-section li { color: var(--text-dark-soft); }
+    .light-section .card {
+      background: var(--card-light);
+      border: 1px solid rgba(11,15,20,0.08);
+      box-shadow: 0 12px 24px rgba(5,12,23,0.12);
+    }
+
+    .signal {
+      border-left: 3px solid var(--ember);
+      padding-left: 14px;
+      margin: 18px 0 0;
+      color: var(--text-soft);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--line-soft);
+      font-size: 15px;
+    }
+
+    th {
+      color: var(--slate);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.03);
+    }
+
+    td strong { color: var(--slate); }
+    .light-section th {
+      color: var(--night);
+      background: rgba(11,15,20,0.04);
+    }
+    .light-section td strong { color: var(--night); }
+
+    .footnotes {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line-strong);
+      margin: 22px 0;
+    }
+
+    .mono {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 14px;
+    }
+
+    .verdict {
+      font-size: 18px;
+      color: var(--slate);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line-strong);
+      padding-top: 24px;
+      margin-top: 36px;
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    a { color: var(--ember); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    @media (max-width: 1100px) {
+      .summary-grid, .twocol, .capability-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(375px, calc(100% - 36px)); }
+      .hero { padding: 64px 0 54px; }
+      main { padding: 36px 0 80px; }
+      .section-inner { padding: 22px 18px; }
+      th, td { padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="brandbar">
+        <div class="mark"></div>
+        <div>THE TOP SECRET CORPORATION</div>
+      </div>
+      <div class="eyebrow">// research briefing</div>
+      <h1>Claude Code vs OpenClaw</h1>
+      <p class="hero-kicker">
+        A structured comparison of two different layers in the agent stack: Anthropic’s developer-first coding product and OpenClaw’s assistant runtime and orchestration platform.
+      </p>
+      <div class="meta-row">
+        <div class="chip">Albert // research + synthesis</div>
+        <div class="chip">Prepared: April 5, 2026</div>
+        <div class="chip">Audience: internal</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="section light-section">
+        <div class="section-inner">
+          <div class="eyebrow">// executive summary</div>
+          <h2>Clear Takeaways</h2>
+          <p>
+            The key mistake is to treat Claude Code and OpenClaw as direct one-for-one substitutes. They overlap in tool use, coding, and long-running tasks, but they are optimized for different center-of-gravity jobs.
+          </p>
+
+          <div class="summary-grid">
+            <div class="card">
+              <h3>Bottom Line</h3>
+              <p><strong>Claude Code</strong> is the stronger choice when the job is primarily <strong>software development inside a developer workflow</strong>.</p>
+              <p><strong>OpenClaw</strong> is the stronger choice when the job is <strong>running an assistant system across channels, tools, sessions, devices, and automations</strong>.</p>
+            </div>
+            <div class="card">
+              <h3>What This Means</h3>
+              <p>Claude Code competes at the <strong>coding-agent product</strong> layer. OpenClaw competes at the <strong>assistant runtime and orchestration</strong> layer.</p>
+              <p>That distinction matters more than model quality alone.</p>
+            </div>
+            <div class="card">
+              <h3>Practical Recommendation</h3>
+              <p>If Boss wants <strong>one AI that helps a developer ship code faster</strong>, pick Claude Code.</p>
+              <p>If Boss wants <strong>an operational AI system that can live in Discord, run jobs, coordinate tools, and support multiple agent roles</strong>, pick OpenClaw.</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Decision Question</th>
+                <th>Better Fit</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>We need the best day-to-day AI coding companion for engineers</td>
+                <td><strong>Claude Code</strong></td>
+                <td>It is purpose-built around coding, repo work, tool use, and developer workflow ergonomics.</td>
+              </tr>
+              <tr>
+                <td>We need an AI assistant that can operate across Discord, chat channels, reminders, browsing, and background tasks</td>
+                <td><strong>OpenClaw</strong></td>
+                <td>OpenClaw is built as a runtime that spans channels, sessions, tool routing, cron, and orchestration.</td>
+              </tr>
+              <tr>
+                <td>We want a bring-your-own-model, multi-provider assistant layer</td>
+                <td><strong>OpenClaw</strong></td>
+                <td>Provider flexibility and orchestration are core to the platform’s architecture.</td>
+              </tr>
+              <tr>
+                <td>We want a polished, vertically integrated product around Anthropic’s models</td>
+                <td><strong>Claude Code</strong></td>
+                <td>Anthropic controls the model, product surface, and developer workflow in one stack.</td>
+              </tr>
+              <tr>
+                <td>We want our own branded agent organization, not just a coding tool</td>
+                <td><strong>OpenClaw</strong></td>
+                <td>OpenClaw is much better suited to multi-agent, multi-channel, operational deployments.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="signal"><strong>Executive judgment:</strong> Claude Code is the better product for coding. OpenClaw is the broader system for assistant operations. If someone asks which is “better,” the honest answer is: better for what.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// situation</div>
+          <h2>Purpose and Scope</h2>
+          <p>
+            This report compares the latest available public release signals for Claude Code and OpenClaw as of early April 2026, with emphasis on product positioning, practical capabilities, and operational implications. The goal is not to pick a winner in the abstract; it is to clarify which system is stronger for which type of work.
+          </p>
+          <div class="twocol">
+            <div class="card">
+              <h3>Research Question</h3>
+              <p>What does OpenClaw do that Claude Code cannot, what does Claude Code do that OpenClaw cannot, and where do they genuinely overlap?</p>
+            </div>
+            <div class="card">
+              <h3>Method</h3>
+              <p>Reviewed public release notes, official product announcements, and official OpenClaw release documentation. Company claims were separated from architecture-level facts where possible.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// market framing</div>
+          <h2>They Compete at Different Layers</h2>
+          <p>
+            The most important conclusion is structural: Claude Code and OpenClaw are adjacent products, not clean substitutes. They sit at different layers of the AI work stack.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Claude Code</th>
+                <th>OpenClaw</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Core identity</td>
+                <td><strong>Developer-first coding agent/product</strong></td>
+                <td><strong>Assistant runtime, orchestration layer, and multi-channel agent framework</strong></td>
+              </tr>
+              <tr>
+                <td>Primary user</td>
+                <td>Developers and technical teams</td>
+                <td>Operators, builders, power users, and organizations designing custom assistant systems</td>
+              </tr>
+              <tr>
+                <td>Default job-to-be-done</td>
+                <td>Help me code, debug, refactor, review, and ship</td>
+                <td>Help me run agents across tools, chats, devices, schedules, and workflows</td>
+              </tr>
+              <tr>
+                <td>Product center of gravity</td>
+                <td>Code workflow</td>
+                <td>Runtime coordination</td>
+              </tr>
+              <tr>
+                <td>Best analogy</td>
+                <td>AI software engineer workstation</td>
+                <td>Operating system for AI assistants</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="signal">This is why direct comparisons often get muddy: one is optimized around the coding seat, the other around the assistant system.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// findings</div>
+          <h2>What Claude Code Does Better</h2>
+          <div class="capability-grid">
+            <div class="card">
+              <h3>1) A more integrated coding product</h3>
+              <p>Claude Code is designed specifically for code generation, repo reasoning, debugging, reviews, terminal work, and longer engineering sessions. That specialization gives it a more cohesive day-to-day coding experience.</p>
+            </div>
+            <div class="card">
+              <h3>2) Tighter model-product integration</h3>
+              <p>Anthropic controls the model, the product surface, and the surrounding workflow. In practice, that often yields smoother defaults, better coding behavior, and more product coherence for engineers living inside the stack.</p>
+            </div>
+            <div class="card">
+              <h3>3) Strong recent product motion around agentic coding</h3>
+              <p>Official release notes and model announcements point to rapid investment in computer use, persistent threads, scheduled tasks, plugins, interactive outputs, and agent teams. That signals a serious push toward longer-running, higher-autonomy developer workflows.</p>
+            </div>
+            <div class="card">
+              <h3>4) Better default fit for “one developer, one machine, one coding flow”</h3>
+              <p>If the use case is straightforward — one person wants an AI partner to help ship code — Claude Code is closer to the obvious default choice.</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Recent Claude/Claude Code signals</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer use in Claude Code and Cowork (March 23, 2026)</td>
+                <td>Extends Claude from tool-bounded coding into screen/UI interaction for real-world workflows.</td>
+              </tr>
+              <tr>
+                <td>Persistent mobile/remote continuity in Cowork threads (March 17, 2026)</td>
+                <td>Pushes the product toward persistent agent supervision rather than one-shot prompting.</td>
+              </tr>
+              <tr>
+                <td>Scheduled tasks in Cowork (February 25, 2026)</td>
+                <td>Introduces recurring and on-demand background work, narrowing the gap with operational runtimes in some areas.</td>
+              </tr>
+              <tr>
+                <td>Claude Sonnet 4.6 and Opus 4.6 upgrades</td>
+                <td>Anthropic is explicitly targeting coding, computer use, long-context reasoning, and agent planning as first-class strengths.</td>
+              </tr>
+              <tr>
+                <td>Agent teams in Claude Code, per Opus 4.6 announcement</td>
+                <td>Moves Claude Code further toward multi-agent coding workflows, especially for read-heavy or parallelizable tasks.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// findings</div>
+          <h2>What OpenClaw Does Better</h2>
+          <div class="capability-grid">
+            <div class="card">
+              <h3>1) Multi-channel assistant deployment</h3>
+              <p>OpenClaw can live across channels like Discord, Telegram, Slack, WhatsApp, Signal, and web chat. Claude Code is not fundamentally designed as a communications-layer assistant framework.</p>
+            </div>
+            <div class="card">
+              <h3>2) Broader orchestration beyond coding</h3>
+              <p>OpenClaw treats tasks, sub-agents, sessions, reminders, browser control, node/device control, messaging, and routing as native runtime concerns. That is meaningfully broader than a coding product.</p>
+            </div>
+            <div class="card">
+              <h3>3) Provider and model flexibility</h3>
+              <p>OpenClaw is architected for multi-provider use. That matters if the goal is to build a system rather than commit to one vendor’s product surface.</p>
+            </div>
+            <div class="card">
+              <h3>4) Better fit for a branded multi-agent organization</h3>
+              <p>If the objective is “build my own AI team” with different roles, channels, and workflows, OpenClaw is much more naturally aligned with that ambition.</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Recent OpenClaw signals</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Task Flow substrate restoration and durable flow state in 2026.4.2</td>
+                <td>Reinforces OpenClaw’s identity as an orchestration runtime, not just a chat shell.</td>
+              </tr>
+              <tr>
+                <td>Managed child task spawning and flow recovery primitives</td>
+                <td>Supports more durable multi-step automation and parent/child task coordination.</td>
+              </tr>
+              <tr>
+                <td>Plugin/runtime taskFlow seam</td>
+                <td>Shows a platform direction: external authoring layers and plugins can drive runtime task flows as first-class objects.</td>
+              </tr>
+              <tr>
+                <td>Android assistant-role entrypoints and assistant triggers</td>
+                <td>OpenClaw is extending into device-level assistant surfaces, not just coding shells.</td>
+              </tr>
+              <tr>
+                <td>Chat-native background task board and channel/session routing work</td>
+                <td>Confirms the product is built for persistent, channel-aware operational use.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section light-section">
+        <div class="section-inner">
+          <div class="eyebrow">// comparison matrix</div>
+          <h2>Capability Matrix</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Claude Code</th>
+                <th>OpenClaw</th>
+                <th>Assessment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Interactive coding inside a repo</td>
+                <td>Strong</td>
+                <td>Strong, but less product-centered on the coding seat</td>
+                <td><strong>Edge: Claude Code</strong></td>
+              </tr>
+              <tr>
+                <td>Natural-language task delegation across files</td>
+                <td>Strong</td>
+                <td>Strong</td>
+                <td>Rough parity, depending on model and tooling</td>
+              </tr>
+              <tr>
+                <td>Multi-agent / subagent workflows</td>
+                <td>Present and improving</td>
+                <td>Native and broader in orchestration scope</td>
+                <td><strong>Edge: OpenClaw</strong> for runtime breadth; Claude Code for coding-focused experience</td>
+              </tr>
+              <tr>
+                <td>Persistent assistant across chat channels</td>
+                <td>Limited relative to OpenClaw</td>
+                <td>Core capability</td>
+                <td><strong>Edge: OpenClaw</strong></td>
+              </tr>
+              <tr>
+                <td>Scheduled / recurring jobs</td>
+                <td>Increasingly present in Cowork</td>
+                <td>Native cron/task infrastructure</td>
+                <td><strong>Edge: OpenClaw</strong></td>
+              </tr>
+              <tr>
+                <td>Browser and tool orchestration</td>
+                <td>Strong, especially with computer use</td>
+                <td>Strong, with broader runtime wiring</td>
+                <td>Different strengths; Claude Code more integrated, OpenClaw more infrastructural</td>
+              </tr>
+              <tr>
+                <td>Bring-your-own providers/models</td>
+                <td>More constrained by product stack</td>
+                <td>Core architectural strength</td>
+                <td><strong>Edge: OpenClaw</strong></td>
+              </tr>
+              <tr>
+                <td>Device/node integrations</td>
+                <td>Not a visible core product identity</td>
+                <td>Core platform capability</td>
+                <td><strong>Edge: OpenClaw</strong></td>
+              </tr>
+              <tr>
+                <td>Polished single-product coding UX</td>
+                <td>Very strong</td>
+                <td>Not its main identity</td>
+                <td><strong>Edge: Claude Code</strong></td>
+              </tr>
+              <tr>
+                <td>Build-your-own assistant organization</td>
+                <td>Possible only indirectly</td>
+                <td>One of the strongest fits</td>
+                <td><strong>Edge: OpenClaw</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// implications</div>
+          <h2>Strategic Interpretation</h2>
+          <div class="twocol">
+            <div class="card">
+              <h3>Where Claude Code wins strategically</h3>
+              <ul>
+                <li>When engineering productivity is the primary KPI</li>
+                <li>When the buyer wants a cleaner, more integrated coding product</li>
+                <li>When the team wants Anthropic’s coding stack, not a runtime they must shape</li>
+                <li>When the user base is mostly technical and centered in development environments</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Where OpenClaw wins strategically</h3>
+              <ul>
+                <li>When the goal is operational AI across the business, not only coding</li>
+                <li>When assistants need to exist inside chat surfaces and workflows people already use</li>
+                <li>When multi-agent specialization matters</li>
+                <li>When flexibility, extensibility, and orchestration are more valuable than a single polished product shell</li>
+              </ul>
+            </div>
+          </div>
+          <p class="signal"><strong>Important nuance:</strong> Claude Code has been moving down-stack into more persistent agent behavior, while OpenClaw continues improving up-stack ergonomics. The gap is narrowing in some areas, but the products are still fundamentally optimized for different operating models.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// recommendation</div>
+          <h2>Recommended Positioning for Boss</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>If Boss wants...</th>
+                <th>Recommended choice</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>An AI that helps a technical team code faster every day</td>
+                <td><strong>Claude Code</strong></td>
+                <td>Cleaner fit for developer workflow, coding tasks, reviews, and direct engineering productivity.</td>
+              </tr>
+              <tr>
+                <td>An AI chief-of-staff style system that can work across Discord, research, browsing, reminders, sessions, and agents</td>
+                <td><strong>OpenClaw</strong></td>
+                <td>It is built for that exact shape of problem.</td>
+              </tr>
+              <tr>
+                <td>A branded internal AI organization with specialized agents</td>
+                <td><strong>OpenClaw</strong></td>
+                <td>OpenClaw is structurally better suited to multi-agent role design and operational routing.</td>
+              </tr>
+              <tr>
+                <td>The strongest single product for code-centric work</td>
+                <td><strong>Claude Code</strong></td>
+                <td>Anthropic’s product focus is more concentrated there.</td>
+              </tr>
+              <tr>
+                <td>A stack where coding is only one part of a larger assistant system</td>
+                <td><strong>OpenClaw + selective coding agents</strong></td>
+                <td>The most sensible architecture may be OpenClaw as the runtime, with specialized coding agents underneath it.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="verdict signal"><strong>Final recommendation:</strong> treat Claude Code as a best-in-class coding product and OpenClaw as a broader assistant operating layer. If forced to choose only one, choose based on the center of gravity of the business problem, not on general AI hype.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="eyebrow">// sources and confidence</div>
+          <h2>Source Notes</h2>
+          <p>
+            This report prioritizes official release notes and official announcements. Where claims come directly from vendor announcements, they should be treated as directional product signals rather than neutral third-party verification.
+          </p>
+          <ul class="footnotes">
+            <li>Anthropic Help Center release notes: Claude / Claude Code / Cowork updates through March 25, 2026.</li>
+            <li>Anthropic announcement: <span class="mono">Introducing Claude Opus 4.6</span>, February 5, 2026.</li>
+            <li>OpenClaw GitHub releases: latest stable release notes showing <span class="mono">2026.4.2</span> feature changes around Task Flow, orchestration, and runtime behavior.</li>
+            <li>OpenClaw docs: Release Policy page confirming public release lanes and release naming conventions.</li>
+          </ul>
+          <div class="footer">© 2026 THE TOP SECRET CORPORATION // ALBERT RESEARCH BRIEFING</div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
