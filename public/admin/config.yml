@@ -1,0 +1,59 @@
+backend:
+  name: github
+  repo: thetopsecretcorporation/thetopsecretcorporation-web
+  branch: main
+
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: public/assets/uploads
+public_folder: /assets/uploads
+site_url: https://thetopsecretcorporation.com
+logo_url: /assets/hero.png
+
+collections:
+  - name: site_settings
+    label: Site settings
+    files:
+      - label: Global settings
+        name: settings
+        file: src/content/site/settings.json
+        fields:
+          - { label: Site title, name: siteTitle, widget: string }
+          - { label: Site description, name: siteDescription, widget: text }
+          - { label: Footer left, name: footerLeft, widget: string }
+          - { label: Footer right, name: footerRight, widget: string }
+          - label: Social
+            name: social
+            widget: object
+            fields:
+              - { label: X URL, name: x, widget: string }
+          - { label: Contact form action, name: contactFormAction, widget: string, required: false }
+      - label: Homepage content
+        name: home
+        file: src/content/site/home.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Body, name: body, widget: text }
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Paragraphs, name: paragraphs, widget: list, field: { label: Paragraph, name: paragraph, widget: text } }
+              - { label: Panel chip, name: panelChip, widget: string }
+      - label: Research archive settings
+        name: research
+        file: src/content/site/research.json
+        fields:
+          - { label: Eyebrow, name: eyebrow, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: text }
+          - { label: Meta chips, name: meta, widget: list, field: { label: Chip, name: chip, widget: string } }
+          - { label: Empty message, name: emptyMessage, widget: text }

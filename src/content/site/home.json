@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "eyebrow": "// Secure line established",
+    "title": "We know what we’re doing.",
+    "kicker": "Mostly.",
+    "body": "We build systems, run experiments, and deploy operations for people who need sharp execution without theater. Precision-forward, technologically astute, and a little mischievous.",
+    "primaryCta": { "label": "Initialize briefing", "href": "/#contact" },
+    "secondaryCta": { "label": "See capabilities", "href": "/#initiatives" }
+  },
+  "about": {
+    "eyebrow": "// 01. Corporate profile",
+    "title": "Who we are",
+    "paragraphs": [
+      "We are a deliberately vague corporation with a very specific skill set: turning messy ideas into clear systems, useful tools, and quietly effective outcomes.",
+      "Part lab, part operator, part holding company for unreasonable projects. We move fast, stay precise, and keep the joke just subtle enough to trust us with serious work."
+    ],
+    "panelChip": "Field profile / internal"
+  },
+  "initiatives": {
+    "eyebrow": "// 02. Operational lanes",
+    "title": "What we do",
+    "body": "Three core lanes. One operating style: clear thinking, strong execution, and systems built to hold up when the brief gets weird.",
+    "cta": { "label": "Meet the agents", "href": "/#agents" },
+    "items": [
+      {
+        "title": "Engineering",
+        "body": "We design and ship durable technical systems, internal tools, automations, and infrastructure that keep working after the demo ends.",
+        "clearance": "Clearance: Level 4 / Build",
+        "thumbClass": "mission-thumb-engineering"
+      },
+      {
+        "title": "Research",
+        "body": "We investigate markets, signals, workflows, and edge cases until ambiguity becomes direction and decisions stop relying on guesswork.",
+        "clearance": "Clearance: Level 2 / Intelligence",
+        "thumbClass": "mission-thumb-research"
+      },
+      {
+        "title": "Consulting",
+        "body": "Advisory support for sensitive initiatives, strategic planning, and executive-level problem solving with the same deliberate operational edge.",
+        "clearance": "Clearance: Level 1 / Advisory",
+        "thumbClass": "mission-thumb-consulting"
+      }
+    ]
+  },
+  "agents": {
+    "eyebrow": "// 03. Embedded operators",
+    "title": "The agents",
+    "body": "A covert collective of specialists operating at the intersection of strategy, engineering, research, and influence—built to turn ambitious ideas into real-world outcomes with precision, speed, and just the right amount of menace.",
+    "cta": { "label": "Assign a mission", "href": "/#contact" },
+    "items": [
+      { "name": "Number 2", "body": "Runs point on operations, translates rough requests into actual plans, and keeps moving parts aligned when the mission starts to sprawl.", "meta": "Specialty: Operations + command", "photoClass": "agent-photo-number2" },
+      { "name": "Dexter", "body": "Builds the machinery. Ships code, fixes problems, and turns technical intent into stable systems with minimal drama.", "meta": "Specialty: Engineering + delivery", "photoClass": "agent-photo-dexter" },
+      { "name": "Albert", "body": "Finds the signal, organizes the evidence, and turns sprawling inputs into briefings that are actually useful.", "meta": "Specialty: Research + synthesis", "photoClass": "agent-photo-albert" },
+      { "name": "Sherlock", "body": "Handles deep investigation, pattern tracing, and inconvenient questions before bad assumptions become expensive ones.", "meta": "Specialty: Analysis + investigation", "photoClass": "agent-photo-sherlock" },
+      { "name": "Iris", "body": "Shapes the interface, sharpens the visual system, and makes sure the experience looks as controlled as the operation behind it.", "meta": "Specialty: Design + UX direction", "photoClass": "agent-photo-iris" },
+      { "name": "Jimmy", "body": "Turns strategy into attention. Messaging, positioning, launch angles, and campaign hooks designed to get noticed and acted on.", "meta": "Specialty: Marketing + growth", "photoClass": "agent-photo-jimmy" },
+      { "name": "Pepper", "body": "Owns the inbox, the calendar, and every document that matters. Nothing gets scheduled, filed, or sent without her knowing about it first.", "meta": "Specialty: Admin + operations", "photoClass": "agent-photo-pepper" },
+      { "name": "N.O.A.H.", "body": "Monitors the infrastructure, hardens the systems, and makes sure the whole operation stays running when no one is watching.", "meta": "Specialty: Systems + infrastructure", "photoClass": "agent-photo-noah" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "// 04. Open a channel",
+    "title": "Open a secure channel",
+    "body": "Have a project, a sensitive problem, or a brief that needs competent hands? Send the essentials. We’ll route it to the right operator.",
+    "fieldNote": "Low-volume intake. Briefs are reviewed by humans, agents, or both."
+  }
+}

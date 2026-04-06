@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import { getPrimaryNav, siteSettings } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = siteSettings.siteTitle, description = siteSettings.siteDescription } = Astro.props;
+const nav = getPrimaryNav();
+const path = Astro.url.pathname;
+const pageClass = path === '/research/' ? 'page-research' : 'page-home';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class={pageClass}>
+    <div class="site-shell">
+      <header class="header">
+        <div class="header-inner">
+          <a class="brand" href="/" aria-label={`${siteSettings.siteTitle} home`}>
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>{siteSettings.siteTitle}</span>
+          </a>
+
+          <nav class="nav" aria-label="Primary navigation" id="site-nav">
+            <div class="nav-links">
+              {nav.map((item) => (
+                <a
+                  class:list={['nav-link', item.cta && 'nav-cta', path === '/research/' && item.href === '/research/' && 'is-active']}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <button class="mobile-menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" id="mobile-menu-button">
+            <span class="mobile-menu-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <main id={path === '/' ? 'top' : undefined} class="page-content">
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <span class="footer-copy">{siteSettings.footerLeft}</span>
+          <span class="footer-copy">{siteSettings.footerRight}</span>
+        </div>
+      </footer>
+    </div>
+
+    <script is:inline src="/assets/site.js"></script>
+  </body>
+</html>
