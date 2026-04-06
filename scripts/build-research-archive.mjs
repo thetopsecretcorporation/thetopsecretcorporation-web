@@ -616,6 +616,7 @@ const buildPage = (reports) => `<!DOCTYPE html>
             <a class="nav-link" href="/#initiatives">Initiatives</a>
             <a class="nav-link" href="/#agents">Agents</a>
             <a class="nav-link is-active" href="/research/">Research</a>
+            <a class="nav-link" href="https://x.com/TopSecretCorp" target="_blank" rel="noopener noreferrer">X</a>
             <a class="nav-link nav-cta" href="/#contact">Contact</a>
           </div>
         </nav>
