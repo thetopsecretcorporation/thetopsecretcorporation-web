@@ -265,7 +265,7 @@ const buildPage = (reports) => `<!DOCTYPE html>
     }
 
     .nav-cta {
-      margin-left: 10px;
+      margin-left: 0;
     }
 
     .nav-cta:hover,
