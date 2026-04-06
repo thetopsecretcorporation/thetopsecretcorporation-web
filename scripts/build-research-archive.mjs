@@ -661,7 +661,7 @@ const buildPage = (reports) => `<!DOCTYPE html>
                   <span>By ${escapeHtml(report.author || 'Albert')}</span>
                   ${report.date ? `<span>Published ${escapeHtml(formatDate(report.date))}</span>` : ''}
                 </div>
-                <a class="report-link" href="./reports/${encodeURI(report.filename)}">Read report</a>
+                <a class="report-link" href="./reports/${encodeURI(report.filename)}" target="_blank" rel="noopener noreferrer">Read report</a>
               </article>`).join('')}
           </div>` : `<div class="empty-state">No research reports are available yet.</div>`}
         </div>
