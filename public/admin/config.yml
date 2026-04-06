@@ -2,6 +2,9 @@ backend:
   name: github
   repo: thetopsecretcorporation/thetopsecretcorporation-web
   branch: main
+  base_url: https://thetopsecretcorporation.com
+  auth_endpoint: api/auth
+  site_domain: thetopsecretcorporation.com
 
 local_backend: true
 publish_mode: editorial_workflow
@@ -57,3 +60,22 @@ collections:
           - { label: Body, name: body, widget: text }
           - { label: Meta chips, name: meta, widget: list, field: { label: Chip, name: chip, widget: string } }
           - { label: Empty message, name: emptyMessage, widget: text }
+
+  - name: research_reports
+    label: Research reports
+    label_singular: Research report
+    folder: src/content/researchReports
+    create: true
+    extension: md
+    format: frontmatter
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    summary: '{{title}} — {{publishDate}}'
+    fields:
+      - { label: Title, name: title, widget: string, hint: 'Public report title' }
+      - { label: Summary, name: summary, widget: text, hint: 'Used for the archive card and report intro' }
+      - { label: Publish date, name: publishDate, widget: datetime, time_format: false, format: 'YYYY-MM-DD' }
+      - { label: Author, name: author, widget: string, default: 'Albert' }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Draft, name: draft, widget: boolean, default: true, hint: 'Draft reports stay out of the public archive until ready' }
+      - { label: Canonical URL, name: canonicalUrl, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown, hint: 'Write in markdown. Use inline HTML only for richer blocks like scorecards or side-by-side comparisons.' }
