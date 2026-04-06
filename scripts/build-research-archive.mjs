@@ -48,6 +48,15 @@ const parseDateFromFilename = (filename) => {
   return match ? match[1] : '';
 };
 
+const getSortTimestamp = (stats) => {
+  if (!stats) {
+    return 0;
+  }
+
+  const updatedAt = stats.mtimeMs || stats.birthtimeMs || 0;
+  return Number.isFinite(updatedAt) ? updatedAt : 0;
+};
+
 const formatDate = (value) => {
   if (!value) {
     return 'Date not set';
@@ -684,6 +693,7 @@ const main = async () => {
 
     const filePath = path.join(reportsDir, entry.name);
     const html = await fs.readFile(filePath, 'utf8');
+    const stats = await fs.stat(filePath);
     const date = extractMeta(html, 'research-date') || parseDateFromFilename(entry.name);
     const title = extractMeta(html, 'research-title') || extractTag(html, 'title') || entry.name.replace(/\.html$/i, '');
     const summary = extractMeta(html, 'description') || extractMeta(html, 'research-summary') || extractFirstParagraph(html) || 'No summary provided.';
@@ -695,11 +705,26 @@ const main = async () => {
       summary,
       author,
       date,
-      sortKey: date || '0000-00-00'
+      sortKey: date || '0000-00-00',
+      sortTimestamp: getSortTimestamp(stats)
     });
   }
 
-  reports.sort((a, b) => b.sortKey.localeCompare(a.sortKey) || a.filename.localeCompare(b.filename));
+  reports.sort((a, b) => {
+    const dateOrder = b.sortKey.localeCompare(a.sortKey);
+
+    if (dateOrder !== 0) {
+      return dateOrder;
+    }
+
+    const timestampOrder = b.sortTimestamp - a.sortTimestamp;
+
+    if (timestampOrder !== 0) {
+      return timestampOrder;
+    }
+
+    return b.filename.localeCompare(a.filename);
+  });
   await fs.mkdir(outputDir, { recursive: true });
   await fs.writeFile(outputFile, buildPage(reports), 'utf8');
 
