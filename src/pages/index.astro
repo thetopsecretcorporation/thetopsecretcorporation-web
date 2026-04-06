@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { homeContent, siteSettings } from '../lib/site';
+---
+<BaseLayout title={siteSettings.siteTitle} description={siteSettings.siteDescription}>
+  <section class="hero" aria-label="Hero">
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="classified-pill">Highly classified</div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">{homeContent.hero.eyebrow}</span>
+        <div class="hero-title">
+          <h1>{homeContent.hero.title}</h1>
+          <p class="hero-kicker">{homeContent.hero.kicker}</p>
+        </div>
+        <p class="hero-body">{homeContent.hero.body}</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href={homeContent.hero.primaryCta.href}>{homeContent.hero.primaryCta.label}</a>
+          <a class="button button-secondary" href={homeContent.hero.secondaryCta.href}>{homeContent.hero.secondaryCta.label}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section-light" aria-label="About">
+    <div class="container about-grid">
+      <div class="copy-stack">
+        <span class="eyebrow">{homeContent.about.eyebrow}</span>
+        <h2>{homeContent.about.title}</h2>
+        {homeContent.about.paragraphs.map((paragraph) => <p class="section-body">{paragraph}</p>)}
+      </div>
+      <aside class="about-visual" aria-label="Field profile internal visual">
+        <span class="panel-chip">{homeContent.about.panelChip}</span>
+      </aside>
+    </div>
+  </section>
+
+  <section id="initiatives" class="section-dark" aria-label="Current initiatives">
+    <div class="container">
+      <div class="section-header">
+        <div class="copy-stack">
+          <span class="eyebrow">{homeContent.initiatives.eyebrow}</span>
+          <h2>{homeContent.initiatives.title}</h2>
+          <p class="section-body">{homeContent.initiatives.body}</p>
+        </div>
+        <a class="button button-secondary button-inline" href={homeContent.initiatives.cta.href}>{homeContent.initiatives.cta.label}</a>
+      </div>
+      <div class="mission-grid">
+        {homeContent.initiatives.items.map((item) => (
+          <article class="mission-card">
+            <div class:list={['mission-thumb', item.thumbClass]}></div>
+            <div class="mission-content">
+              <h3>{item.title}</h3>
+              <p class="mission-copy">{item.body}</p>
+              <div class="meta-line">
+                <span class="clearance">{item.clearance}</span>
+                <img src="/assets/arrow-right.svg" alt="" aria-hidden="true" />
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="agents" class="agents-section" aria-label="Agents">
+    <div class="container">
+      <div class="section-header">
+        <div class="copy-stack">
+          <span class="eyebrow">{homeContent.agents.eyebrow}</span>
+          <h2>{homeContent.agents.title}</h2>
+          <p class="section-body">{homeContent.agents.body}</p>
+        </div>
+        <a class="button button-secondary button-inline" href={homeContent.agents.cta.href}>{homeContent.agents.cta.label}</a>
+      </div>
+      <div class="agent-grid">
+        {homeContent.agents.items.map((agent) => (
+          <article class="agent-card">
+            <div class:list={['agent-photo', agent.photoClass]} aria-hidden="true"></div>
+            <div class="agent-content">
+              <h3>{agent.name}</h3>
+              <p class="agent-copy">{agent.body}</p>
+              <div class="agent-meta">{agent.meta}</div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section" aria-label="Open a secure channel">
+    <div class="container">
+      <div class="contact-panel">
+        <span class="eyebrow">{homeContent.contact.eyebrow}</span>
+        <h2>{homeContent.contact.title}</h2>
+        <p class="contact-body">{homeContent.contact.body}</p>
+        <form
+          class="contact-form"
+          action={siteSettings.contactFormAction}
+          method="post"
+          data-success-message="Briefing received. We may or may not get back to you."
+          data-error-message="Transmission failed. Try again in a moment. If the matter is unusually sensitive, use a more discreet channel."
+          data-loading-message="Routing briefing..."
+        >
+          <div class="field-group">
+            <label class="field-label" for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" placeholder="Your name or alias" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" placeholder="name@company.com" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="What are you trying to build, solve, or figure out?"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Send briefing</button>
+          </div>
+          <p class="form-status" aria-live="polite"></p>
+          <p class="field-note">{homeContent.contact.fieldNote}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

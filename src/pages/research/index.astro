@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { researchContent } from '../../lib/site';
+import { getResearchReports } from '../../lib/research';
+
+const reports = getResearchReports();
+---
+<BaseLayout title={`Research Archive | The Top Secret Corporation`} description="Research briefings and field reports from The Top Secret Corporation.">
+  <section class="archive-hero">
+    <div class="container">
+      <div class="copy-stack archive-copy">
+        <span class="eyebrow">{researchContent.eyebrow}</span>
+        <h1>{researchContent.title}</h1>
+        <p class="hero-copy">{researchContent.body}</p>
+        <div class="archive-meta">
+          <span class="meta-chip">{reports.length} reports</span>
+          <span>{researchContent.orderedLabel}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reports-section">
+    <div class="container">
+      {reports.length ? (
+        <div class="reports-grid">
+          {reports.map((report) => (
+            <article class="report-card">
+              <span class="report-date">{report.displayDate}</span>
+              <div>
+                <h2>{report.title}</h2>
+              </div>
+              <p class="report-summary">{report.description}</p>
+              <div class="meta-row">
+                <span>{report.author}</span>
+                <span>{`Published ${report.displayDate}`}</span>
+              </div>
+              <a class="report-link" href={report.href} target="_blank" rel="noopener noreferrer">Read report</a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">{researchContent.emptyMessage}</div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
