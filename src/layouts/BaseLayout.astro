@@ -10,7 +10,7 @@ interface Props {
 const { title = siteSettings.siteTitle, description = siteSettings.siteDescription } = Astro.props;
 const nav = getPrimaryNav();
 const path = Astro.url.pathname;
-const pageClass = path === '/research/' ? 'page-research' : 'page-home';
+const pageClass = path.startsWith('/research/reports/') ? 'page-research-report' : path === '/research/' ? 'page-research' : 'page-home';
 ---
 <!DOCTYPE html>
 <html lang="en">

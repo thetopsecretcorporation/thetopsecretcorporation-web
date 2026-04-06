@@ -257,6 +257,110 @@ select {
   transform: rotate(45deg);
 }
 
+.report-page-section {
+  padding-top: 0;
+}
+
+.report-page-card {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px clamp(24px, 4vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(16, 21, 28, 0.98), rgba(11, 15, 20, 0.98));
+  box-shadow: 0 24px 48px rgba(5, 12, 23, 0.24);
+}
+
+.report-prose {
+  color: var(--slate);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.report-prose > * + * {
+  margin-top: 1.2rem;
+}
+
+.report-prose h2,
+.report-prose h3,
+.report-prose h4 {
+  line-height: 1.2;
+  margin-top: 2.2rem;
+}
+
+.report-prose h2 {
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+}
+
+.report-prose h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+}
+
+.report-prose p,
+.report-prose li {
+  color: var(--text-soft);
+}
+
+.report-prose ul,
+.report-prose ol {
+  padding-left: 1.25rem;
+}
+
+.report-prose a {
+  color: #ff8787;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.report-prose strong {
+  color: var(--slate);
+}
+
+.report-prose blockquote,
+.report-callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid rgba(227, 58, 58, 0.9);
+  border-radius: 12px;
+  background: rgba(227, 58, 58, 0.08);
+}
+
+.report-score-grid,
+.report-compare {
+  display: grid;
+  gap: 16px;
+  margin: 1.75rem 0;
+}
+
+.report-score-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.report-compare {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.report-score-card,
+.report-compare > div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.report-score-card .label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.report-score-card strong {
+  font-size: 1.6rem;
+}
+
 .mobile-menu-button[aria-expanded='true'] .mobile-menu-icon span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0.6);

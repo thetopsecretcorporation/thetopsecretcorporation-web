@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const reports = Object.values(import.meta.glob('../../../content/researchReports/*.md', { eager: true }));
+
+  return reports
+    .filter((report) => !report.frontmatter.draft)
+    .map((report) => ({
+      params: {
+        slug: report.file.split(/[\\/]/).pop()?.replace(/\.md$/i, ''),
+      },
+      props: { report },
+    }));
+}
+
+const { report } = Astro.props;
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+}).format(new Date(report.frontmatter.publishDate));
+const AuthorName = report.frontmatter.author.replace(/^By\s+/i, '');
+const tags = report.frontmatter.tags ?? [];
+const Content = report.Content;
+---
+<BaseLayout title={`${report.frontmatter.title} | Research | The Top Secret Corporation`} description={report.frontmatter.summary}>
+  <section class="archive-hero report-hero">
+    <div class="container">
+      <div class="copy-stack archive-copy report-shell">
+        <span class="eyebrow">// Research report</span>
+        <h1>{report.frontmatter.title}</h1>
+        <p class="hero-copy">{report.frontmatter.summary}</p>
+        <div class="archive-meta">
+          <span class="meta-chip">{`Published ${formattedDate}`}</span>
+          <span>{`By ${AuthorName}`}</span>
+          {tags.length ? <span>{tags.join(' / ')}</span> : null}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reports-section report-page-section">
+    <div class="container">
+      <article class="report-page-card">
+        <div class="report-prose">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

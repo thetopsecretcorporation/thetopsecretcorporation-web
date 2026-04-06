@@ -1,9 +1,33 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchContent } from '../../lib/site';
-import { getResearchReports } from '../../lib/research';
+import { getLegacyResearchReports, type ResearchReport } from '../../lib/research';
 
-const reports = getResearchReports();
+const markdownEntries = Object.values(import.meta.glob('../../content/researchReports/*.md', { eager: true }));
+
+const markdownReports: ResearchReport[] = markdownEntries
+  .filter((entry) => !entry.frontmatter.draft)
+  .map((entry) => {
+    const publishDate = new Date(entry.frontmatter.publishDate);
+
+    return {
+      slug: entry.file.split(/[\\/]/).pop()?.replace(/\.md$/i, '') ?? entry.url.replace(/^\/research\/reports\//, '').replace(/\/$/, ''),
+      href: entry.url,
+      title: entry.frontmatter.title,
+      description: entry.frontmatter.summary,
+      date: publishDate.toISOString().slice(0, 10),
+      displayDate: new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      }).format(publishDate),
+      author: entry.frontmatter.author.startsWith('By ') ? entry.frontmatter.author : `By ${entry.frontmatter.author}`,
+      source: 'markdown',
+      tags: entry.frontmatter.tags ?? [],
+    };
+  });
+
+const reports = [...markdownReports, ...getLegacyResearchReports()].sort((a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug));
 ---
 <BaseLayout title={`Research Archive | The Top Secret Corporation`} description="Research briefings and field reports from The Top Secret Corporation.">
   <section class="archive-hero">
@@ -35,7 +59,14 @@ const reports = getResearchReports();
                 <span>{report.author}</span>
                 <span>{`Published ${report.displayDate}`}</span>
               </div>
-              <a class="report-link" href={report.href} target="_blank" rel="noopener noreferrer">Read report</a>
+              <a
+                class="report-link"
+                href={report.href}
+                target={report.source === 'legacy-html' ? '_blank' : undefined}
+                rel={report.source === 'legacy-html' ? 'noopener noreferrer' : undefined}
+              >
+                Read report
+              </a>
             </article>
           ))}
         </div>

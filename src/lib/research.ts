@@ -9,6 +9,8 @@ export type ResearchReport = {
   date: string;
   displayDate: string;
   author: string;
+  source: 'legacy-html' | 'markdown';
+  tags?: string[];
 };
 
 const reportsDir = path.join(process.cwd(), 'public', 'research', 'reports');
@@ -58,7 +60,7 @@ function formatDisplayDate(date: string) {
   }).format(parsed);
 }
 
-export function getResearchReports(): ResearchReport[] {
+export function getLegacyResearchReports(): ResearchReport[] {
   if (!fs.existsSync(reportsDir)) return [];
 
   return fs
@@ -87,6 +89,8 @@ export function getResearchReports(): ResearchReport[] {
         date,
         displayDate: formatDisplayDate(date),
         author: author.startsWith('By ') ? author : `By ${author}`,
+        source: 'legacy-html',
+        tags: [],
       };
     })
     .sort((a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug));

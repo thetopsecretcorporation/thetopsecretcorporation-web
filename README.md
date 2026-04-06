@@ -6,9 +6,10 @@ Astro-based production website for The Top Secret Corporation.
 - Astro static site foundation
 - Shared layout, nav, footer, and global styling
 - Homepage rendered from JSON content
-- Research archive rendered from static report metadata
+- Research archive rendered from legacy static report metadata plus markdown-backed reports
 - Existing report URLs preserved under `/research/reports/`
 - Decap CMS mounted at `/admin`
+- GitHub OAuth flow for Decap CMS on Cloudflare Pages
 - Cloudflare Pages deployment workflow scaffolded in GitHub Actions
 
 ## Commands
@@ -21,6 +22,7 @@ Astro-based production website for The Top Secret Corporation.
 - `src/content/site/settings.json`
 - `src/content/site/home.json`
 - `src/content/site/research.json`
+- `src/content/researchReports/*.md`
 
 ## Deployment
 - Cloudflare Pages project: `thetopsecretcorporation-web`
@@ -37,7 +39,10 @@ npm run build
 wrangler pages deploy dist --project-name=thetopsecretcorporation-web
 ```
 
-## CMS
-Initial Decap config lives at `public/admin/config.yml`.
+`npm run build` runs Astro and then copies the Cloudflare Pages worker to `dist/_worker.js` so `/api/auth` and `/api/callback` are deployed with the static site.
 
-Production auth still needs the final GitHub/Decap OAuth setup before `/admin` can be used live on Cloudflare Pages.
+## CMS
+- Decap config lives at `public/admin/config.yml`
+- The admin entrypoint lives at `src/pages/admin/index.astro`
+- Cloudflare Pages OAuth handler source lives at `workers/pages-oauth-worker.js`
+- Standalone Pages Functions versions of the auth handlers live in `functions/api/`
