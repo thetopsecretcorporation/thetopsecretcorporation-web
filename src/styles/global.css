@@ -139,22 +139,10 @@ select {
 }
 
 .brand-mark {
-  position: relative;
   width: 18px;
   height: 18px;
-  border-radius: 2px;
-  background: var(--ember);
   flex: 0 0 auto;
-}
-
-.brand-mark::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  width: 6px;
-  height: 6px;
-  background: var(--night);
+  color: var(--ember);
 }
 
 .nav {
