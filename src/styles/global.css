@@ -245,79 +245,178 @@ select {
   transform: rotate(45deg);
 }
 
-.report-page-section {
-  padding-top: 0;
+.report-reading-section {
+  background: var(--slate);
+  color: var(--night);
+  padding: 96px 0 112px;
 }
 
-.report-page-card {
-  max-width: 920px;
+.report-reading-shell {
+  width: min(calc(100% - 64px), 1080px);
+}
+
+.report-reading-field {
+  max-width: 804px;
   margin: 0 auto;
-  padding: 40px clamp(24px, 4vw, 48px);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgba(16, 21, 28, 0.98), rgba(11, 15, 20, 0.98));
-  box-shadow: 0 24px 48px rgba(5, 12, 23, 0.24);
+  padding: 0 32px;
 }
 
 .report-prose {
-  color: var(--slate);
-  font-size: 1rem;
-  line-height: 1.8;
+  color: var(--night);
+  font-size: 18px;
+  line-height: 1.68;
 }
 
 .report-prose > * + * {
-  margin-top: 1.2rem;
+  margin-top: 20px;
+}
+
+.report-prose > :first-child {
+  margin-top: 0;
+}
+
+.report-prose > p:first-child {
+  font-size: 20px;
+  line-height: 1.62;
+  color: rgba(11, 15, 20, 0.88);
 }
 
 .report-prose h2,
 .report-prose h3,
 .report-prose h4 {
-  line-height: 1.2;
-  margin-top: 2.2rem;
+  color: var(--night);
+  line-height: 1.14;
+  font-weight: 700;
 }
 
 .report-prose h2 {
-  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  margin-top: 56px;
+  margin-bottom: -2px;
+  font-size: clamp(28px, 2.6vw, 36px);
+  letter-spacing: 0.035em;
 }
 
 .report-prose h3 {
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  margin-top: 36px;
+  margin-bottom: -4px;
+  font-size: clamp(22px, 2vw, 24px);
+  letter-spacing: 0.015em;
+  text-transform: none;
+}
+
+.report-prose h4 {
+  margin-top: 28px;
+  margin-bottom: -6px;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
 .report-prose p,
-.report-prose li {
-  color: var(--text-soft);
+.report-prose li,
+.report-prose td {
+  color: rgba(11, 15, 20, 0.78);
 }
 
 .report-prose ul,
 .report-prose ol {
-  padding-left: 1.25rem;
+  padding-left: 1.4rem;
+  margin: 24px 0;
+}
+
+.report-prose li + li {
+  margin-top: 10px;
+}
+
+.report-prose ul li::marker,
+.report-prose ol li::marker {
+  color: rgba(227, 58, 58, 0.88);
 }
 
 .report-prose a {
-  color: #ff8787;
+  color: var(--ember-depth);
   text-decoration: underline;
-  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.report-prose a:hover,
+.report-prose a:focus-visible {
+  color: var(--ember);
 }
 
 .report-prose strong {
-  color: var(--slate);
+  color: rgba(11, 15, 20, 0.92);
 }
 
 .report-prose blockquote,
 .report-callout {
-  margin: 1.5rem 0;
-  padding: 1rem 1.15rem;
-  border-left: 3px solid rgba(227, 58, 58, 0.9);
-  border-radius: 12px;
-  background: rgba(227, 58, 58, 0.08);
+  margin: 32px 0;
+  padding: 20px 24px;
+  border: 1px solid rgba(11, 15, 20, 0.08);
+  border-left: 3px solid rgba(227, 58, 58, 0.56);
+  border-radius: 10px;
+  background: #f2f5f8;
+  box-shadow: 0 10px 24px rgba(5, 12, 23, 0.06);
+}
+
+.report-prose blockquote p,
+.report-callout p,
+.report-callout {
+  color: rgba(11, 15, 20, 0.82);
+}
+
+.report-prose hr {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid rgba(11, 15, 20, 0.1);
+}
+
+.report-prose img {
+  margin: 32px 0 12px;
+  border-radius: 10px;
+}
+
+.report-prose table {
+  display: block;
+  width: 100%;
+  margin: 32px 0;
+  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(11, 15, 20, 0.08);
+  border-radius: 10px;
+  background: #f7f9fb;
+}
+
+.report-prose thead {
+  background: rgba(11, 15, 20, 0.05);
+}
+
+.report-prose th,
+.report-prose td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(11, 15, 20, 0.08);
+}
+
+.report-prose th {
+  color: rgba(11, 15, 20, 0.72);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.report-prose tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .report-score-grid,
 .report-compare {
   display: grid;
   gap: 16px;
-  margin: 1.75rem 0;
+  margin: 32px 0;
 }
 
 .report-score-grid {
@@ -330,22 +429,24 @@ select {
 
 .report-score-card,
 .report-compare > div {
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border: 1px solid rgba(11, 15, 20, 0.08);
+  border-radius: 10px;
+  background: #f2f5f8;
+  box-shadow: 0 10px 24px rgba(5, 12, 23, 0.05);
 }
 
 .report-score-card .label {
   display: block;
   margin-bottom: 8px;
-  color: var(--text-muted);
-  font-size: 0.82rem;
+  color: rgba(11, 15, 20, 0.56);
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .report-score-card strong {
+  color: rgba(11, 15, 20, 0.92);
   font-size: 1.6rem;
 }
 
@@ -1233,6 +1334,41 @@ h2 + .section-body,
 
   .archive-hero {
     padding: 104px 0 40px;
+  }
+
+  .report-reading-section {
+    padding: 64px 0 80px;
+  }
+
+  .report-reading-shell {
+    width: min(calc(100% - 36px), 720px);
+  }
+
+  .report-reading-field {
+    padding: 0 18px;
+  }
+
+  .report-prose {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .report-prose > p:first-child {
+    font-size: 18px;
+  }
+
+  .report-prose h2 {
+    margin-top: 48px;
+    font-size: clamp(26px, 7vw, 32px);
+    letter-spacing: 0.03em;
+  }
+
+  .report-prose h3 {
+    font-size: 22px;
+  }
+
+  .report-prose table {
+    font-size: 15px;
   }
 
   .footer {
