@@ -12,7 +12,6 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.7",
     "astro": "^6.1.4",
-    "decap-cms-app": "^3.11.0",
     "js-yaml": "^4.1.1"
   }
 }
