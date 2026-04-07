@@ -246,25 +246,51 @@ select {
 }
 
 .report-reading-section {
-  background: var(--slate);
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(242, 245, 248, 0.92) 0%, var(--slate) 84px, var(--slate) 100%);
   color: var(--night);
-  padding: 96px 0 112px;
+  padding: 64px 0 118px;
+}
+
+.report-reading-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: linear-gradient(180deg, rgba(11, 15, 20, 0.18) 0%, rgba(11, 15, 20, 0) 100%);
+  opacity: 0.22;
+  pointer-events: none;
 }
 
 .report-reading-shell {
-  width: min(calc(100% - 64px), var(--container));
+  width: min(calc(100% - 64px), 1120px);
 }
 
 .report-reading-field {
+  position: relative;
   width: 100%;
+  padding-top: 16px;
+}
+
+.report-reading-field::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(100%, 880px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(11, 15, 20, 0.12) 0%, rgba(11, 15, 20, 0.04) 72%, rgba(11, 15, 20, 0) 100%);
 }
 
 .report-prose {
   display: grid;
-  gap: 20px;
+  gap: 0;
   color: var(--night);
-  font-size: 18px;
-  line-height: 1.68;
+  font-size: 17px;
+  line-height: 1.72;
 }
 
 .report-prose > * {
@@ -279,9 +305,34 @@ select {
   margin-top: 0;
 }
 
+.report-prose > p,
+.report-prose > ul,
+.report-prose > ol,
+.report-prose > table,
+.report-prose > blockquote,
+.report-prose > .report-callout,
+.report-prose > .report-score-grid,
+.report-prose > .report-compare,
+.report-prose > hr,
+.report-prose > img {
+  margin-top: 22px;
+}
+
+.report-prose > h2 {
+  margin-top: 72px;
+}
+
+.report-prose > h3 {
+  margin-top: 38px;
+}
+
+.report-prose > h4 {
+  margin-top: 26px;
+}
+
 .report-prose > p:first-child {
-  font-size: 20px;
-  line-height: 1.62;
+  font-size: 19px;
+  line-height: 1.68;
   color: rgba(11, 15, 20, 0.88);
 }
 
@@ -294,24 +345,21 @@ select {
 }
 
 .report-prose h2 {
-  margin-top: 56px;
-  margin-bottom: -2px;
-  font-size: clamp(28px, 2.6vw, 36px);
-  letter-spacing: 0.035em;
+  margin-bottom: 8px;
+  font-size: clamp(24px, 2.1vw, 30px);
+  letter-spacing: 0.028em;
 }
 
 .report-prose h3 {
-  margin-top: 36px;
-  margin-bottom: -4px;
-  font-size: clamp(22px, 2vw, 24px);
-  letter-spacing: 0.015em;
+  margin-bottom: 6px;
+  font-size: clamp(20px, 1.7vw, 23px);
+  letter-spacing: 0.012em;
   text-transform: none;
 }
 
 .report-prose h4 {
-  margin-top: 28px;
-  margin-bottom: -6px;
-  font-size: 18px;
+  margin-bottom: 4px;
+  font-size: 17px;
   letter-spacing: 0.01em;
   text-transform: none;
 }
@@ -322,10 +370,19 @@ select {
   color: rgba(11, 15, 20, 0.78);
 }
 
+.report-prose p + p {
+  margin-top: 18px;
+}
+
+.report-prose h2 + p,
+.report-prose h3 + p,
+.report-prose h4 + p {
+  margin-top: 12px;
+}
+
 .report-prose ul,
 .report-prose ol {
-  padding-left: 1.4rem;
-  margin: 24px 0;
+  padding-left: 1.35rem;
 }
 
 .report-prose li + li {
@@ -355,13 +412,12 @@ select {
 
 .report-prose blockquote,
 .report-callout {
-  margin: 32px 0;
-  padding: 20px 24px;
-  border: 1px solid rgba(11, 15, 20, 0.08);
-  border-left: 3px solid rgba(227, 58, 58, 0.56);
-  border-radius: 10px;
-  background: #f2f5f8;
-  box-shadow: 0 10px 24px rgba(5, 12, 23, 0.06);
+  padding: 18px 22px;
+  border: 1px solid rgba(11, 15, 20, 0.07);
+  border-left: 2px solid rgba(227, 58, 58, 0.52);
+  border-radius: 8px;
+  background: rgba(242, 245, 248, 0.84);
+  box-shadow: 0 8px 18px rgba(5, 12, 23, 0.04);
 }
 
 .report-prose blockquote p,
@@ -371,42 +427,40 @@ select {
 }
 
 .report-prose hr {
-  margin: 40px 0;
   border: 0;
   border-top: 1px solid rgba(11, 15, 20, 0.1);
 }
 
 .report-prose img {
-  margin: 32px 0 12px;
   border-radius: 10px;
 }
 
 .report-prose table {
   display: block;
   width: 100%;
-  margin: 32px 0;
   overflow-x: auto;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid rgba(11, 15, 20, 0.08);
-  border-radius: 10px;
-  background: #f7f9fb;
+  border: 1px solid rgba(11, 15, 20, 0.06);
+  border-radius: 8px;
+  background: rgba(247, 249, 251, 0.94);
+  box-shadow: 0 6px 16px rgba(5, 12, 23, 0.035);
 }
 
 .report-prose thead {
-  background: rgba(11, 15, 20, 0.05);
+  background: rgba(11, 15, 20, 0.04);
 }
 
 .report-prose th,
 .report-prose td {
-  padding: 12px 14px;
+  padding: 11px 13px;
   text-align: left;
-  border-bottom: 1px solid rgba(11, 15, 20, 0.08);
+  border-bottom: 1px solid rgba(11, 15, 20, 0.07);
 }
 
 .report-prose th {
-  color: rgba(11, 15, 20, 0.72);
-  font-size: 12px;
+  color: rgba(11, 15, 20, 0.68);
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -427,8 +481,7 @@ select {
 .report-score-grid,
 .report-compare {
   display: grid;
-  gap: 16px;
-  margin: 32px 0;
+  gap: 14px;
 }
 
 .report-score-grid {
@@ -441,25 +494,25 @@ select {
 
 .report-score-card,
 .report-compare > div {
-  padding: 20px;
-  border: 1px solid rgba(11, 15, 20, 0.08);
-  border-radius: 10px;
-  background: #f2f5f8;
-  box-shadow: 0 10px 24px rgba(5, 12, 23, 0.05);
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(11, 15, 20, 0.06);
+  border-radius: 8px;
+  background: rgba(242, 245, 248, 0.82);
+  box-shadow: 0 8px 18px rgba(5, 12, 23, 0.04);
 }
 
 .report-score-card .label {
   display: block;
-  margin-bottom: 8px;
-  color: rgba(11, 15, 20, 0.56);
-  font-size: 13px;
+  margin-bottom: 7px;
+  color: rgba(11, 15, 20, 0.52);
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .report-score-card strong {
   color: rgba(11, 15, 20, 0.92);
-  font-size: 1.6rem;
+  font-size: 1.45rem;
 }
 
 .mobile-menu-button[aria-expanded='true'] .mobile-menu-icon span:nth-child(2) {
@@ -550,11 +603,11 @@ h3 {
 
 .page-research .archive-copy .hero-copy,
 .page-research .report-summary {
-  line-height: 1.65;
+  line-height: 1.62;
 }
 
 .page-research .archive-copy .hero-copy {
-  max-width: 760px;
+  max-width: 680px;
 }
 
 .page-research .report-summary {
@@ -1006,7 +1059,7 @@ h2 + .section-body,
 }
 
 .archive-hero {
-  padding: 132px 0 56px;
+  padding: 124px 0 40px;
 }
 
 .page-research {
@@ -1014,32 +1067,53 @@ h2 + .section-body,
   --radius: 12px;
 }
 
+.report-hero {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.report-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: linear-gradient(180deg, rgba(11, 15, 20, 0) 0%, rgba(11, 15, 20, 0.28) 100%);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.report-shell {
+  gap: 16px;
+}
+
 .page-research h1 {
-  max-width: 860px;
-  font-size: clamp(40px, 5vw, 60px);
+  max-width: 780px;
+  font-size: clamp(38px, 4.6vw, 54px);
 }
 
 .archive-copy {
-  max-width: 860px;
+  max-width: 820px;
 }
 
 .archive-meta,
 .meta-row {
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .archive-meta {
   color: var(--platinum);
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.08em;
 }
 
 .meta-chip {
-  border: 1px solid rgba(227, 58, 58, 0.32);
-  background: rgba(227, 58, 58, 0.1);
+  border: 1px solid rgba(227, 58, 58, 0.26);
+  background: rgba(227, 58, 58, 0.08);
   color: var(--ember);
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 999px;
 }
 
@@ -1345,11 +1419,33 @@ h2 + .section-body,
   }
 
   .archive-hero {
-    padding: 104px 0 40px;
+    padding: 96px 0 28px;
+  }
+
+  .report-shell {
+    gap: 14px;
+  }
+
+  .page-research h1 {
+    max-width: 100%;
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  .page-research .archive-copy .hero-copy {
+    max-width: 100%;
+  }
+
+  .archive-meta {
+    font-size: 11px;
+    gap: 10px;
+  }
+
+  .meta-chip {
+    padding: 7px 10px;
   }
 
   .report-reading-section {
-    padding: 64px 0 80px;
+    padding: 48px 0 80px;
   }
 
   .report-reading-shell {
@@ -1358,29 +1454,56 @@ h2 + .section-body,
 
   .report-reading-field {
     width: 100%;
+    padding-top: 12px;
   }
 
   .report-prose {
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.68;
+  }
+
+  .report-prose > p,
+  .report-prose > ul,
+  .report-prose > ol,
+  .report-prose > table,
+  .report-prose > blockquote,
+  .report-prose > .report-callout,
+  .report-prose > .report-score-grid,
+  .report-prose > .report-compare,
+  .report-prose > hr,
+  .report-prose > img {
+    margin-top: 18px;
   }
 
   .report-prose > p:first-child {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .report-prose > h2 {
+    margin-top: 52px;
   }
 
   .report-prose h2 {
-    margin-top: 48px;
-    font-size: clamp(26px, 7vw, 32px);
-    letter-spacing: 0.03em;
+    font-size: clamp(22px, 7vw, 28px);
+    letter-spacing: 0.025em;
   }
 
   .report-prose h3 {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .report-prose table {
     font-size: 15px;
+  }
+
+  .report-score-grid,
+  .report-compare {
+    gap: 12px;
+  }
+
+  .report-score-card,
+  .report-compare > div {
+    padding: 16px;
   }
 
   .footer {
