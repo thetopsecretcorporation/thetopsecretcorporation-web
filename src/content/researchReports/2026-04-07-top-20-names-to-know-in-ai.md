@@ -30,6 +30,8 @@ That is the frame for this list.
 
 These are the 20 names that matter most in AI **right now**—not as a hall of fame, but as an operating map for where the market is actually moving.
 
+> **Suggested image placement:** hero image or custom cover illustration here. Best option: a clean market-map graphic showing the three layers — model labs, agent platforms, and infrastructure/control layers.
+
 ## Key Findings
 
 - AI has shifted from chat interfaces to **agentic systems** that can complete multi-step work.
@@ -42,7 +44,7 @@ These are the 20 names that matter most in AI **right now**—not as a hall of f
 
 ## Analysis
 
-## The market is asking a different question now
+### The market is asking a different question now
 
 A year ago, the headline question was simple: who has the smartest model?
 
@@ -54,13 +56,13 @@ That is a different contest. A company can have a brilliant model and still lose
 
 For non-technical readers, the cleanest way to understand the AI market in 2026 is this:
 
-1. Some companies build the brains.
-2. Some companies build the workers.
-3. Some companies build the control room.
+01. Some companies build the brains.
+02. Some companies build the workers.
+03. Some companies build the control room.
 
 The names below matter because they shape one or more of those layers.
 
-## A quick market map
+### A quick market map
 
 | Company | Primary role | Why it matters right now |
 |---|---|---|
@@ -85,27 +87,29 @@ The names below matter because they shape one or more of those layers.
 | Hugging Face | Open-model ecosystem | Still the connective tissue of the open-model world |
 | Palantir | Operational deployment layer | Increasingly important where AI is tied to high-consequence workflows and decisions |
 
-## The 20 names that matter in AI right now
+> **Suggested image placement:** custom infographic or matrix immediately after this table. Best option: a 3-column market map placing all 20 companies into model labs, agent platforms, and infrastructure/control layers.
 
-### 1) OpenAI
+### The 20 names that matter in AI right now
+
+#### 01. OpenAI
 
 OpenAI still defines the default expectation for what a general-purpose AI system should be able to do. What matters now is that it no longer operates only as a model company. It is also trying to define the default **agent product** and **agent developer stack**.
 
 Its influence increasingly runs through research workflows, structured outputs, tool use, and frameworks built for action rather than pure generation. That makes OpenAI important not just because of model quality, but because the rest of the market still tends to react to its product shape.
 
-### 2) Anthropic
+#### 02. Anthropic
 
 Anthropic has become the strongest alternative to OpenAI for buyers who want frontier capability without giving up control. Its position is not just about Claude as a model family. It is about linking capability to governance.
 
 Moves around **Claude Code**, **computer use**, enterprise controls, and the MCP ecosystem have reinforced Anthropic’s identity as the serious buyer’s frontier AI provider. That is a durable position in a market moving from demos to delegated work.
 
-### 3) Google
+#### 03. Google
 
 Google matters because it is attacking the market from every layer at once. Gemini remains central at the model layer. **Gemma 4** extends Google’s influence into the open-model world. **Vertex AI** and the **Agent Development Kit (ADK)** give it a serious platform story around memory, orchestration, and deployment.
 
 The strategic point is breadth. Google is one of the few companies with a credible claim across models, cloud runtime, developer tooling, security, and end-user surfaces.
 
-### 4) Microsoft
+#### 04. Microsoft
 
 Microsoft’s advantage is distribution. It can bring AI directly into software people already use.
 
@@ -113,7 +117,7 @@ That is why **Microsoft 365 Copilot**, **Agent 365**, and broader Foundry capabi
 
 If OpenAI helps define the assistant, Microsoft is trying to define the AI-enabled employee stack.
 
-### 5) Amazon Web Services
+#### 05. Amazon Web Services
 
 AWS matters because it is tackling the part of the market that becomes decisive once the demos end: production operations.
 
@@ -121,7 +125,7 @@ AWS matters because it is tackling the part of the market that becomes decisive 
 
 AWS is making the case that the future of AI will be won in runtime, not rhetoric.
 
-### 6) NVIDIA
+#### 06. NVIDIA
 
 NVIDIA is no longer just the company selling the hardware that powers AI. It is increasingly shaping how AI gets packaged, served, and deployed.
 
@@ -129,13 +133,13 @@ NVIDIA is no longer just the company selling the hardware that powers AI. It is 
 
 In a world of expensive, latency-sensitive, stateful agents, that is a powerful position.
 
-### 7) Perplexity
+#### 07. Perplexity
 
 Perplexity matters because it has made AI-native research feel concrete to ordinary users.
 
 Its importance is no longer just citation-backed answers. Products such as **Perplexity Computer** and broader research workflows push toward a more agentic model: not just summarizing information, but carrying work forward. That makes Perplexity one of the clearest public examples of the difference between a chatbot and a research agent.
 
-### 8) OpenClaw
+#### 08. OpenClaw
 
 OpenClaw matters because it reflects where a large share of the agent market is actually headed: away from standalone chat and toward orchestrated software workers.
 
@@ -143,79 +147,81 @@ Its architecture is built around typed tools, skills, browser control, file and 
 
 OpenClaw is worth watching because it makes the operational future of agentic AI easier to see.
 
-### 9) Meta
+#### 09. Meta
 
 Meta remains important because open models still exert real pressure on the market. Portability, self-hosting, customization, and pricing flexibility remain strategic concerns for serious buyers, and Meta’s model strategy continues to shape those dynamics.
 
 It also still has enormous consumer distribution. That combination keeps Meta structurally important even when it is not winning the week’s headline cycle.
 
-### 10) xAI
+#### 10. xAI
 
 xAI matters because AI is still partly an attention market. Consumer expectations, product personality, and distribution shape adoption faster than many infrastructure-heavy observers admit.
 
 Through **Grok** and its public visibility, xAI remains one of the few companies capable of pulling mainstream attention toward its product choices. That may not make it the deepest enterprise platform, but it absolutely makes it a consequential category shaper.
 
-### 11) Mistral AI
+#### 11. Mistral AI
 
 Mistral remains relevant because the market still wants alternatives to a fully closed, U.S.-big-tech-centered future.
 
 Its importance is strategic: a credible independent model vendor, a European counterweight, and a continuing argument for deployment flexibility and buyer optionality. In a consolidating market, that role matters.
 
-### 12) Cohere
+#### 12. Cohere
 
 Cohere remains important because it has stayed focused on enterprise usefulness rather than spectacle.
 
 That matters more than it sounds. Much of the actual value in business AI still comes from retrieval, document grounding, privacy, deployment flexibility, and workflow utility. Cohere continues to align with that reality better than many louder competitors.
 
-### 13) Databricks
+#### 13. Databricks
 
 Databricks matters because enterprise agents fail when the data layer fails.
 
 Most enterprise AI breaks not because the prose is awkward, but because the system cannot reach the right data, cannot evaluate quality, cannot maintain governance, or cannot operationalize against real workflows. Databricks sits in the middle of those problems, which makes it strategically important well beyond raw model discussion.
 
-### 14) ServiceNow
+#### 14. ServiceNow
 
 ServiceNow’s importance comes from fit. AI becomes more valuable when it can act inside operational systems that already matter to the business.
 
 ServiceNow already owns many of those systems: tickets, approvals, service workflows, internal operations, and enterprise coordination. That makes it unusually well positioned as AI shifts from novelty to workflow.
 
-### 15) Salesforce
+#### 15. Salesforce
 
 Salesforce stays important because customer-facing work is one of the first places enterprises expect AI to prove financial value.
 
 That is why **Agentforce** matters. It is not just another branded assistant. It is Salesforce’s attempt to turn AI into a CRM-native worker embedded inside sales, support, and service workflows. That is strategically powerful because CRM systems hold some of the highest-value operational context in the enterprise.
 
-### 16) Notion
+#### 16. Notion
 
 Notion matters because interface design still matters.
 
 A large share of AI adoption will be decided by who makes AI feel native to the way people already think, write, organize, and plan. Notion has become one of the clearest examples of that. Its importance is not full-stack dominance. It is showing how AI gets absorbed into daily knowledge work without feeling bolted on.
 
-### 17) Oracle
+#### 17. Oracle
 
 Oracle remains relevant because incumbency still matters in enterprise technology.
 
 AI adoption is happening inside large organizations with existing systems of record, procurement patterns, compliance constraints, and long-standing vendor relationships. Oracle remains deeply embedded in those realities, which makes it more consequential than its public AI cool factor suggests.
 
-### 18) Cerebras
+#### 18. Cerebras
 
 Cerebras matters because inference performance is becoming a strategic battleground.
 
 As models become more reasoning-heavy and agents more persistent, cost and latency become harder constraints. That creates room for challengers whose value proposition is not brand or distribution, but speed and economics. Cerebras is one of the names to watch in that fight.
 
-### 19) Hugging Face
+#### 19. Hugging Face
 
 Hugging Face remains essential because it is still the connective tissue of the open-model ecosystem.
 
 Its significance is not that it needs to beat frontier labs head-to-head. It matters because it shapes how models spread, how developers discover capabilities, and how the open ecosystem remains legible. In a mixed open/closed market, that connective role is powerful.
 
-### 20) Palantir
+#### 20. Palantir
 
 Palantir matters because it operates where AI becomes consequential and hard to fake.
 
 Many enterprises do not need another elegant AI demo. They need AI connected to decisions, permissions, workflows, and systems where errors have real costs. That is exactly where Palantir is increasingly relevant. Its importance comes from operational deployment, not cultural buzz.
 
-## The pattern underneath the list
+> **Suggested image placement:** midway through or after the top-20 section. Best option: a branded scorecard graphic showing the 20 companies grouped by role, or a visual timeline of recent launches/products mentioned in the article.
+
+### The pattern underneath the list
 
 The most important lesson here is not the ranking. It is the stack.
 
@@ -239,6 +245,8 @@ The new one is much harder:
 - enterprise distribution
 
 That is why some of the most important names in AI right now are not the ones that dominated the earlier chatbot cycle. The market has moved downstream into deployment.
+
+> **Suggested image placement:** architecture-style visual here. Best option: a simple “old stack vs new stack” diagram.
 
 ## What non-technical readers should remember
 
