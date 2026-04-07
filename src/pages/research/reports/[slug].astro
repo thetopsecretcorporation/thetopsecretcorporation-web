@@ -31,10 +31,16 @@ const Content = report.Content;
         <span class="eyebrow">// Research report</span>
         <h1>{report.frontmatter.title}</h1>
         <p class="hero-copy">{report.frontmatter.summary}</p>
-        <div class="archive-meta">
+        <div class="archive-meta report-meta">
           <span class="meta-chip">{`Published ${formattedDate}`}</span>
           <span>{`By ${AuthorName}`}</span>
-          {tags.length ? <span>{tags.join(' / ')}</span> : null}
+          {tags.length ? (
+            <span class="report-taxonomy" aria-label="Report tags">
+              {tags.map((tag) => (
+                <span class="report-taxonomy-tag">{tag}</span>
+              ))}
+            </span>
+          ) : null}
         </div>
       </div>
     </div>
