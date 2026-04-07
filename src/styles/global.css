@@ -252,23 +252,27 @@ select {
 }
 
 .report-reading-shell {
-  width: min(calc(100% - 64px), 1080px);
+  width: min(calc(100% - 64px), var(--container));
 }
 
 .report-reading-field {
-  max-width: 804px;
-  margin: 0 auto;
-  padding: 0 32px;
+  width: 100%;
 }
 
 .report-prose {
+  display: grid;
+  gap: 20px;
   color: var(--night);
   font-size: 18px;
   line-height: 1.68;
 }
 
+.report-prose > * {
+  width: min(100%, 880px);
+}
+
 .report-prose > * + * {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .report-prose > :first-child {
@@ -410,6 +414,14 @@ select {
 
 .report-prose tbody tr:last-child td {
   border-bottom: 0;
+}
+
+.report-score-grid,
+.report-compare,
+.report-prose table,
+.report-prose img,
+.report-prose hr {
+  width: 100%;
 }
 
 .report-score-grid,
@@ -1341,11 +1353,11 @@ h2 + .section-body,
   }
 
   .report-reading-shell {
-    width: min(calc(100% - 36px), 720px);
+    width: min(calc(100% - 36px), var(--container));
   }
 
   .report-reading-field {
-    padding: 0 18px;
+    width: 100%;
   }
 
   .report-prose {
