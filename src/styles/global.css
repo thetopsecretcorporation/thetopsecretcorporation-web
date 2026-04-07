@@ -1099,9 +1099,10 @@ h2 + .section-body,
   --radius: 12px;
 }
 
-.report-hero {
+.page-research-report .report-hero {
   position: relative;
-  padding-bottom: 28px;
+  padding-top: 96px;
+  padding-bottom: 40px;
 }
 
 .report-hero::after {
@@ -1117,7 +1118,7 @@ h2 + .section-body,
 }
 
 .report-shell {
-  gap: 16px;
+  gap: 18px;
 }
 
 .page-research h1 {
@@ -1144,7 +1145,7 @@ h2 + .section-body,
 .report-meta {
   display: grid;
   justify-items: flex-start;
-  gap: 10px;
+  gap: 12px;
 }
 
 .report-meta-primary {
@@ -1485,8 +1486,13 @@ h2 + .section-body,
     padding: 96px 0 28px;
   }
 
+  .page-research-report .report-hero {
+    padding-top: 84px;
+    padding-bottom: 32px;
+  }
+
   .report-shell {
-    gap: 14px;
+    gap: 16px;
   }
 
   .page-research h1 {
