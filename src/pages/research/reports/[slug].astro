@@ -32,14 +32,16 @@ const Content = report.Content;
         <h1>{report.frontmatter.title}</h1>
         <p class="hero-copy">{report.frontmatter.summary}</p>
         <div class="archive-meta report-meta">
-          <span class="meta-chip">{`Published ${formattedDate}`}</span>
-          <span>{`By ${AuthorName}`}</span>
+          <div class="report-meta-primary">
+            <span class="meta-chip">{`Published ${formattedDate}`}</span>
+            <span>{`By ${AuthorName}`}</span>
+          </div>
           {tags.length ? (
-            <span class="report-taxonomy" aria-label="Report tags">
+            <div class="report-taxonomy" aria-label="Report tags">
               {tags.map((tag) => (
                 <span class="report-taxonomy-tag">{tag}</span>
               ))}
-            </span>
+            </div>
           ) : null}
         </div>
       </div>

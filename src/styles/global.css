@@ -270,31 +270,21 @@ select {
 }
 
 .report-reading-field {
-  position: relative;
   width: 100%;
-  padding-top: 16px;
-}
-
-.report-reading-field::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: min(100%, 880px);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(11, 15, 20, 0.12) 0%, rgba(11, 15, 20, 0.04) 72%, rgba(11, 15, 20, 0) 100%);
+  padding-top: 0;
 }
 
 .report-prose {
   display: grid;
   gap: 0;
+  width: 100%;
   color: var(--night);
   font-size: 17px;
   line-height: 1.72;
 }
 
 .report-prose > * {
-  width: min(100%, 880px);
+  width: 100%;
 }
 
 .report-prose > * + * {
@@ -345,21 +335,10 @@ select {
 }
 
 .report-prose h2 {
-  position: relative;
   margin-bottom: 8px;
-  padding-top: 18px;
+  padding-top: 0;
   font-size: clamp(24px, 2.1vw, 30px);
   letter-spacing: 0.028em;
-}
-
-.report-prose h2::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: min(100%, 132px);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(122, 15, 16, 0.42) 0%, rgba(11, 15, 20, 0.08) 100%);
 }
 
 .report-prose h3 {
@@ -499,13 +478,8 @@ select {
 
 .report-prose > h2:last-of-type {
   margin-top: 84px;
-  padding-top: 22px;
 }
 
-.report-prose > h2:last-of-type::before {
-  width: min(100%, 100%);
-  background: linear-gradient(90deg, rgba(11, 15, 20, 0.14) 0%, rgba(11, 15, 20, 0.04) 82%, rgba(11, 15, 20, 0) 100%);
-}
 
 .report-prose > h2:last-of-type + ul {
   display: grid;
@@ -517,14 +491,11 @@ select {
 
 .report-prose > h2:last-of-type + ul li {
   margin-top: 0;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(11, 15, 20, 0.08);
   color: rgba(11, 15, 20, 0.72);
 }
 
 .report-prose > h2:last-of-type + ul li:last-child {
   padding-bottom: 0;
-  border-bottom: 0;
 }
 
 .report-prose > h2:last-of-type + ul li::marker {
@@ -1171,26 +1142,34 @@ h2 + .section-body,
 }
 
 .report-meta {
-  align-items: flex-start;
+  display: grid;
+  justify-items: flex-start;
+  gap: 10px;
+}
+
+.report-meta-primary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .report-taxonomy {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  gap: 0 10px;
+  gap: 8px 10px;
   color: rgba(196, 202, 211, 0.74);
 }
 
 .report-taxonomy-tag {
-  position: relative;
   display: inline-flex;
   align-items: center;
-}
-
-.report-taxonomy-tag + .report-taxonomy-tag::before {
-  content: '/';
-  margin-right: 10px;
-  color: rgba(196, 202, 211, 0.42);
+  min-height: 30px;
+  padding: 6px 10px;
+  border: 1px solid rgba(196, 202, 211, 0.18);
+  border-radius: 999px;
+  background: rgba(229, 233, 238, 0.04);
+  color: rgba(229, 233, 238, 0.8);
 }
 
 .meta-chip {
