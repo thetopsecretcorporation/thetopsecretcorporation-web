@@ -1101,8 +1101,8 @@ h2 + .section-body,
 
 .page-research-report .report-hero {
   position: relative;
-  padding-top: 96px;
-  padding-bottom: 40px;
+  padding-top: 92px;
+  padding-bottom: 60px;
 }
 
 .report-hero::after {
@@ -1111,9 +1111,9 @@ h2 + .section-body,
   left: 0;
   right: 0;
   bottom: 0;
-  height: 56px;
-  background: linear-gradient(180deg, rgba(11, 15, 20, 0) 0%, rgba(11, 15, 20, 0.28) 100%);
-  opacity: 0.2;
+  height: 72px;
+  background: linear-gradient(180deg, rgba(11, 15, 20, 0) 0%, rgba(11, 15, 20, 0.32) 100%);
+  opacity: 0.24;
   pointer-events: none;
 }
 
@@ -1487,8 +1487,8 @@ h2 + .section-body,
   }
 
   .page-research-report .report-hero {
-    padding-top: 84px;
-    padding-bottom: 32px;
+    padding-top: 80px;
+    padding-bottom: 44px;
   }
 
   .report-shell {
