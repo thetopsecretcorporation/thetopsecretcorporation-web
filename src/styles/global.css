@@ -39,6 +39,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.page-research {
+  --shadow-panel: 0 16px 32px rgba(5, 12, 23, 0.24);
+  --radius: 12px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -630,16 +635,16 @@ h3 {
 .field-note,
 .agent-copy,
 .report-summary,
-.archive-copy .hero-copy {
+.page-intro-body {
   color: var(--text-soft);
 }
 
-.page-research .archive-copy .hero-copy,
+.page-research .page-intro-body,
 .page-research .report-summary {
   line-height: 1.62;
 }
 
-.page-research .archive-copy .hero-copy {
+.page-research .page-intro-body {
   max-width: 680px;
 }
 
@@ -802,7 +807,7 @@ h3 {
 
 h2 + .section-body,
 .copy-stack .section-body,
-.archive-copy .hero-copy {
+.page-intro-body {
   font-size: 18px;
 }
 
@@ -1091,13 +1096,8 @@ h2 + .section-body,
   transform: none;
 }
 
-.archive-hero {
-  padding: 124px 0 40px;
-}
-
-.page-research {
-  --shadow-panel: 0 16px 32px rgba(5, 12, 23, 0.24);
-  --radius: 12px;
+.archive-header {
+  padding: 104px 0 32px;
 }
 
 .page-research-report .report-hero {
@@ -1142,7 +1142,7 @@ h2 + .section-body,
   letter-spacing: 0.045em;
 }
 
-.page-research-report .archive-copy .hero-copy {
+.page-research-report .page-intro-body {
   max-width: 640px;
   font-size: 17px;
   line-height: 1.56;
@@ -1200,6 +1200,14 @@ h2 + .section-body,
 
 .reports-section {
   padding: 0 0 112px;
+}
+
+.report-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 100%;
+  flex: 1;
 }
 
 .reports-grid {
@@ -1430,7 +1438,7 @@ h2 + .section-body,
   .contact-body,
   .agent-copy,
   .report-summary,
-  .archive-copy .hero-copy {
+  .page-intro-body {
     font-size: 16px;
   }
 
@@ -1513,8 +1521,8 @@ h2 + .section-body,
     padding: 28px 20px;
   }
 
-  .archive-hero {
-    padding: 96px 0 28px;
+  .archive-header {
+    padding: 88px 0 24px;
   }
 
   .page-research-report .report-hero {
@@ -1543,7 +1551,7 @@ h2 + .section-body,
     letter-spacing: 0.035em;
   }
 
-  .page-research-report .archive-copy .hero-copy {
+  .page-research-report .page-intro-body {
     max-width: 100%;
     font-size: 16px;
     line-height: 1.58;

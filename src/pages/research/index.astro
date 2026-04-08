@@ -1,9 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchContent } from '../../lib/site';
-import { getLegacyResearchReports, type ResearchReport } from '../../lib/research';
 
-const markdownEntries = Object.values(import.meta.glob('../../content/researchReports/*.md', { eager: true }));
+type ResearchReportCard = {
+  slug: string;
+  href: string;
+  title: string;
+  description: string;
+  date: string;
+  displayDate: string;
+  author: string;
+  tags: string[];
+};
 
 function parsePublishDate(value: string | number | Date) {
   if (value instanceof Date) {
@@ -22,7 +30,9 @@ function parsePublishDate(value: string | number | Date) {
   return new Date(value);
 }
 
-const markdownReports: ResearchReport[] = markdownEntries
+const markdownEntries = Object.values(import.meta.glob('../../content/researchReports/*.md', { eager: true }));
+
+const reports: ResearchReportCard[] = markdownEntries
   .filter((entry) => !entry.frontmatter.draft)
   .map((entry) => {
     const publishDate = parsePublishDate(entry.frontmatter.publishDate);
@@ -39,20 +49,18 @@ const markdownReports: ResearchReport[] = markdownEntries
         year: 'numeric',
       }).format(publishDate),
       author: entry.frontmatter.author.startsWith('By ') ? entry.frontmatter.author : `By ${entry.frontmatter.author}`,
-      source: 'markdown',
       tags: entry.frontmatter.tags ?? [],
     };
-  });
-
-const reports = [...markdownReports, ...getLegacyResearchReports()].sort((a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug));
+  })
+  .sort((a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug));
 ---
 <BaseLayout title={`Research Archive | The Top Secret Corporation`} description="Research briefings and field reports from The Top Secret Corporation.">
-  <section class="archive-hero">
+  <section class="archive-header">
     <div class="container">
-      <div class="copy-stack archive-copy">
+      <div class="copy-stack archive-copy page-intro-copy">
         <span class="eyebrow">{researchContent.eyebrow}</span>
         <h1>{researchContent.title}</h1>
-        <p class="hero-copy">{researchContent.body}</p>
+        <p class="page-intro-body">{researchContent.body}</p>
         <div class="archive-meta">
           <span class="meta-chip">{reports.length} reports</span>
           <span>{researchContent.orderedLabel}</span>
@@ -67,22 +75,17 @@ const reports = [...markdownReports, ...getLegacyResearchReports()].sort((a, b) 
         <div class="reports-grid">
           {reports.map((report) => (
             <article class="report-card">
-              <span class="report-date">{report.displayDate}</span>
-              <div>
-                <h2>{report.title}</h2>
-              </div>
-              <p class="report-summary">{report.description}</p>
-              <div class="meta-row">
-                <span>{report.author}</span>
-                <span>{`Published ${report.displayDate}`}</span>
-              </div>
-              <a
-                class="report-link"
-                href={report.href}
-                target={report.source === 'legacy-html' ? '_blank' : undefined}
-                rel={report.source === 'legacy-html' ? 'noopener noreferrer' : undefined}
-              >
-                Read report
+              <a class="report-card-link" href={report.href} aria-label={`Read ${report.title}`}>
+                <span class="report-date">{report.displayDate}</span>
+                <div>
+                  <h2>{report.title}</h2>
+                </div>
+                <p class="report-summary">{report.description}</p>
+                <div class="meta-row">
+                  <span>{report.author}</span>
+                  <span>{`Published ${report.displayDate}`}</span>
+                </div>
+                <span class="report-link">Read report</span>
               </a>
             </article>
           ))}
