@@ -1129,7 +1129,7 @@ h2 + .section-body,
 
 .page-research-report .eyebrow {
   margin-bottom: 14px;
-  color: rgba(227, 58, 58, 0.9);
+  color: rgba(227, 58, 58, 0.68);
   font-size: 11px;
   letter-spacing: 0.16em;
 }
@@ -1181,6 +1181,10 @@ h2 + .section-body,
   font-size: 11px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
+}
+
+.report-publish-date {
+  color: var(--ember);
 }
 
 .report-meta-separator {

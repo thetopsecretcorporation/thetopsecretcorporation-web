@@ -34,7 +34,7 @@ const Content = report.Content;
         <p class="hero-copy report-abstract">{report.frontmatter.summary}</p>
         <div class="archive-meta report-meta" aria-label="Report metadata">
           <div class="report-meta-row">
-            <span>{`Published ${formattedDate}`}</span>
+            <span class="report-publish-date">{`Published ${formattedDate}`}</span>
             <span class="report-meta-separator" aria-hidden="true">/</span>
             <span>{`By ${AuthorName}`}</span>
             {taxonomy ? (
