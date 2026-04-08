@@ -1123,7 +1123,7 @@ h2 + .section-body,
 
 .report-shell {
   max-width: 760px;
-  margin-left: clamp(20px, 3.5vw, 44px);
+  margin-left: 0;
   gap: 0;
 }
 
