@@ -64,7 +64,7 @@
     const currentPath = getCurrentPath();
     let activeLink = null;
 
-    if (currentPath === '/research/') {
+    if (currentPath === '/research/' || currentPath.indexOf('/research/reports/') === 0) {
       activeLink = navLinks.find(function (link) {
         const target = normalizeUrl(link.getAttribute('href'));
         return target && target.path === '/research/';

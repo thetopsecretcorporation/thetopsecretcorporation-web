@@ -11,6 +11,7 @@ interface Props {
 const { title = siteSettings.siteTitle, description = siteSettings.siteDescription } = Astro.props;
 const nav = getPrimaryNav();
 const path = Astro.url.pathname;
+const isResearchSection = path === '/research/' || path.startsWith('/research/reports/');
 const pageClass = path.startsWith('/research/reports/') ? 'page-research-report' : path === '/research/' ? 'page-research' : 'page-home';
 ---
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ const pageClass = path.startsWith('/research/reports/') ? 'page-research-report'
             <div class="nav-links">
               {nav.map((item) => (
                 <a
-                  class:list={['nav-link', item.cta && 'nav-cta', path === '/research/' && item.href === '/research/' && 'is-active']}
+                  class:list={['nav-link', item.cta && 'nav-cta', isResearchSection && item.href === '/research/' && 'is-active']}
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}

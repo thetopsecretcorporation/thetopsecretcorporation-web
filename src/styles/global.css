@@ -457,6 +457,7 @@ select {
 .report-prose td {
   padding: 11px 13px;
   text-align: left;
+  vertical-align: top;
   border-bottom: 1px solid rgba(11, 15, 20, 0.06);
 }
 
@@ -1324,9 +1325,10 @@ h2 + .section-body,
 
   .nav {
     position: absolute;
-    top: calc(100% + 12px);
-    left: 18px;
-    right: 18px;
+    top: calc(100% + 10px);
+    right: 0;
+    left: auto;
+    width: min(calc(100vw - 36px), 272px);
     margin-left: 0;
     display: none;
   }
@@ -1337,11 +1339,11 @@ h2 + .section-body,
 
   .nav-links {
     display: grid;
-    gap: 10px;
-    padding: 14px;
+    gap: 4px;
+    padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    background: rgba(10, 14, 20, 0.9);
+    border-radius: 12px;
+    background: rgba(10, 14, 20, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 16px 36px rgba(5, 12, 23, 0.28);
@@ -1350,8 +1352,21 @@ h2 + .section-body,
   .nav-link {
     width: 100%;
     justify-content: flex-start;
-    min-height: 48px;
-    padding: 0 0 8px;
+    min-height: 38px;
+    padding: 8px 10px;
+    border-bottom: 0;
+    border-left: 1px solid transparent;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible,
+  .nav-link.is-active {
+    border-color: transparent;
+    border-left-color: rgba(227, 58, 58, 0.72);
+    background: rgba(227, 58, 58, 0.06);
+    transform: none;
   }
 
   .nav-cta {
