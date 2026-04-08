@@ -22,28 +22,38 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 }).format(new Date(report.frontmatter.publishDate));
 const AuthorName = report.frontmatter.author.replace(/^By\s+/i, '');
 const tags = report.frontmatter.tags ?? [];
+const taxonomy = tags.join(' / ');
 const Content = report.Content;
 ---
 <BaseLayout title={`${report.frontmatter.title} | Research | The Top Secret Corporation`} description={report.frontmatter.summary}>
   <section class="archive-hero report-hero">
     <div class="container">
       <div class="copy-stack archive-copy report-shell">
-        <span class="eyebrow">// Research report</span>
+        <span class="eyebrow">// Research briefing</span>
         <h1>{report.frontmatter.title}</h1>
-        <p class="hero-copy">{report.frontmatter.summary}</p>
-        <div class="archive-meta">
-          <span class="meta-chip">{`Published ${formattedDate}`}</span>
-          <span>{`By ${AuthorName}`}</span>
-          {tags.length ? <span>{tags.join(' / ')}</span> : null}
+        <p class="hero-copy report-abstract">{report.frontmatter.summary}</p>
+        <div class="archive-meta report-meta" aria-label="Report metadata">
+          <div class="report-meta-row">
+            <span>{`Published ${formattedDate}`}</span>
+            <span class="report-meta-separator" aria-hidden="true">/</span>
+            <span>{`By ${AuthorName}`}</span>
+            {taxonomy ? (
+              <>
+                <span class="report-meta-separator" aria-hidden="true">/</span>
+                <span class="report-taxonomy" aria-label="Report tags">{taxonomy}</span>
+              </>
+            ) : null}
+          </div>
         </div>
+        <div class="report-masthead-divider" aria-hidden="true"></div>
       </div>
     </div>
   </section>
 
-  <section class="reports-section report-page-section">
-    <div class="container">
-      <article class="report-page-card">
-        <div class="report-prose">
+  <section class="report-reading-section">
+    <div class="container report-reading-shell">
+      <article class="report-reading-field">
+        <div class="report-prose article-prose">
           <Content />
         </div>
       </article>
