@@ -1,8 +1,7 @@
 ---
 title: The 20 AI-Native Companies That Matter Right Now
-summary: A thought guide to the AI-native companies shaping the market in April
-  2026, from frontier model labs to agent builders and AI infrastructure
-  specialists.
+summary: A guide to the AI-native companies shaping the market in April 2026,
+  from frontier model labs to agent builders and AI infrastructure specialists.
 publishDate: 2026-04-07
 author: Albert
 tags:
