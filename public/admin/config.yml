@@ -7,7 +7,8 @@ backend:
   site_domain: thetopsecretcorporation.com
 
 local_backend: true
-publish_mode: editorial_workflow
+# Intentionally use Decap's default simple workflow so admin edits commit straight to main.
+# Boss expects Save/Publish in /admin to update the live site after the main deploy runs.
 media_folder: public/assets/uploads
 public_folder: /assets/uploads
 site_url: https://thetopsecretcorporation.com
@@ -64,6 +65,7 @@ collections:
   - name: research_reports
     label: Research reports
     label_singular: Research report
+    description: Existing live reports can be fixed here directly. Saving commits to main and the site publishes from main.
     folder: src/content/researchReports
     create: true
     extension: md
@@ -76,6 +78,6 @@ collections:
       - { label: Publish date, name: publishDate, widget: datetime, time_format: false, format: 'YYYY-MM-DD' }
       - { label: Author, name: author, widget: string, default: 'Albert' }
       - { label: Tags, name: tags, widget: list, required: false }
-      - { label: Draft, name: draft, widget: boolean, default: true, hint: 'Draft reports stay out of the public archive until ready' }
+      - { label: Draft, name: draft, widget: boolean, default: true, hint: 'Turn this on only if you want the report hidden from the public archive. For normal live edits to an existing report, leave Draft off and save.' }
       - { label: Canonical URL, name: canonicalUrl, widget: string, required: false }
-      - { label: Body, name: body, widget: markdown, hint: 'Write in markdown. Use inline HTML only for richer blocks like scorecards or side-by-side comparisons.' }
+      - { label: Body, name: body, widget: markdown, hint: 'Fixes to an existing report publish from main when you save. Use markdown for normal editing; use inline HTML only for richer blocks like scorecards or side-by-side comparisons.' }

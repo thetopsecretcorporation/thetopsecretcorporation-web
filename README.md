@@ -46,3 +46,5 @@ wrangler pages deploy dist --project-name=thetopsecretcorporation-web
 - The admin entrypoint lives at `src/pages/admin/index.astro`
 - Cloudflare Pages OAuth handler source lives at `workers/pages-oauth-worker.js`
 - Standalone Pages Functions versions of the auth handlers live in `functions/api/`
+- The CMS intentionally uses Decap's simple workflow: saves from `/admin` commit directly to `main`, and production publishes from `main`
+- For a live research-report fix, open the report in `/admin`, leave `draft` off, and click **Save**

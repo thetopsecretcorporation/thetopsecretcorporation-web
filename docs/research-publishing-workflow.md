@@ -6,6 +6,19 @@ Use **markdown-first research reports** stored in `src/content/researchReports/`
 
 This gives Albert a simple writing surface while keeping the site responsible for presentation.
 
+## Important workflow rule
+
+The CMS now uses Decap's **simple workflow** on purpose.
+
+That means:
+
+- edits from `/admin` commit directly to `main`
+- production deploys from `main`
+- for an already-live report, **Save** is the normal way to publish a correction
+- there is no separate `cms/...` editorial branch to merge later
+
+This is the safer workflow for Boss's quick typo/content fixes because what he saves is what the live site deploys.
+
 ## What Albert should produce
 
 Albert should only need to provide:
@@ -56,7 +69,20 @@ The Decap admin should have:
 
 For research reports, editors should create a new markdown file, fill in a few top-level fields, then write the body.
 
-Drafts should stay out of the public archive until `draft: false`.
+Drafts stay out of the public archive while `draft: true`.
+
+### Boss quick-edit rule
+
+When Boss is fixing a mistake on an existing report:
+
+1. Open `/admin`
+2. Open the report under **Research reports**
+3. Make the correction
+4. Make sure **Draft** is **off**
+5. Click **Save**
+6. Wait for the normal production deploy from `main`
+
+That is now the intended publish path.
 
 ## Current implementation notes
 
@@ -68,12 +94,23 @@ Drafts should stay out of the public archive until `draft: false`.
 
 ## Recommended publishing workflow
 
-1. Albert creates a new report in Decap CMS
-2. Albert writes the report in markdown
-3. If needed, Albert drops in small HTML blocks for scorecards or comparisons
-4. Report stays in draft until ready
-5. Publish by turning draft off and saving
-6. Site build deploys the new report automatically into the archive
+### For quick fixes to an existing live report
+
+1. Open the report in Decap CMS
+2. Edit the needed text
+3. Leave `draft` off
+4. Save
+5. The commit lands on `main`
+6. The production deploy publishes the change
+
+### For a brand-new report that should stay hidden until ready
+
+1. Create the report in Decap CMS
+2. Write the report in markdown
+3. Keep `draft: true` while it should stay hidden
+4. When ready to publish, turn `draft` off and save
+5. The commit lands on `main`
+6. The production deploy adds it to the public archive
 
 ## Why this is the right trade-off
 
@@ -82,6 +119,7 @@ This approach is:
 - simple for Boss
 - flexible for Albert
 - easy to maintain technically
+- aligned with the actual production branch (`main`)
 - much less brittle than building a deeply structured research CMS too early
 
 ## Future upgrades if needed
