@@ -15,11 +15,12 @@ export async function getStaticPaths() {
 }
 
 const { report } = Astro.props;
+const [publishYear, publishMonth, publishDay] = report.frontmatter.publishDate.split('-').map(Number);
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
-}).format(new Date(report.frontmatter.publishDate));
+}).format(new Date(publishYear, publishMonth - 1, publishDay));
 const AuthorName = report.frontmatter.author.replace(/^By\s+/i, '');
 const tags = report.frontmatter.tags ?? [];
 const taxonomy = tags.join(' / ');
