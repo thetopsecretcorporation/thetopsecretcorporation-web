@@ -5,9 +5,21 @@ import { getLegacyResearchReports, type ResearchReport } from '../../lib/researc
 
 const markdownEntries = Object.values(import.meta.glob('../../content/researchReports/*.md', { eager: true }));
 
-function parsePublishDate(value: string) {
-  const [year, month, day] = value.split('-').map(Number);
-  return new Date(year, month - 1, day);
+function parsePublishDate(value: string | number | Date) {
+  if (value instanceof Date) {
+    return value;
+  }
+
+  if (typeof value === 'string') {
+    const isoDateMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+
+    if (isoDateMatch) {
+      const [, year, month, day] = isoDateMatch;
+      return new Date(Number(year), Number(month) - 1, Number(day));
+    }
+  }
+
+  return new Date(value);
 }
 
 const markdownReports: ResearchReport[] = markdownEntries
@@ -20,7 +32,7 @@ const markdownReports: ResearchReport[] = markdownEntries
       href: entry.url,
       title: entry.frontmatter.title,
       description: entry.frontmatter.summary,
-      date: entry.frontmatter.publishDate,
+      date: publishDate.toISOString().slice(0, 10),
       displayDate: new Intl.DateTimeFormat('en-US', {
         month: 'long',
         day: 'numeric',
