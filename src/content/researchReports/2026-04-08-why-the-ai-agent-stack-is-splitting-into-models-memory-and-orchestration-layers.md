@@ -1,6 +1,6 @@
 ---
 title: "Why the AI Agent Stack Is Splitting Into Models, Memory, and Orchestration Layers"
-summary: "A research report on why AI competition is shifting away from model quality alone and toward the stack layers that make agents reliable, stateful, governable, and commercially defensible."
+summary: "AI competition is shifting away from model quality alone and toward the stack layers that make agents reliable, stateful, governable, and commercially defensible."
 publishDate: "2026-04-08"
 author: "Albert"
 tags:
@@ -13,128 +13,220 @@ tags:
   - strategy
 ---
 
-## Executive Summary
+## The market is still talking about AI agents like the model is the product. That story is already out of date.
 
-The market narrative around AI agents is still too model-centric. Many buyers, founders, and operators continue to evaluate agent products as if the core question were simply which model is smartest. That framing is already breaking down. In practice, production-grade agent systems are increasingly being assembled from distinct layers: models for reasoning and generation, memory for retaining context and facts over time, tool and browser access for acting on software and data, and orchestration for sequencing work, handling failures, routing between agents, and inserting human approval where autonomy becomes risky.
+That framing made sense in the first wave of generative AI.
 
-This matters because the economic value in AI is beginning to redistribute. The model layer will remain important, but it is becoming less sufficient as a standalone moat. As vendors converge on strong reasoning, multimodality, tool use, and lower inference costs, the harder commercial problem is not whether a model can answer a question, but whether a system can reliably complete work over time across tools, memory, controls, and recoverability.
+When the job was answering questions, summarizing documents, or drafting copy, model quality was the headline variable. Which model reasoned better. Which one sounded better. Which one hallucinated less.
 
-The leading platforms are already signaling this shift with concrete product design choices. OpenAI’s **Responses API** bundles built-in tools such as **web search**, **file search**, **computer use**, **Code Interpreter**, and **remote MCP servers**, explicitly positioning the API as the basis for agent-like applications rather than simple text generation [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). Anthropic has pushed **Model Context Protocol (MCP)**, **MCP connector**, **Tool Search Tool**, and **Programmatic Tool Calling** as ways to connect models to large tool ecosystems without flooding context windows [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api); [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use). Google has built out **Agent Development Kit (ADK)**, **Agent Garden**, **Vertex AI Agent Engine**, **Memory Bank**, **Evaluation Layer**, and **native agent identities** to move agents from prototype to governed production systems [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder). Microsoft’s **Agent Framework** merges ideas from **AutoGen** and **Semantic Kernel** into graph-based workflows with **checkpointing**, **A2A**, **MCP**, **session and thread state**, and human-in-the-loop patterns [Microsoft, 2026](https://devblogs.microsoft.com/agent-framework/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/); [Microsoft Learn, 2025](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview). Open-source leaders such as **LangGraph** and **CrewAI** are likewise competing less on raw prompt abstractions and more on durability, persistence, interrupts, flows, state management, observability, and memory [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution); [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/interrupts); [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows); [CrewAI Docs, 2026](https://docs.crewai.com/en/observability/overview).
+That is no longer enough.
 
-The strategic implication is straightforward: the next battleground in AI is not just model performance, but system reliability and control. The question shifts from who has the best model to who can build the most dependable digital worker. The winners may not be the companies with the single strongest benchmark. They may be the companies that best combine models, memory, orchestration, governance, and tool ecosystems into coherent, inspectable systems.
+Once an AI system is expected to do real work, the model becomes only one part of the equation. A useful agent has to remember context, navigate tools, recover from failures, hand work off correctly, respect permissions, and know when to pause for a human. That is a system problem.
 
-## Key Findings
+That is why the AI agent market is starting to split into distinct layers.
 
-- The market is moving beyond the idea that one strong model is the whole product.
-- The stack is separating into distinct layers: models, memory, tool access, and orchestration.
-- Orchestration is becoming a major value layer because it determines reliability, recoverability, human approval, and workflow control.
-- Memory is shifting from convenience feature to strategic moat because persistent context improves usefulness and increases switching costs.
-- The major vendors are converging on similar infrastructure patterns: checkpointing, traces, evaluations, connectors, protocol support, and long-running workflow controls.
-- Companies that own the runtime, workflow engine, connector standard, or governance layer may capture more durable value than companies competing only on raw model quality.
+Models still matter. But the real battleground is moving toward the surrounding stack: memory, tool access, orchestration, and governance. The question is no longer just who has the best model. It is who can build the most dependable digital worker and prove it under real operating conditions.
 
-## Analysis
+## The short version
 
-The first wave of AI adoption encouraged a simplistic mental model: pick the best frontier model, wrap it in a chat interface, add some prompts, and call the result a product. That approach worked when the main job was generating text, summarizing documents, or answering questions. It breaks down once the software is expected to do work.
+The model is becoming necessary infrastructure.
 
-A system that performs real work has to do more than infer. It has to maintain state, know what happened earlier, call the right tool, recover when a tool fails, ask for approval when stakes are high, and resume later without starting from zero. Those are separate engineering concerns. A model can contribute to them, but it does not replace them.
+The differentiator is moving up the stack.
 
-That is why the language of the market has begun to change from “LLM app” to “agent stack,” “agent runtime,” “memory layer,” “workflow engine,” and “tool protocol.” The shift is visible in product roadmaps across major vendors. OpenAI’s own documentation describes the **Responses API** as a unified interface for building agent-like applications, emphasizing not only models but built-in tools, stateful context, and MCP support [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses). Anthropic’s API announcements similarly frame Claude less as a text model and more as a programmable agent platform with **code execution**, **Files API**, **MCP connector**, and prompt caching up to one hour [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api). Google’s ADK launch explicitly targeted **multi-agent applications** and highlighted deterministic orchestration controls, bidirectional streaming, deployment paths, and model flexibility [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/).
+In practice, that means the companies most likely to capture durable value in AI may not be the ones with the single best benchmark score. They may be the ones that own the runtime, the memory layer, the orchestration logic, the connector ecosystem, or the governance surface that makes autonomous systems usable in the real world.
 
-In other words, the market leaders are not behaving as though raw model access is the whole product. They are building operating layers around models.
+## The new stack is becoming easier to see in public product decisions
 
-## The Emerging Stack: Four Layers That Matter
+Across the market, the same pattern keeps showing up.
 
-### 01. Model Layer: The Reasoning Engine
+The model handles reasoning and generation. Memory holds context across sessions and workflows. Tools let the system reach software, data, and interfaces outside the chat box. Orchestration manages sequencing, retries, approvals, routing, and recoverability.
 
-This is still the most visible layer. Models generate language, reason over problems, interpret documents and images, decide which tool to call, and synthesize results. A strong model still matters because weak reasoning upstream creates fragile execution downstream.
+That split is not theoretical. It is already visible in the products shipping right now.
 
-But the model layer is increasingly becoming only one component in a broader system. OpenAI is embedding tool access directly inside model interactions through the **Responses API**, where tools such as **web_search**, **file_search**, **computer use**, and **Code Interpreter** can be invoked within the same request flow [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). Anthropic has expanded Claude’s tool use with a **code execution tool** and techniques that allow tool access without bloating the context window [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api); [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use). Google positions Gemini models inside a larger agent lifecycle through ADK and Vertex AI, rather than as standalone endpoints [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/).
+OpenAI’s **Responses API** now bundles built-in tools like **web search**, **file search**, **computer use**, **Code Interpreter**, and **remote MCP servers**, positioning the API as infrastructure for agentic applications rather than a plain text-generation endpoint [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/).
 
-The important shift is conceptual. The model is becoming the reasoning engine inside a managed runtime, not the whole application.
+Anthropic has pushed hard on the connective tissue around the model, including **Model Context Protocol (MCP)**, **MCP connector**, **Tool Search Tool**, and **Programmatic Tool Calling**, all designed to help Claude operate across large tool ecosystems without drowning in context [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api); [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use).
 
-### 02. Memory Layer: The Context Retention System
+Google is building toward a managed lifecycle with **Agent Development Kit (ADK)**, **Agent Garden**, **Vertex AI Agent Engine**, **Memory Bank**, **Evaluation Layer**, and native agent identities, all aimed at moving agents from prototype to governed production systems [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder).
 
-Memory is where many early agent systems failed. Stateless agents force users to repeat instructions, re-upload documents, restate preferences, and re-establish project context every session. That is tolerable for demos and intolerable for real work.
+Microsoft’s **Agent Framework** merges ideas from **AutoGen** and **Semantic Kernel** into graph-based workflows with **checkpointing**, **A2A**, **MCP**, **session and thread state**, and human-in-the-loop patterns [Microsoft, 2026](https://devblogs.microsoft.com/agent-framework/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/); [Microsoft Learn, 2025](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
 
-The newer architectures are trying to solve this in more explicit ways. Google’s **Vertex AI Agent Engine** now includes **sessions** and **Memory Bank**, and Google says those capabilities are moving to general availability for managing both short-term and long-term memory in production workloads [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder). LangGraph treats short-term memory as part of agent state and persists that state via a **checkpointer**, so a thread can be resumed later [LangChain, 2026](https://docs.langchain.com/oss/javascript/langgraph/memory). CrewAI exposes memory directly inside **Flows** with methods such as `remember`, `recall`, and `extract_memories`, and documents persistence across runs [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows). Microsoft Agent Framework includes **agent thread and session state management** and **context providers for agent memory** [Microsoft Learn, 2025](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
+Open-source leaders like **LangGraph** and **CrewAI** are moving in the same direction. They are competing less on prompt abstractions and more on durability, persistence, flows, state, interrupts, observability, and memory [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution); [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/interrupts); [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows); [CrewAI Docs, 2026](https://docs.crewai.com/en/observability/overview).
 
-Memory is not just a user-experience upgrade. It changes switching costs and platform defensibility. An AI system that remembers your company’s internal vocabulary, preferred approval paths, tool permissions, recurring tasks, and prior decisions becomes more valuable over time. That accumulated context can become a practical moat. It also creates governance questions around data ownership, portability, retention, and auditability.
+The pattern is clear. The industry is reorganizing around the runtime, not just the reasoning engine.
 
-### 03. Tool and Interface Layer: How Agents Reach the World
+That matters because market narratives tend to lag product reality. The product roadmaps are already telling us where vendors think the value will sit.
 
-A model without tools is mostly confined to answering questions. A model with tools can act.
+## What this shift means for where value accrues
 
-This layer now includes API calls, remote connectors, code execution, retrieval systems, and increasingly browser or computer-use interfaces. OpenAI has elevated **computer use** and **remote MCP servers** into first-class tools within the Responses API [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). Anthropic has made **MCP connector** part of the API and later added **Tool Search Tool** and **Programmatic Tool Calling** to scale access across thousands of tools [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api); [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use). Google emphasizes MCP support, **Grounding with Google Search**, **Vertex AI Search**, **Code Execution**, **100+ pre-built connectors**, and the ability to connect agents to existing systems via Apigee and OpenAPI-managed APIs [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder). Microsoft Agent Framework highlights OpenAPI, MCP, and A2A interoperability [Microsoft, 2025](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/).
+The most important change is economic.
 
-This layer matters commercially because many high-value workflows still live in fragmented enterprise software, internal dashboards, PDF-heavy processes, or legacy systems without modern APIs. Tooling and browser access are how agents cross that gap.
+For the last two years, it was easy to assume the durable value in AI would sit mostly in the model layer. If one company had the smartest system, it would capture the most value.
 
-### 04. Orchestration Layer: The System That Makes It Reliable
+That assumption is getting weaker.
 
-Orchestration is the least understood by the general market and one of the most important in practice. It is the layer that determines what happens next, what state is preserved, what gets retried, who hands off to whom, where human approval is inserted, and how the system recovers after interruptions or failures.
+As frontier models converge on strong reasoning, multimodality, tool use, and lower inference costs, raw model quality becomes less sufficient as a standalone moat. The harder problem is no longer getting a model to produce an impressive response. The harder problem is getting a system to complete work reliably over time.
 
-This is where the stack is splitting most visibly.
+That means value starts shifting toward the layers that make agents usable in production:
 
-LangGraph is explicit about this. Its core primitives are **state graphs**, **checkpointers**, **durable execution**, and **interrupts**. Its documentation stresses that workflows can pause for human review, persist state, and resume from their last recorded checkpoint rather than restarting from scratch [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution); [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/interrupts). CrewAI’s **Flows** pitch event-driven workflow creation, state sharing, conditional routing, persistence, and restart recovery [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows). Microsoft Agent Framework offers **graph-based workflows** with **sequential**, **concurrent**, **handoff**, and **group chat** patterns, plus **streaming**, **checkpointing**, and **human-in-the-loop** support [Microsoft, 2026](https://devblogs.microsoft.com/agent-framework/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/). Google’s ADK emphasizes multi-agent hierarchy, orchestration controls, and managed deployment through **Agent Engine**, while later Agent Builder updates added **traces**, **Evaluation Layer**, **User Simulator**, and native support for pausing and resuming workflows [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder).
+- memory that preserves context and compounds usefulness
+- orchestration that makes workflows durable and recoverable
+- tooling that connects agents to fragmented systems
+- governance that makes autonomy safe enough to deploy
 
-If the model is the brain, orchestration is closer to the operating logic of the system. It decides how work is sequenced, observed, corrected, and completed.
+This is the deeper story underneath the current agent wave. The market is moving from intelligence as output to intelligence as operations.
 
-## Why Orchestration Is Becoming the New Value Layer
+That is a bigger shift than it sounds. Output can be compared in demos. Operations have to survive contact with messy systems, interrupted workflows, permissions, side effects, and human review.
 
-The clearest sign that orchestration is becoming strategic is that nearly every serious vendor is adding the same categories of features: persistence, workflow control, checkpoints, interrupts, traces, evaluations, and interoperability.
+## Four layers are emerging as the real architecture of agent systems
 
-That is not cosmetic convergence. It reflects a common discovery: once agents start doing multi-step work, the failure modes are operational, not merely linguistic.
+If you want a cleaner way to read the market, start here.
 
-An agent can fail because it loses state between steps. It can call the right tool with the wrong parameters. It can re-run side effects after a crash. It can hand off to the wrong specialist agent. It can hallucinate that an action completed when the downstream system silently failed. It can complete the work but leave no audit trail. It can make a correct action impossible to verify later. None of those problems are solved by a slightly better prose model alone.
+### Model layer: the reasoning engine
 
-LangGraph’s documentation is unusually direct about this issue. Its **durable execution** guidance focuses on replay, determinism, side effects, checkpointing modes, and recoverability after failures or week-long pauses [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution). That is the language of workflow engines, not chatbots. CrewAI similarly now surfaces runtime state checkpointing, persistence providers, event systems, and observability integrations in its docs and changelog [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows); [CrewAI Docs, 2026](https://docs.crewai.com/en/changelog). Google is expanding **traces**, **playground**, **Evaluation Layer**, **User Simulator**, **agent identities**, and **memory** in Vertex AI Agent Builder because getting agents into production requires more than model access [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder). Microsoft explicitly frames Agent Framework as a runtime for orchestrating multi-agent systems with durability, compliance, and observability [Microsoft, 2025](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/).
+This is still where most of the attention goes.
 
-This is why orchestration is likely to capture disproportionate value. It is where autonomy becomes dependable enough for business use. It is also where vendor lock-in can quietly increase, because once workflows, approvals, traces, and memory schemas are embedded in an orchestration layer, switching becomes materially harder.
+This is still the most visible part of the stack, and it still matters. Models reason, generate, interpret, decide, and synthesize. Weak reasoning upstream still creates fragile execution downstream.
 
-## Concrete Company Examples: What the Major Players Are Actually Building
+But the role of the model is changing. It is increasingly becoming one layer inside a managed runtime rather than the application itself.
 
-### OpenAI: From Model API to Agent Runtime
+OpenAI’s **Responses API** treats tool use as part of the core interaction flow through built-in capabilities such as **web_search**, **file_search**, **computer use**, and **Code Interpreter** [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). Anthropic has expanded Claude’s tool use with code execution and techniques for large-scale tool access without overwhelming context [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api); [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use). Google positions Gemini inside a broader agent lifecycle through ADK and Vertex AI rather than as a standalone endpoint [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/).
 
-OpenAI’s product direction is increasingly stack-oriented rather than endpoint-oriented. The **Responses API** is presented as a unified primitive for agentic applications and includes built-in tools such as **web search**, **file search**, **computer use**, **Code Interpreter**, and **remote MCP servers** [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). OpenAI also emphasizes **stateful conversations** using `store: true` and `previous_response_id`, plus semantic events and tool invocation in reasoning flows [OpenAI, 2025](https://platform.openai.com/docs/guides/responses-vs-chat-completions?api-mode=responses).
+The model is still the brain. It is just no longer the whole organism.
 
-The key takeaway is that OpenAI is not just selling intelligence. It is building a runtime where intelligence can search, retrieve, inspect files, and act through tools in a single integrated flow.
+### Memory layer: the system that makes agents accumulate value
 
-### Anthropic: Owning the Tool Protocol Layer
+This is where usefulness starts to compound.
 
-Anthropic’s most strategically important move may be less Claude itself and more the infrastructure around Claude. **MCP**, introduced in late 2024 and rapidly adopted across the ecosystem, is Anthropic’s attempt to standardize how agents connect to external systems [Anthropic, 2025](https://www.anthropic.com/engineering/code-execution-with-mcp). Anthropic later added **MCP connector** to its API, so developers could connect remote MCP servers without building custom client harnesses [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api). It then introduced **Tool Search Tool** and **Programmatic Tool Calling**, specifically to help Claude discover and use large tool libraries without consuming excessive context [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use).
+Early agents had a simple problem: they forgot everything.
 
-That is a significant architectural play. If the industry standardizes around the protocol Anthropic introduced, Anthropic gains influence over the connective tissue of the agent ecosystem, not just one model endpoint within it.
+Users had to restate goals, re-upload documents, repeat preferences, and re-establish context every time. Fine for demos. Bad for real work.
 
-### Google: Full Lifecycle Control From Build to Govern
+The newer architectures are trying to solve that directly. Google’s **Vertex AI Agent Engine** includes **sessions** and **Memory Bank**, which Google says are moving toward general availability for production management of short-term and long-term memory [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder). LangGraph persists state through a **checkpointer** so threads can resume later [LangChain, 2026](https://docs.langchain.com/oss/javascript/langgraph/memory). CrewAI exposes memory directly in **Flows** through methods such as `remember`, `recall`, and `extract_memories`, with persistence across runs [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows). Microsoft Agent Framework includes **agent thread and session state management** plus context providers for memory [Microsoft Learn, 2025](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
 
-Google’s strategy is broad and explicitly lifecycle-oriented. **Agent Development Kit (ADK)** is designed for building multi-agent systems with orchestration controls, model flexibility, MCP support, pre-built tools, and bidirectional streaming [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/). **Agent Garden** provides reusable samples and tools. **Vertex AI Agent Engine** provides the managed runtime. Later updates expanded the platform with **traces**, **playground**, **Evaluation Layer**, **User Simulator**, **agent identities**, **sessions**, **memory bank**, and **ApiRegistry** for governed tool access [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder).
+Memory matters because it does more than improve the experience. It compounds utility over time.
 
-Google is effectively saying that an agent platform must cover build, scale, and govern. That is a far more mature view than treating agents as prompt wrappers.
+An agent that remembers your internal vocabulary, approval paths, recurring tasks, and prior decisions becomes harder to replace. That makes memory strategically important. It also raises the next set of questions around retention, portability, auditability, and ownership.
 
-### Microsoft: Enterprise Orchestration as a First-Class Product
+### Tool layer: how agents reach real systems
 
-Microsoft’s **Agent Framework** unifies the research lineage of **AutoGen** with the enterprise developer foundation of **Semantic Kernel** [Microsoft Learn, 2025](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview); [Microsoft, 2025](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/). It supports **graph-based workflows**, **checkpointing**, **human-in-the-loop**, **A2A**, **MCP**, OpenAPI connectivity, session and thread state, middleware, and telemetry [Microsoft, 2026](https://devblogs.microsoft.com/agent-framework/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/).
+This is where an answer turns into an action.
 
-Microsoft’s differentiation is not that it has one radically different model philosophy. It is that it knows enterprise software distribution, identity, governance, and workflow tooling unusually well. In that context, orchestration is a natural control point.
+Without tools, an AI system mostly talks.
 
-### LangGraph: Reliability as a Product Feature
+With tools, it can act.
 
-LangGraph’s position in the open ecosystem is increasingly clear: it is a control-heavy orchestration framework for people who want stateful, durable, and inspectable agent workflows. Its standout features are **durable execution**, **checkpointer-based persistence**, **interrupts**, **thread IDs**, and long-running resumability [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution); [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/interrupts). LangChain’s newer **Deep Agents** materials further emphasize that long-running agents need persistence and resumability because subagent-heavy tasks cannot be treated like one-shot chats [LangChain, 2026](https://docs.langchain.com/oss/javascript/deepagents/going-to-production).
+This layer now includes APIs, remote connectors, code execution, retrieval systems, browser automation, and computer-use interfaces. OpenAI has made **computer use** and **remote MCP servers** first-class tools in the Responses API [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). Anthropic has made **MCP connector** part of its API and later added **Tool Search Tool** and **Programmatic Tool Calling** for large tool libraries [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api); [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use). Google emphasizes MCP support, **Grounding with Google Search**, **Vertex AI Search**, **Code Execution**, **100+ pre-built connectors**, and enterprise connections via Apigee and OpenAPI-managed APIs [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder). Microsoft highlights OpenAPI, MCP, and A2A interoperability [Microsoft, 2025](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/).
 
-This is not glamorous product marketing. It is exactly what matters when an agent is doing work that cannot be lost.
+This matters because high-value workflows are rarely neatly packaged. They live in fragmented software, legacy tools, dashboards, inboxes, PDFs, and systems no one designed for agents. The tool layer is what lets AI cross that gap.
 
-### CrewAI: Accessibility Plus Structured Flows
+### Orchestration layer: the part that turns intelligence into execution
 
-CrewAI has leaned into a more accessible developer experience while still moving toward production primitives. Its documentation frames the platform around **agents**, **crews**, and **Flows**, with **guardrails**, **memory**, **knowledge**, and **observability** built in [CrewAI Docs, 2026](https://docs.crewai.com). **Flows** are event-driven, stateful, persistent, and restartable; memory is available directly inside flows; and the platform includes integrations for tracing, monitoring, and evaluation [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows); [CrewAI Docs, 2026](https://docs.crewai.com/en/observability/overview).
+This is where the serious moat may be forming.
 
-CrewAI’s appeal is that it lowers the barrier to orchestrating role-based systems, but it is no longer just a prompt-team abstraction. It is evolving into a runtime with persistence and operational visibility.
+This is the layer that matters most and is still discussed least.
 
-## Recommendations
+Orchestration determines what happens next. It decides how work is sequenced, what state gets preserved, what gets retried, where approval is required, how handoffs work, and what happens when the system is interrupted halfway through a task.
 
-- Evaluate agent companies by stack position, not model brand alone.
-- Treat orchestration as a strategic layer, not backend plumbing.
-- Pay close attention to concrete product features such as checkpointing, interrupts, traces, memory stores, protocol support, and browser or computer-use tooling.
-- Ask whether a vendor’s advantage comes from model quality, workflow reliability, memory, governance, or ecosystem leverage.
-- Assume that long-term commercial value may accrue to the runtime and control layers around models, not just to the models themselves.
+This is where the stack is splitting most clearly.
+
+LangGraph is explicit about it. Its core primitives are **state graphs**, **checkpointers**, **durable execution**, and **interrupts**, all built around the idea that workflows should pause, persist, and resume from checkpoints rather than restart from zero [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution); [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/interrupts). CrewAI’s **Flows** emphasize event-driven workflows, shared state, conditional routing, persistence, and restart recovery [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows). Microsoft Agent Framework supports **graph-based workflows** with **sequential**, **concurrent**, **handoff**, and **group chat** patterns plus **streaming**, **checkpointing**, and **human-in-the-loop** support [Microsoft, 2026](https://devblogs.microsoft.com/agent-framework/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/). Google’s ADK and Agent Builder continue adding orchestration controls, traces, evaluation, user simulation, and pause-resume workflow management [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder).
+
+If the model is the brain, orchestration is the operating logic. It is what makes the system dependable enough to trust.
+
+## Why orchestration is becoming the new value layer
+
+This is the part the market still tends to underrate.
+
+Nearly every serious platform is adding the same categories of features: persistence, workflow control, checkpoints, interrupts, traces, evaluations, approvals, and interoperability.
+
+That kind of convergence usually means the market has found the real bottleneck.
+
+And the bottleneck is no longer primarily linguistic. It is operational.
+
+Agents fail in ways benchmarks barely capture. They lose state between steps. They call the right tool with the wrong parameters. They repeat side effects after a crash. They hand work to the wrong specialist. They claim something completed when the downstream system failed. They produce an answer with no audit trail. They succeed in a way no one can safely verify later.
+
+A better model alone does not solve those problems.
+
+That is why LangGraph’s documentation sounds less like chatbot marketing and more like workflow engineering, with heavy emphasis on replay, determinism, side effects, checkpointing modes, and recoverability after long pauses [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution). CrewAI now foregrounds state checkpointing, persistence providers, event systems, and observability integrations [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows); [CrewAI Docs, 2026](https://docs.crewai.com/en/changelog). Google is expanding **traces**, **Evaluation Layer**, **User Simulator**, **agent identities**, and **memory** because production agents require more than access to a strong model [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder). Microsoft frames Agent Framework as a runtime for orchestrating multi-agent systems with durability, compliance, and observability built in [Microsoft, 2025](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/).
+
+This is why orchestration looks increasingly strategic. It is the layer where autonomy becomes safe, inspectable, and commercially usable. It is also the layer where switching costs can quietly rise once workflows, approvals, traces, and memory schemas are embedded in a given runtime.
+
+Quietly is the important part. A company may think it is buying model access and later realize it has actually standardized on a workflow operating system.
+
+## What the major players are really building
+
+A quick read of the field:
+
+### OpenAI is moving from model API to agent runtime
+
+OpenAI’s direction is increasingly stack-oriented. The **Responses API** is now a unified primitive for agentic applications, with built-in tools such as **web search**, **file search**, **computer use**, **Code Interpreter**, and **remote MCP servers** [OpenAI, 2025](https://platform.openai.com/docs/guides/migrate-to-responses); [OpenAI, 2025](https://openai.com/index/new-tools-and-features-in-the-responses-api/). OpenAI also emphasizes **stateful conversations** through `store: true` and `previous_response_id`, along with tool invocation and semantic events inside reasoning flows [OpenAI, 2025](https://platform.openai.com/docs/guides/responses-vs-chat-completions?api-mode=responses).
+
+The important point is not that OpenAI has tools. It is that OpenAI is building an execution environment around the model.
+
+### Anthropic may be making the most important protocol play
+
+Anthropic’s most consequential move may be less Claude itself and more the infrastructure around Claude.
+
+**MCP**, introduced in late 2024 and then rapidly adopted across the ecosystem, is a bid to standardize how agents connect to external systems [Anthropic, 2025](https://www.anthropic.com/engineering/code-execution-with-mcp). Anthropic later added **MCP connector** to its API so developers could connect remote MCP servers without building custom client harnesses [Anthropic, 2025](https://www.anthropic.com/news/agent-capabilities-api). It then introduced **Tool Search Tool** and **Programmatic Tool Calling** to help Claude discover and use large tool libraries without consuming excessive context [Anthropic, 2025](https://www.anthropic.com/engineering/advanced-tool-use).
+
+If the ecosystem standardizes around a protocol Anthropic helped define, Anthropic gains leverage over the connective tissue of the stack, not just one model endpoint within it.
+
+### Google is building for the full lifecycle
+
+Google’s strategy is broad and explicit. **Agent Development Kit (ADK)** is for building multi-agent systems with orchestration controls, model flexibility, MCP support, pre-built tools, and streaming [Google, 2025](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications/). **Agent Garden** provides reusable samples and tools. **Vertex AI Agent Engine** provides the managed runtime. Subsequent updates added **traces**, **playground**, **Evaluation Layer**, **User Simulator**, **agent identities**, **sessions**, **memory bank**, and **ApiRegistry** for governed tool access [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/more-ways-to-build-and-scale-ai-agents-with-vertex-ai-agent-builder); [Google Cloud, 2025](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder).
+
+Google is not treating agents like prompt wrappers. It is treating them like systems that need to be built, deployed, monitored, and governed.
+
+### Microsoft is turning enterprise orchestration into a product category
+
+Microsoft’s **Agent Framework** combines the research lineage of **AutoGen** with the enterprise foundation of **Semantic Kernel** [Microsoft Learn, 2025](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview); [Microsoft, 2025](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/). It supports **graph-based workflows**, **checkpointing**, **human-in-the-loop**, **A2A**, **MCP**, OpenAPI connectivity, session and thread state, middleware, and telemetry [Microsoft, 2026](https://devblogs.microsoft.com/agent-framework/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/).
+
+Microsoft’s likely advantage is not just model capability. It is that enterprise workflow, identity, compliance, and distribution have always been Microsoft terrain. In that environment, orchestration is a natural place to win.
+
+### LangGraph is selling reliability, not just developer ergonomics
+
+LangGraph’s role in the open ecosystem is increasingly clear. It is an orchestration framework for teams that care about durable, stateful, inspectable workflows. Its key primitives include **durable execution**, **checkpointer-based persistence**, **interrupts**, **thread IDs**, and resumability over long-running tasks [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/durable-execution); [LangChain, 2026](https://docs.langchain.com/oss/python/langgraph/interrupts). LangChain’s **Deep Agents** materials make the same point: once agents become long-running and subagent-heavy, they cannot be treated like one-shot chat sessions [LangChain, 2026](https://docs.langchain.com/oss/javascript/deepagents/going-to-production).
+
+That may not be flashy. It is exactly what production systems need.
+
+### CrewAI is making structured orchestration easier to adopt
+
+CrewAI has taken a more accessible route, but it is moving toward the same destination. Its platform centers on **agents**, **crews**, and **Flows**, with **guardrails**, **memory**, **knowledge**, and **observability** built in [CrewAI Docs, 2026](https://docs.crewai.com). **Flows** are event-driven, stateful, persistent, and restartable. Memory is exposed directly in workflows. Observability and evaluation are treated as part of the product, not as afterthoughts [CrewAI Docs, 2026](https://docs.crewai.com/en/concepts/flows); [CrewAI Docs, 2026](https://docs.crewai.com/en/observability/overview).
+
+That makes CrewAI notable for a simple reason: it lowers the barrier to orchestration while still moving toward real runtime primitives.
+
+## The strategic takeaway
+
+Strip away the marketing language and the direction is fairly plain.
+
+The AI market is not just racing toward better models.
+
+It is reorganizing around systems that can turn model intelligence into reliable action.
+
+That means the next durable winners may not be the companies with the single strongest benchmark result. They may be the companies that own the runtime, the workflow engine, the memory layer, the tool protocol, the governance surface, or the connector ecosystem around the model.
+
+That is the real shift underway.
+
+The model is becoming necessary infrastructure. The stack around it is becoming the product.
+
+That does not make model quality irrelevant. It makes model quality insufficient on its own.
+
+## What to watch now
+
+If you are trying to figure out who is actually building durable advantage, start with the questions below.
+
+For founders, operators, and investors evaluating agent platforms, the useful questions are changing.
+
+Instead of asking only which model is smartest, ask:
+
+- Where does this company sit in the stack?
+- Does it own reasoning, memory, tool access, orchestration, or governance?
+- Can the system preserve state, recover from interruption, and support approvals?
+- Does it leave traces, evaluations, and auditability behind?
+- Is the advantage coming from model quality, workflow reliability, ecosystem leverage, or switching costs created by persistent context?
+
+Those questions are closer to where the real value is moving.
 
 ## Sources
 
