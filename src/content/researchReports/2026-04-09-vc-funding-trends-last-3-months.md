@@ -12,8 +12,6 @@ tags:
   - series-b
 ---
 
-# VC Funding Trends Over the Last 3 Months
-
 ## Executive summary
 
 The last three months produced one of the most consequential—and most misleading—venture quarters in recent memory.
