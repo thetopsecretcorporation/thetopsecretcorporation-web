@@ -13,6 +13,16 @@ type ResearchReportCard = {
   tags: string[];
 };
 
+function getReportSlug(entry: { file?: string }) {
+  const slug = entry.file?.split(/[\\/]/).pop()?.replace(/\.md$/i, '');
+
+  if (!slug) {
+    throw new Error('Unable to derive research report slug from markdown entry.');
+  }
+
+  return slug;
+}
+
 function parsePublishDate(value: string | number | Date) {
   if (value instanceof Date) {
     return value;
@@ -36,10 +46,11 @@ const reports: ResearchReportCard[] = markdownEntries
   .filter((entry) => !entry.frontmatter.draft)
   .map((entry) => {
     const publishDate = parsePublishDate(entry.frontmatter.publishDate);
+    const slug = getReportSlug(entry);
 
     return {
-      slug: entry.file.split(/[\\/]/).pop()?.replace(/\.md$/i, '') ?? entry.url.replace(/^\/research\/reports\//, '').replace(/\/$/, ''),
-      href: entry.url,
+      slug,
+      href: `/research/reports/${slug}/`,
       title: entry.frontmatter.title,
       description: entry.frontmatter.summary,
       date: publishDate.toISOString().slice(0, 10),
