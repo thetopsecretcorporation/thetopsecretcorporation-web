@@ -283,6 +283,8 @@ select {
   display: grid;
   gap: 0;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   color: var(--night);
   font-size: 17px;
   line-height: 1.72;
@@ -290,6 +292,8 @@ select {
 
 .report-prose > * {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .report-prose > * + * {
@@ -1596,6 +1600,17 @@ h2 + .section-body,
   .report-prose {
     font-size: 16px;
     line-height: 1.68;
+  }
+
+  .report-prose > * {
+    width: auto;
+  }
+
+  .report-prose .footnotes,
+  .report-prose .footnotes p,
+  .report-prose .footnotes li,
+  .report-prose .footnotes a {
+    overflow-wrap: anywhere;
   }
 
   .report-prose > p,
