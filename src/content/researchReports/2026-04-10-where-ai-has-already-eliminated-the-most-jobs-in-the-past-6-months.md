@@ -13,8 +13,6 @@ tags:
 draft: false
 ---
 
-**The clearest documented cuts are in technology, with notable but fewer cases in industrial operations and logistics software.**
-
 ## Executive Summary
 
 The strongest public evidence from the last six months shows that **AI-linked job cuts have been concentrated in technology and software**. That is where company statements, labor-market data, and executive commentary align most clearly.
