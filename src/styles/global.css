@@ -283,6 +283,8 @@ select {
   display: grid;
   gap: 0;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   color: var(--night);
   font-size: 17px;
   line-height: 1.72;
@@ -290,6 +292,8 @@ select {
 
 .report-prose > * {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .report-prose > * + * {
@@ -431,6 +435,27 @@ select {
 .report-callout p,
 .report-callout {
   color: rgba(11, 15, 20, 0.82);
+}
+
+.report-takeaways {
+  margin-top: 28px;
+  padding: 24px 26px;
+  border-left-width: 3px;
+  background: linear-gradient(180deg, rgba(242, 245, 248, 0.96) 0%, rgba(250, 251, 252, 0.98) 100%);
+}
+
+.report-takeaways h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.report-takeaways ol {
+  margin-top: 14px;
+  padding-left: 1.45rem;
+}
+
+.report-takeaways li + li {
+  margin-top: 14px;
 }
 
 .report-prose hr {
@@ -1596,6 +1621,17 @@ h2 + .section-body,
   .report-prose {
     font-size: 16px;
     line-height: 1.68;
+  }
+
+  .report-prose > * {
+    width: auto;
+  }
+
+  .report-prose .footnotes,
+  .report-prose .footnotes p,
+  .report-prose .footnotes li,
+  .report-prose .footnotes a {
+    overflow-wrap: anywhere;
   }
 
   .report-prose > p,
