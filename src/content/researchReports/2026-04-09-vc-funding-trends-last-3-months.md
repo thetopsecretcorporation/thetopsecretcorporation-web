@@ -12,8 +12,6 @@ tags:
   - series-b
 ---
 
-# VC Funding Trends Over the Last 3 Months
-
 ## Executive Summary
 
 Q1 2026 was a record venture quarter on paper, but not a broad recovery.
