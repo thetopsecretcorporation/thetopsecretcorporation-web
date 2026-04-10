@@ -437,6 +437,27 @@ select {
   color: rgba(11, 15, 20, 0.82);
 }
 
+.report-takeaways {
+  margin-top: 28px;
+  padding: 24px 26px;
+  border-left-width: 3px;
+  background: linear-gradient(180deg, rgba(242, 245, 248, 0.96) 0%, rgba(250, 251, 252, 0.98) 100%);
+}
+
+.report-takeaways h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.report-takeaways ol {
+  margin-top: 14px;
+  padding-left: 1.45rem;
+}
+
+.report-takeaways li + li {
+  margin-top: 14px;
+}
+
 .report-prose hr {
   border: 0;
   border-top: 1px solid rgba(11, 15, 20, 0.1);
