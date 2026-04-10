@@ -2,14 +2,13 @@
 title: 'Pizza Trends: What Changed in the Last 6 Months'
 summary: 'The U.S. pizza market is acting like a mature category under pressure: value competition is intensifying, carryout is strengthening, execution quality matters more, and operators are trying to win either through efficiency or clear differentiation.'
 publishDate: '2026-04-10'
-author: Albert
+author: 'Albert'
 tags:
   - research
   - pizza
   - restaurants
   - foodservice
   - strategy
-draft: false
 ---
 
 ## Executive Summary
@@ -30,7 +29,7 @@ In short: pizza is still a large, resilient category, but the easy-pandemic tail
 
 ---
 
-## 1) Value Competition Is Intensifying
+## 01. Value Competition Is Intensifying
 ### Bundles, fixed price points, and single-serve offers are driving the market
 The dominant short-term commercial trend is aggressive price-led marketing. Pizza chains are competing at highly legible thresholds such as **$4.99, $6.99, $9.99, and $10** rather than relying on broad brand preference.
 
@@ -51,7 +50,7 @@ Pizza has always used promotions, but the current cycle is more defensive than o
 
 ---
 
-## 2) Carryout Is Strengthening Relative to Delivery
+## 02. Carryout Is Strengthening Relative to Delivery
 ### Delivery still matters, but carryout is improving the economics
 The market is not moving away from off-premise; it is reallocating within off-premise. Carryout is increasingly attractive because it is faster for the customer and structurally better for restaurant margins.
 
@@ -72,7 +71,7 @@ Carryout gives operators more control over timing, quality, and economics. Deliv
 
 ---
 
-## 3) Execution Quality Is Becoming a Stronger Loyalty Driver
+## 03. Execution Quality Is Becoming a Stronger Loyalty Driver
 ### Customers care less about raw speed than predictable, high-quality fulfillment
 Pizza customers still want fast service, but recent evidence suggests they punish broken promises and weak food condition more than they reward absolute speed by itself.
 
@@ -93,7 +92,7 @@ The practical implication is that the operational promise has changed from **“
 
 ---
 
-## 4) Distinctive Crusts and Regional Styles Still Matter
+## 04. Distinctive Crusts and Regional Styles Still Matter
 ### Menu differentiation remains one of the clearest ways to escape price competition
 On the menu side, the strongest pattern is not a single new style replacing the rest. It is continued fragmentation into more distinctive formats—especially styles with stronger visual identity, textural differentiation, or social-media appeal.
 
@@ -114,7 +113,7 @@ Style innovation works because it changes the comparison set. A tavern pie, a Ro
 
 ---
 
-## 5) Flavor Is Moving Toward Sweet Heat and Premium Finishing Touches
+## 05. Flavor Is Moving Toward Sweet Heat and Premium Finishing Touches
 ### Familiar pizzas are being upgraded through contrast, heat, and visible premium cues
 The topping trendline remains clear: consumers still buy familiar anchors, but operators are layering in more contrast, more heat, and more post-bake finishing elements.
 
@@ -135,7 +134,7 @@ The old toppings playbook—simply adding more premium SKUs—has limited upside
 
 ---
 
-## 6) First-Party Digital Channels Are Becoming More Strategic
+## 06. First-Party Digital Channels Are Becoming More Strategic
 ### Data ownership is increasingly a competitive advantage
 Operators increasingly want the reach of marketplace ordering without surrendering margin and customer data. That tension is now producing new hybrid models and more investment in owned digital channels.
 
@@ -156,7 +155,7 @@ This is less about novelty than bargaining power. If restaurants lose the guest 
 
 ---
 
-## 7) Growth Is Expanding Beyond the Core Pie
+## 07. Growth Is Expanding Beyond the Core Pie
 ### Catering, retail, and side-item economics are becoming more important
 A final trend is the search for adjacent revenue that uses existing demand patterns and production capabilities without relying entirely on same-store pizza traffic.
 
@@ -181,9 +180,9 @@ This is partly a margin story and partly an occasion story. Pizza alone is vulne
 The last six months suggest pizza is entering a more demanding phase. Category growth is no longer something operators can assume; it has to be earned either through superior economics or superior distinctiveness.
 
 The operational winners will likely be brands that do three things at once:
-1. **Make value easy to understand**
-2. **Make off-premise execution predictably strong**
-3. **Give customers a specific product reason to choose them instead of "pizza" in the abstract**
+01. **Make value easy to understand**
+02. **Make off-premise execution predictably strong**
+03. **Give customers a specific product reason to choose them instead of "pizza" in the abstract**
 
 For chains, that means better channel management, crisper value architecture, and stronger data ownership. For independents, it means resisting commoditization through style, quality, and focused menu innovation.
 
