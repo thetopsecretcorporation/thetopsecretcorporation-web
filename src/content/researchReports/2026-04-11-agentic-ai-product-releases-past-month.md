@@ -56,7 +56,7 @@ That is a more meaningful sign of market progress than another round of vague ag
 
 ---
 
-## 1) Anthropic launches Claude Cowork
+## 01. Anthropic launches Claude Cowork
 
 **Launch date:** **2026-03-12**  
 **What launched:** **Claude Cowork**, Anthropic’s desktop-oriented agent product for non-technical knowledge work
@@ -95,7 +95,7 @@ That is a more consequential threshold than writing a better answer in a chat bo
 
 ---
 
-## 2) Google releases ADK for Java 1.0.0
+## 02. Google releases ADK for Java 1.0.0
 
 **Launch date:** **2026-03-30**  
 **What launched:** **Agent Development Kit (ADK) for Java 1.0.0**
@@ -136,7 +136,7 @@ That is good news for adoption and bad news for shallow demo culture.
 
 ---
 
-## 3) AWS makes its frontier agents generally available
+## 03. AWS makes its frontier agents generally available
 
 **Launch date:** **2026-03-31**  
 **What launched:** General availability of **AWS Security Agent** and **AWS DevOps Agent**
@@ -184,7 +184,7 @@ That is a more durable go-to-market story than generic productivity claims.
 
 ---
 
-## 4) Google releases ADK Go 1.0
+## 04. Google releases ADK Go 1.0
 
 **Launch date:** **2026-03-31**  
 **What launched:** **Agent Development Kit for Go 1.0**
@@ -222,7 +222,7 @@ That will make agents easier to integrate into real environments and harder to d
 
 ---
 
-## 5) Google launches Gemma 4 agentic edge tooling
+## 05. Google launches Gemma 4 agentic edge tooling
 
 **Launch date:** **2026-04-02**  
 **What launched:** **Gemma 4** plus **Agent Skills** in Google AI Edge Gallery and expanded **LiteRT-LM** support for on-device agentic workflows
