@@ -46,14 +46,14 @@ const Content = report.Content;
 ---
 <BaseLayout title={`${report.frontmatter.title} | Research | The Top Secret Corporation`} description={report.frontmatter.summary}>
   <section class="archive-hero report-hero">
-    <div class="container report-shell-outer">
+    <div class="container">
       <div class="copy-stack archive-copy report-shell">
-        <span class="eyebrow">Research briefing</span>
+        <span class="eyebrow">// Research briefing</span>
         <h1>{report.frontmatter.title}</h1>
-        <p class="page-intro-body report-abstract">{report.frontmatter.summary}</p>
+        <p class="hero-copy report-abstract">{report.frontmatter.summary}</p>
         <div class="archive-meta report-meta" aria-label="Report metadata">
           <div class="report-meta-row">
-            <span class="report-publication-date">{formattedDate}</span>
+            <span class="report-publication-date">{`Published ${formattedDate}`}</span>
             <span class="report-meta-separator" aria-hidden="true">/</span>
             <span>{`By ${AuthorName}`}</span>
             {taxonomy ? (
@@ -64,6 +64,7 @@ const Content = report.Content;
             ) : null}
           </div>
         </div>
+        <div class="report-masthead-divider" aria-hidden="true"></div>
       </div>
     </div>
   </section>
