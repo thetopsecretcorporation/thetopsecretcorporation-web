@@ -14,8 +14,6 @@ tags:
 draft: false
 ---
 
-# The Past Month in Agentic AI Was Not About Better Chat
-
 Between **2026-03-11 and 2026-04-11**, the most important agentic AI releases were not generic chatbot improvements. The meaningful launches pushed agents into four more concrete surfaces:
 
 - **Desktop execution**
