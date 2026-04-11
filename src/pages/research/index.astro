@@ -67,36 +67,39 @@ const reports: ResearchReportCard[] = markdownEntries
 ---
 <BaseLayout title={`Research Archive | The Top Secret Corporation`} description="Research briefings and field reports from The Top Secret Corporation.">
   <section class="archive-header">
-    <div class="container">
+    <div class="container archive-shell">
       <div class="copy-stack archive-copy page-intro-copy">
         <span class="eyebrow">{researchContent.eyebrow}</span>
         <h1>{researchContent.title}</h1>
         <p class="page-intro-body">{researchContent.body}</p>
-        <div class="archive-meta">
-          <span class="meta-chip">{reports.length} reports</span>
+        <p class="archive-meta" aria-label="Archive metadata">
+          <span>{reports.length} {reports.length === 1 ? 'report' : 'reports'}</span>
+          <span class="archive-meta-separator" aria-hidden="true">/</span>
           <span>{researchContent.orderedLabel}</span>
-        </div>
+        </p>
       </div>
     </div>
   </section>
 
   <section class="reports-section">
-    <div class="container">
+    <div class="container archive-shell">
       {reports.length ? (
         <div class="reports-grid">
           {reports.map((report) => (
             <article class="report-card">
               <a class="report-card-link" href={report.href} aria-label={`Read ${report.title}`}>
-                <span class="report-date">{report.displayDate}</span>
-                <div>
+                <div class="report-card-topline">
+                  <span class="report-date">{report.displayDate}</span>
+                </div>
+                <div class="report-card-heading">
                   <h2>{report.title}</h2>
                 </div>
                 <p class="report-summary">{report.description}</p>
-                <div class="meta-row">
+                <div class="meta-row" aria-label="Report metadata">
                   <span>{report.author}</span>
-                  <span>{`Published ${report.displayDate}`}</span>
+                  {report.tags.length ? <span>{report.tags.slice(0, 2).join(' / ')}</span> : null}
                 </div>
-                <span class="report-link">Read report</span>
+                <span class="report-link">Read briefing</span>
               </a>
             </article>
           ))}
