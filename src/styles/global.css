@@ -1171,7 +1171,7 @@ h2 + .section-body,
 .page-research-report .eyebrow {
   margin-bottom: 14px;
   color: rgba(227, 58, 58, 0.9);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
 }
 
@@ -1205,7 +1205,7 @@ h2 + .section-body,
 
 .archive-meta {
   color: rgba(196, 202, 211, 0.72);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -1225,7 +1225,7 @@ h2 + .section-body,
   flex-wrap: wrap;
   gap: 8px;
   color: rgba(196, 202, 211, 0.68);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -1679,7 +1679,7 @@ h2 + .section-body,
 
   .page-research-report .eyebrow {
     margin-bottom: 12px;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
   }
 
@@ -1700,7 +1700,7 @@ h2 + .section-body,
   }
 
   .archive-meta {
-    font-size: 10px;
+    font-size: 12px;
     gap: 8px;
   }
 
