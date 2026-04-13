@@ -80,4 +80,4 @@ collections:
       - { label: Tags, name: tags, widget: list, required: false }
       - { label: Draft, name: draft, widget: boolean, default: true, hint: 'Turn this on only if you want the report hidden from the public archive. For normal live edits to an existing report, leave Draft off and save.' }
       - { label: Canonical URL, name: canonicalUrl, widget: string, required: false }
-      - { label: Body, name: body, widget: markdown, hint: 'Fixes to an existing report publish from main when you save. Use markdown for normal editing; use inline HTML only for richer blocks like scorecards or side-by-side comparisons.' }
+      - { label: Body, name: body, widget: markdown, hint: 'Fixes to an existing report publish from main when you save. Do not repeat the title. Use approved report heading structures (e.g., Pattern B or C: unnumbered, clean section titles). Use markdown for normal editing; use inline HTML only for richer blocks like scorecards or side-by-side comparisons.' }
