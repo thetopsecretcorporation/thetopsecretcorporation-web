@@ -1014,7 +1014,7 @@ h2 + .section-body,
 .agent-photo {
   position: relative;
   isolation: isolate;
-  aspect-ratio: 4 / 4.45;
+  aspect-ratio: 4 / 3;
   min-height: 0;
   background-size: cover;
   background-position: center top;
@@ -1622,7 +1622,7 @@ h2 + .section-body,
   }
 
   .agent-photo {
-    aspect-ratio: 4 / 4.05;
+    aspect-ratio: 16 / 10;
   }
 
   .mission-content,
