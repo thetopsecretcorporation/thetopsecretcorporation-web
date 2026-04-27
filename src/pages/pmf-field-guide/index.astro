@@ -11,15 +11,14 @@ const getPhaseDisplayName = (phase: string) => phase === 'Go-to-market' ? 'Go-to
 const getPhaseLabel = (index: number) => `${phaseOrdinals[index] || `Phase ${index + 1}`} phase`;
 const getPhaseId = (phase: string) => `pmf-${phase.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}-title`;
 ---
-<BaseLayout title="PMF Field Guide | The Top Secret Corporation" description="A punchy 12-guide sequence for founders who need proof of product-market fit, not vibes.">
+<BaseLayout title="PMF Field Guide | The Top Secret Corporation" description="A practical 12-guide product-market fit sequence for founders, students, and accelerator programs.">
   <section class="pmf-hero">
     <div class="pmf-hero-media" aria-hidden="true"></div>
     <div class="container pmf-hero-shell">
       <div class="copy-stack pmf-hero-copy">
         <span class="eyebrow">// pmf field guide</span>
-        <h1>Find product-market fit without lying to yourself.</h1>
-        <p class="hero-body pmf-hero-body">A 12-guide field guide for founders who need proof, not vibes.</p>
-        <p class="hero-body pmf-hero-body">Product-market fit means a specific customer keeps using, paying for, and pulling more of your product. Pick one customer, prove the pain, test commitment, deliver the result, then scale only when people come back.</p>
+        <h1>Find product-market fit with evidence.</h1>
+        <p class="hero-body pmf-hero-body">A 12-guide sequence for founders, students, and accelerator programs. Pick the customer, prove the pain, test commitment, deliver value, then scale only after retention and pull show up.</p>
         <div class="pmf-hero-actions" aria-label="PMF Field Guide actions">
           <a class="button button-primary" href="#guides">View guides</a>
           <a class="button button-secondary" href="/pmf-field-guide/guides/define-icp/">Open guide 01.</a>
@@ -33,17 +32,9 @@ const getPhaseId = (phase: string) => `pmf-${phase.toLowerCase().replaceAll(' ',
       <section class="pmf-introduction-panel" aria-labelledby="pmf-introduction-title">
         <div class="pmf-introduction-copy">
           <span class="eyebrow">//intro</span>
-          <h2 id="pmf-introduction-title">The field guide</h2>
-          <p>Most early startups do not need more theory. They need fewer fake positives: vague ICPs, polite interviews, free beta signups, launch spikes, and demos that never turn into retained customers.</p>
-          <p>Use these guides in order:</p>
-          <ul class="pmf-introduction-list">
-            <li>Start narrow.</li>
-            <li>Talk to real customers.</li>
-            <li>Find the workaround they already trust.</li>
-            <li>Ask for commitment.</li>
-            <li>Deliver value by hand when needed.</li>
-            <li>Scale only after retention and pull are real.</li>
-          </ul>
+          <h2 id="pmf-introduction-title">The startup playbook that works</h2>
+          <p>We created this field guide so founders can benefit from the best practices behind YC, Techstars, and VC portfolio meetings — from The Mom Test, Lean Startup, and Jobs-to-be-Done to customer discovery and founder-led sales — without reading hundreds of pages of books.</p>
+          <p>Use it to get sharper customer evidence, run better experiments, and stay focused on running your business while giving yourself a cleaner shot at product-market fit.</p>
         </div>
       </section>
       <div class="pmf-curriculum-groups">
