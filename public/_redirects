@@ -1,0 +1,4 @@
+/pmf-school/ /pmf-field-guide/ 301
+/pmf-school/lessons/:slug/ /pmf-field-guide/guides/:slug/ 301
+/pmf-school/lessons/:slug /pmf-field-guide/guides/:slug/ 301
+/pmf-school /pmf-field-guide/ 301

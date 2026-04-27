@@ -89,7 +89,7 @@ export function getLegacyResearchReports(): ResearchReport[] {
         date,
         displayDate: formatDisplayDate(date),
         author: author.startsWith('By ') ? author : `By ${author}`,
-        source: 'legacy-html',
+        source: 'legacy-html' as const,
         tags: [],
       };
     })

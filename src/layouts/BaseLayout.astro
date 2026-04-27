@@ -12,7 +12,14 @@ const { title = siteSettings.siteTitle, description = siteSettings.siteDescripti
 const nav = getPrimaryNav();
 const path = Astro.url.pathname;
 const isResearchSection = path === '/research/' || path.startsWith('/research/reports/');
-const pageClass = path.startsWith('/research/reports/') ? 'page-research-report' : path === '/research/' ? 'page-research' : 'page-home';
+const isPmfFieldGuideSection = path === '/pmf-field-guide/' || path.startsWith('/pmf-field-guide/guides/');
+const pageClass = path.startsWith('/research/reports/')
+  ? 'page-research-report'
+  : path === '/research/'
+    ? 'page-research'
+    : isPmfFieldGuideSection
+      ? 'page-pmf-field-guide'
+      : 'page-home';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +31,7 @@ const pageClass = path.startsWith('/research/reports/') ? 'page-research-report'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XM1SDTB9C"></script>
     <script is:inline>
@@ -81,5 +88,29 @@ const pageClass = path.startsWith('/research/reports/') ? 'page-research-report'
     </div>
 
     <script is:inline src="/assets/site.js"></script>
+    <script is:inline>
+      (() => {
+        const internalHosts = new Set([
+          window.location.hostname,
+          'thetopsecretcorporation.com',
+          'www.thetopsecretcorporation.com',
+        ]);
+
+        document.querySelectorAll('a[href]').forEach((link) => {
+          const href = link.getAttribute('href');
+
+          try {
+            const url = href?.startsWith('//') ? new URL(`${window.location.protocol}${href}`) : new URL(href || '', window.location.href);
+
+            if ((url.protocol === 'http:' || url.protocol === 'https:') && !internalHosts.has(url.hostname)) {
+              link.setAttribute('target', '_blank');
+              link.setAttribute('rel', 'noopener noreferrer');
+            }
+          } catch {
+            // Ignore malformed or non-navigational href values.
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPmfGuideHref, getPmfPhaseGroups } from '../../lib/pmf-field-guide';
+import type { PmfGuideEntry } from '../../lib/pmf-field-guide';
+
+const guideEntries = Object.values(import.meta.glob('../../content/pmfGuides/*.md', { eager: true })) as PmfGuideEntry[];
+const phaseGroups = getPmfPhaseGroups(guideEntries);
+const phaseNames = Object.keys(phaseGroups);
+const phaseOrdinals = ['first', 'second', 'third', 'fourth'];
+const getPhaseDisplayName = (phase: string) => phase === 'Go-to-market' ? 'Go-to-Market' : phase;
+const getPhaseLabel = (index: number) => `${phaseOrdinals[index] || `Phase ${index + 1}`} phase`;
+const getPhaseId = (phase: string) => `pmf-${phase.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}-title`;
+---
+<BaseLayout title="PMF Field Guide | The Top Secret Corporation" description="A practical 12-guide product-market fit sequence for founders, students, and accelerator programs.">
+  <section class="pmf-hero">
+    <div class="pmf-hero-media" aria-hidden="true"></div>
+    <div class="container pmf-hero-shell">
+      <div class="copy-stack pmf-hero-copy">
+        <span class="eyebrow">// pmf field guide</span>
+        <h1>Find product-market fit with evidence.</h1>
+        <p class="hero-body pmf-hero-body">A 12-guide sequence for founders, students, and accelerator programs. Pick the customer, prove the pain, test commitment, deliver value, then scale only after retention and pull show up.</p>
+        <div class="pmf-hero-actions" aria-label="PMF Field Guide actions">
+          <a class="button button-primary" href="#guides">View guides</a>
+          <a class="button button-secondary" href="/pmf-field-guide/guides/define-icp/">Open guide 01.</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pmf-guides-section" id="guides" aria-label="PMF Field Guide guides">
+    <div class="container pmf-section-shell">
+      <section class="pmf-introduction-panel" aria-labelledby="pmf-introduction-title">
+        <div class="pmf-introduction-copy">
+          <span class="eyebrow">//intro</span>
+          <h2 id="pmf-introduction-title">The startup playbook that works</h2>
+          <p>We created this field guide so founders can benefit from the best practices behind YC, Techstars, and VC portfolio meetings — from The Mom Test, Lean Startup, and Jobs-to-be-Done to customer discovery and founder-led sales — without reading hundreds of pages of books.</p>
+          <p>Use it to get sharper customer evidence, run better experiments, and stay focused on running your business while giving yourself a cleaner shot at product-market fit.</p>
+        </div>
+      </section>
+      <div class="pmf-curriculum-groups">
+        {phaseNames.map((phase, phaseIndex) => (
+          <section class="pmf-curriculum-group" aria-labelledby={getPhaseId(phase)}>
+            <div class="pmf-group-heading">
+              <span class="eyebrow">// {getPhaseLabel(phaseIndex)}</span>
+              <h3 id={getPhaseId(phase)}>{getPhaseDisplayName(phase)}</h3>
+            </div>
+            <ol class="pmf-curriculum-list">
+              {phaseGroups[phase].map((guide) => (
+                <li class="pmf-curriculum-item">
+                  <a class="pmf-curriculum-link" href={getPmfGuideHref(guide)} aria-label={`Open guide ${guide.frontmatter.guideNumber}: ${guide.frontmatter.title}`}>
+                    <div class="pmf-curriculum-copy">
+                      <div class="pmf-card-topline">
+                        <span>Guide {String(guide.frontmatter.guideNumber).padStart(2, '0')}.</span>
+                      </div>
+                      <h3>{guide.frontmatter.title}</h3>
+                      <p>{guide.frontmatter.summary}</p>
+                    </div>
+                    <div class="pmf-curriculum-deliverable">
+                      <span>Guide deliverable</span>
+                      <strong>{guide.frontmatter.expectedOutput}</strong>
+                    </div>
+                    <span class="report-link pmf-curriculum-action">Open guide</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

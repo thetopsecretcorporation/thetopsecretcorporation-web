@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getAdjacentPmfGuides, getPmfGuideHref, getPmfGuideSlug, getSortedPmfGuides } from '../../../lib/pmf-field-guide';
+import type { PmfGuideEntry } from '../../../lib/pmf-field-guide';
+
+const guideEntries = Object.values(import.meta.glob('../../../content/pmfGuides/*.md', { eager: true })) as PmfGuideEntry[];
+
+export async function getStaticPaths() {
+  const pathGuideEntries = Object.values(import.meta.glob('../../../content/pmfGuides/*.md', { eager: true })) as PmfGuideEntry[];
+  const guides = getSortedPmfGuides(pathGuideEntries);
+
+  return guides.map((guide) => ({
+    params: {
+      slug: getPmfGuideSlug(guide),
+    },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+const currentSlug = getPmfGuideSlug(guide);
+const { previousGuide, nextGuide } = getAdjacentPmfGuides(guideEntries, currentSlug);
+const Content = guide.Content;
+---
+<BaseLayout title={`${guide.frontmatter.title} | PMF Field Guide | The Top Secret Corporation`} description={guide.frontmatter.summary}>
+  <section class="pmf-lesson-hero">
+    <div class="container pmf-lesson-hero-shell">
+      <div class="copy-stack pmf-lesson-hero-copy">
+        <a class="pmf-back-link" href="/pmf-field-guide/">← PMF Field Guide</a>
+        <span class="eyebrow">// field briefing</span>
+        <h1>{guide.frontmatter.title}</h1>
+        <p class="hero-body pmf-hero-body">{guide.frontmatter.summary}</p>
+        {guide.frontmatter.phase ? (
+          <div class="pmf-meta-strip" aria-label="Guide phase">
+            <span>{guide.frontmatter.phase}</span>
+          </div>
+        ) : null}
+      </div>
+      {guide.frontmatter.expectedOutput ? (
+        <aside class="pmf-expected-panel" aria-label="Expected output">
+          <span class="meta-chip">Expected output</span>
+          <p>{guide.frontmatter.expectedOutput}</p>
+        </aside>
+      ) : null}
+    </div>
+  </section>
+
+  <section class="pmf-reading-section">
+    <div class="container pmf-reading-shell">
+      <article class="pmf-reading-field">
+        <div class="report-prose pmf-prose article-prose">
+          <Content />
+        </div>
+      </article>
+
+      <nav class="pmf-lesson-nav" aria-label="Guide navigation">
+        {previousGuide ? (
+          <a class="button button-secondary pmf-nav-button" href={getPmfGuideHref(previousGuide)}>
+            <span>Previous</span>
+            <strong>{String(previousGuide.frontmatter.guideNumber).padStart(2, '0')}. {previousGuide.frontmatter.title}</strong>
+          </a>
+        ) : <span></span>}
+        {nextGuide ? (
+          <a class="button button-primary pmf-nav-button pmf-nav-button-next" href={getPmfGuideHref(nextGuide)}>
+            <span>Next</span>
+            <strong>{String(nextGuide.frontmatter.guideNumber).padStart(2, '0')}. {nextGuide.frontmatter.title}</strong>
+          </a>
+        ) : <a class="button button-primary pmf-nav-button pmf-nav-button-next" href="/pmf-field-guide/"><span>Complete</span><strong>Return to table of contents</strong></a>}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

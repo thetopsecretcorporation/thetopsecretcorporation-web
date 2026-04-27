@@ -1,8 +1,26 @@
 ---
+import type { MarkdownInstance } from 'astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
+type ResearchReportFrontmatter = {
+  title: string;
+  summary: string;
+  publishDate: string | number | Date;
+  author: string;
+  tags?: string[];
+  draft?: boolean;
+};
+
+type ResearchReportEntry = MarkdownInstance<ResearchReportFrontmatter>;
+
+type Props = {
+  report: ResearchReportEntry;
+};
+
 export async function getStaticPaths() {
-  const reports = Object.values(import.meta.glob('../../../content/researchReports/*.md', { eager: true }));
+  const reports = Object.values(
+    import.meta.glob<ResearchReportEntry>('../../../content/researchReports/*.md', { eager: true })
+  );
 
   return reports
     .filter((report) => !report.frontmatter.draft)
@@ -14,7 +32,7 @@ export async function getStaticPaths() {
     }));
 }
 
-const { report } = Astro.props;
+const { report } = Astro.props as Props;
 
 function normalizePublishDate(value: string | number | Date) {
   if (value instanceof Date) {

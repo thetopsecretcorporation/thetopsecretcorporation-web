@@ -1,6 +1,18 @@
 ---
+import type { MarkdownInstance } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchContent } from '../../lib/site';
+
+type ResearchReportFrontmatter = {
+  title: string;
+  summary: string;
+  publishDate: string | number | Date;
+  author: string;
+  tags?: string[];
+  draft?: boolean;
+};
+
+type ResearchReportEntry = MarkdownInstance<ResearchReportFrontmatter>;
 
 type ResearchReportCard = {
   slug: string;
@@ -40,7 +52,9 @@ function parsePublishDate(value: string | number | Date) {
   return new Date(value);
 }
 
-const markdownEntries = Object.values(import.meta.glob('../../content/researchReports/*.md', { eager: true }));
+const markdownEntries = Object.values(
+  import.meta.glob<ResearchReportEntry>('../../content/researchReports/*.md', { eager: true })
+);
 
 const reports: ResearchReportCard[] = markdownEntries
   .filter((entry) => !entry.frontmatter.draft)
