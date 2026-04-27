@@ -2020,6 +2020,35 @@ h2 + .section-body,
   line-height: 1.66;
 }
 
+.pmf-introduction-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-dark-soft);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.pmf-introduction-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.pmf-introduction-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--coral);
+}
+
 .pmf-curriculum-groups {
   display: grid;
   gap: 58px;
