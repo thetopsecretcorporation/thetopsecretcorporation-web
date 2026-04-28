@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getAdjacentPmfGuides, getPmfGuideHref, getPmfGuideSlug, getSortedPmfGuides } from '../../../lib/pmf-field-guide';
+import { getAdjacentPmfGuides, getPmfEntryLabel, getPmfFlowEntries, getPmfGuideHref, getPmfGuideSlug, isNumberedPmfGuide } from '../../../lib/pmf-field-guide';
 import type { PmfGuideEntry } from '../../../lib/pmf-field-guide';
 
 const guideEntries = Object.values(import.meta.glob('../../../content/pmfGuides/*.md', { eager: true })) as PmfGuideEntry[];
 
 export async function getStaticPaths() {
   const pathGuideEntries = Object.values(import.meta.glob('../../../content/pmfGuides/*.md', { eager: true })) as PmfGuideEntry[];
-  const guides = getSortedPmfGuides(pathGuideEntries);
+  const guides = getPmfFlowEntries(pathGuideEntries);
 
   return guides.map((guide) => ({
     params: {
@@ -19,6 +19,8 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props;
 const currentSlug = getPmfGuideSlug(guide);
+const isNumberedGuide = isNumberedPmfGuide(guide);
+const expectedPanelLabel = guide.frontmatter.expectedOutput ? (isNumberedGuide ? 'Expected output' : 'Guide takeaway') : 'Next step';
 const { previousGuide, nextGuide } = getAdjacentPmfGuides(guideEntries, currentSlug);
 const Content = guide.Content;
 ---
@@ -27,19 +29,18 @@ const Content = guide.Content;
     <div class="container pmf-lesson-hero-shell">
       <div class="copy-stack pmf-lesson-hero-copy">
         <a class="pmf-back-link" href="/pmf-field-guide/">← PMF Field Guide</a>
-        <span class="eyebrow">// field briefing</span>
+        <span class="eyebrow">// {guide.frontmatter.eyebrow || (isNumberedGuide ? 'field briefing' : 'introduction')}</span>
         <h1>{guide.frontmatter.title}</h1>
         <p class="hero-body pmf-hero-body">{guide.frontmatter.summary}</p>
-        {guide.frontmatter.phase ? (
-          <div class="pmf-meta-strip" aria-label="Guide phase">
-            <span>{guide.frontmatter.phase}</span>
-          </div>
-        ) : null}
+        <div class="pmf-meta-strip" aria-label="Guide phase">
+          <span>{isNumberedGuide ? `Guide ${String(guide.frontmatter.guideNumber).padStart(2, '0')}` : (guide.frontmatter.phase || 'Prologue')}</span>
+          {isNumberedGuide && guide.frontmatter.phase ? <span>{guide.frontmatter.phase}</span> : null}
+        </div>
       </div>
-      {guide.frontmatter.expectedOutput ? (
-        <aside class="pmf-expected-panel" aria-label="Expected output">
-          <span class="meta-chip">Expected output</span>
-          <p>{guide.frontmatter.expectedOutput}</p>
+      {guide.frontmatter.expectedOutput || guide.frontmatter.ctaHelper ? (
+        <aside class="pmf-expected-panel" aria-label={expectedPanelLabel}>
+          <span class="meta-chip">{expectedPanelLabel}</span>
+          <p>{guide.frontmatter.expectedOutput || guide.frontmatter.ctaHelper}</p>
         </aside>
       ) : null}
     </div>
@@ -57,13 +58,13 @@ const Content = guide.Content;
         {previousGuide ? (
           <a class="button button-secondary pmf-nav-button" href={getPmfGuideHref(previousGuide)}>
             <span>Previous</span>
-            <strong>{String(previousGuide.frontmatter.guideNumber).padStart(2, '0')}. {previousGuide.frontmatter.title}</strong>
+            <strong>{getPmfEntryLabel(previousGuide)}</strong>
           </a>
         ) : <span></span>}
         {nextGuide ? (
           <a class="button button-primary pmf-nav-button pmf-nav-button-next" href={getPmfGuideHref(nextGuide)}>
-            <span>Next</span>
-            <strong>{String(nextGuide.frontmatter.guideNumber).padStart(2, '0')}. {nextGuide.frontmatter.title}</strong>
+            <span>{guide.frontmatter.primaryCta ? guide.frontmatter.primaryCta : 'Next'}</span>
+            <strong>{getPmfEntryLabel(nextGuide)}</strong>
           </a>
         ) : <a class="button button-primary pmf-nav-button pmf-nav-button-next" href="/pmf-field-guide/"><span>Complete</span><strong>Return to table of contents</strong></a>}
       </nav>

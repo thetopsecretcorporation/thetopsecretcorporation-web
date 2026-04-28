@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPmfGuideHref, getPmfPhaseGroups } from '../../lib/pmf-field-guide';
+import { getIntroPmfExplainers, getPmfGuideHref, getPmfPhaseGroups } from '../../lib/pmf-field-guide';
 import type { PmfGuideEntry } from '../../lib/pmf-field-guide';
 
 const guideEntries = Object.values(import.meta.glob('../../content/pmfGuides/*.md', { eager: true })) as PmfGuideEntry[];
+const introExplainers = getIntroPmfExplainers(guideEntries);
 const phaseGroups = getPmfPhaseGroups(guideEntries);
 const phaseNames = Object.keys(phaseGroups);
 const phaseOrdinals = ['first', 'second', 'third', 'fourth'];
@@ -21,7 +22,7 @@ const getPhaseId = (phase: string) => `pmf-${phase.toLowerCase().replaceAll(' ',
         <p class="hero-body pmf-hero-body">A 12-guide sequence for founders, students, and accelerator programs. Pick the customer, prove the pain, test commitment, deliver value, then scale only after retention and pull show up.</p>
         <div class="pmf-hero-actions" aria-label="PMF Field Guide actions">
           <a class="button button-primary" href="#guides">View guides</a>
-          <a class="button button-secondary" href="/pmf-field-guide/guides/define-icp/">Open guide 01.</a>
+          <a class="button button-secondary" href="/pmf-field-guide/guides/what-is-product-market-fit/">What is product-market fit?</a>
         </div>
       </div>
     </div>
@@ -36,6 +37,30 @@ const getPhaseId = (phase: string) => `pmf-${phase.toLowerCase().replaceAll(' ',
           <p>We created this field guide so founders can benefit from the best practices behind YC, Techstars, and VC portfolio meetings — from The Mom Test, Lean Startup, and Jobs-to-be-Done to customer discovery and founder-led sales — without reading hundreds of pages of books.</p>
           <p>Use it to get sharper customer evidence, run better experiments, and stay focused on running your business while giving yourself a cleaner shot at product-market fit.</p>
         </div>
+        {introExplainers.length > 0 ? (
+          <ol class="pmf-curriculum-list">
+            {introExplainers.map((guide) => (
+              <li class="pmf-curriculum-item pmf-curriculum-item-intro">
+                <a class="pmf-curriculum-link" href={getPmfGuideHref(guide)} aria-label={`Open introduction: ${guide.frontmatter.title}`}>
+                  <div class="pmf-curriculum-copy">
+                    <div class="pmf-card-topline">
+                      <span>Prologue.</span>
+                    </div>
+                    <h3>{guide.frontmatter.title}</h3>
+                    <p>{guide.frontmatter.summary}</p>
+                  </div>
+                  {guide.frontmatter.expectedOutput ? (
+                    <div class="pmf-curriculum-deliverable">
+                      <span>Guide takeaway</span>
+                      <strong>{guide.frontmatter.expectedOutput}</strong>
+                    </div>
+                  ) : null}
+                  <span class="report-link pmf-curriculum-action">Open guide</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        ) : null}
       </section>
       <div class="pmf-curriculum-groups">
         {phaseNames.map((phase, phaseIndex) => (

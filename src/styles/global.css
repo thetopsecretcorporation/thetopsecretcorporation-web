@@ -427,7 +427,15 @@ select {
   color: rgba(11, 15, 20, 0.92);
 }
 
-.report-prose blockquote,
+.report-prose blockquote {
+  padding: 22px 24px;
+  border: 0;
+  border-left: 4px solid var(--ember);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 28px rgba(5, 12, 23, 0.06);
+}
+
 .report-callout {
   padding: 16px 0 16px 18px;
   border: 0;
@@ -2055,6 +2063,13 @@ h2 + .section-body,
   box-shadow: var(--shadow-soft);
 }
 
+.pmf-curriculum-item-intro {
+  border-color: rgba(227, 58, 58, 0.24);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.56), rgba(242, 245, 248, 0.92)),
+    radial-gradient(circle at 88% 18%, rgba(227, 58, 58, 0.16), transparent 34%);
+}
+
 .pmf-phase-label,
 .pmf-card-topline,
 .pmf-output-line,
@@ -2292,6 +2307,21 @@ h2 + .section-body,
 
 .pmf-prose > h2:last-of-type + ul a {
   font-weight: 500;
+}
+
+.pmf-prose blockquote {
+  margin: 26px 0;
+  padding: 22px 24px;
+  border-left: 4px solid var(--ember);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 28px rgba(5, 12, 23, 0.06);
+}
+
+.pmf-prose blockquote p {
+  margin: 0;
+  color: rgba(11, 15, 20, 0.82);
+  font-size: 18px;
+  line-height: 1.58;
 }
 
 .pmf-prose table {

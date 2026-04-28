@@ -2,231 +2,145 @@
 title: "Find the Painful Job"
 guideNumber: 2
 slug: "identify-painful-job"
-summary: "Turn a customer struggle into a JTBD hypothesis backed by recent behavior, urgency, current workarounds, and cost."
+summary: "Turn a customer struggle into a Jobs to Be Done hypothesis backed by recent behavior, urgency, current workarounds, and cost."
 phase: "Foundation"
-expectedOutput: "A clearly stated painful job-to-be-done with evidence that the customer already feels urgency."
+expectedOutput: "A visible Painful Job Brief that states the customer, trigger, job, current workaround, pain evidence, and disconfirmation test."
 status: draft
 draft: false
 updatedAt: 2026-04-27
 ---
-## Field Brief
-Define the specific painful job your ICP is trying to get done. Do not describe the product idea yet. Describe the customer's current struggle, the progress they want, the circumstance that triggers the struggle, and why it matters now.
+## Brief
+Product-market fit starts with a customer who already feels a problem sharply enough to act. Before describing the product, define the painful job: the recurring, urgent, costly struggle a specific customer is trying to resolve.
 
-A painful job is not a vague annoyance or feature request. It creates meaningful cost: lost time, lost revenue, operational risk, missed opportunity, compliance exposure, churn, reputational harm, emotional stress, political friction, or recurring workflow breakdown.
+Jobs to Be Done (JTBD) is a way to describe the progress a person or organization is trying to make in a specific circumstance. The Christensen Institute says JTBD "reveals the circumstances—or forces—that drive people and organizations toward and away from decisions."
 
-## Why It Matters
-PMF starts with a customer who has a frequent, urgent, expensive, risky, embarrassing, or emotionally important problem. If the pain is weak, the product needs too much pushing. If the pain is strong, customers pull the solution forward.
+Use the ICP from Guide 01 as the filter. In business-to-business markets, separate the user from the manager, buyer, and blocker; the person who feels the pain may not control the budget.
 
-This guide keeps founders behavior-driven. Opinions are cheap. Stronger evidence comes from what customers already did: spent money, spent time, built a workaround, searched for alternatives, missed a deadline, escalated the issue, or accepted an imperfect solution because the pain was urgent.
+Strong pain shows up in behavior. Customers spend money, build spreadsheets, hire contractors, miss deadlines, escalate internally, search for alternatives, or accept bad workarounds because the current situation hurts.
 
-## Learning Objectives
-By the end of this guide, founders should be able to:
+Steve Blank's "earlyvangelist" idea is useful here: the best early customers have the problem, know they have it, are actively searching, have cobbled together an interim solution, and can access budget, time, authority, or permission to change.
 
-| Skill | What founders should produce |
-| --- | --- |
-| State the job | A JTBD statement grounded in a specific customer circumstance. |
-| Separate the pieces | A clear distinction between the customer job, pain, current workaround, and proposed solution. |
-| Ground it in reality | A recent real episode instead of hypothetical interest. |
-| Score the pain | Evidence for frequency, intensity, cost, urgency, and ownership. |
-| Create the deliverable | A painful-job brief showing the customer already feels urgency. |
+## Exercise
+Build the Painful Job Brief from customer evidence.
 
-## Recommended Exercise
-### 01. Write the customer's job-to-be-done
+### 01. Write the Jobs to Be Done statement
 Use this format:
 
-> When [specific situation or trigger], [ICP] wants to [make progress/outcome], so they can [deeper goal].
+> When [specific situation or trigger], [Ideal Customer Profile] wants to [make progress/outcome], so they can [deeper goal].
 
-A job without a circumstance is usually too abstract. "Sales teams want better notes" is weak. "When an account executive finishes a discovery call and has three follow-ups due before the next meeting, they want to turn messy call notes into accurate CRM updates so they can keep the deal moving without losing selling time" is stronger.
+Strong version:
 
-### 02. Document the last time it happened
-Do not rely on hypothetical interest. Capture one concrete episode.
+> When a seed-stage business-to-business founder finishes a discovery call and has investor-visible pipeline updates due, they need to turn messy notes into accurate customer relationship management updates so follow-ups do not slip.
 
-| Detail to capture | Question to answer |
-| --- | --- |
-| Person | Who experienced the problem? |
-| Moment | When did it happen, and what triggered it? |
-| Goal | What were they trying to accomplish? |
-| Response | What did they do next? |
-| Cost | How much time, money, risk, stress, or opportunity cost did it create? |
-| Fallout | Who else became involved, and what happened because the problem was not solved cleanly? |
+Weak version:
 
-If no named customer can describe a recent occurrence, the problem is not ready yet.
+> Sales teams need artificial intelligence customer relationship management because CRMs are annoying.
 
-### 03. Describe the current painful workflow
-Map what happens today before proposing what should happen tomorrow.
+The weak version is solution-led, broad, and unsupported. It does not name the trigger, consequence, current workaround, or proof.
 
-| Workflow stage | What to document |
-| --- | --- |
-| Before | What happens before the problem appears? |
-| People | Who is involved? |
-| Tools | What tools, vendors, spreadsheets, agencies, contractors, people, or internal systems are required? |
-| Breakpoint | Where does the process break? |
-| Aftermath | What happens after the break? |
-| Consequence | What gets delayed, duplicated, abandoned, escalated, or tolerated? |
+### 02. Capture the most recent episode
+Do not accept hypothetical interest. Document the last time a named customer experienced the problem:
 
-### 04. Map current alternatives and workarounds
-Every real problem has a current alternative, even if that alternative is ugly.
+- Who experienced it?
+- What triggered it?
+- What were they trying to accomplish?
+- What did they do next?
 
-| Alternative type | What to look for | What to document |
-| --- | --- | --- |
-| Direct product alternative | Software, vendors, marketplaces, or tools they use now. | Why it is unsatisfying and what it still costs. |
-| Manual or service workaround | Spreadsheets, agencies, consultants, contractors, internal tools, extra meetings, or human labor. | Where the workaround creates time, quality, or coordination drag. |
-| Do nothing | Moments when they ignore, delay, or tolerate the pain until it becomes urgent. | What finally makes the problem impossible to ignore. |
+- What workaround, tool, person, spreadsheet, vendor, or manual process did they use?
+- What did it cost in time, money, risk, stress, delay, missed revenue, or reputation?
+- Who else got pulled in?
 
-### 05. Score the pain with evidence
-Score each dimension from 1-5, but do not stop at the number. Attach evidence.
+If no named customer can describe a recent episode, the problem is not ready for solution validation.
 
-| Dimension | Core question | Evidence examples |
-| --- | --- | --- |
-| Frequency | How often does it happen? | Recurring calendar events, support tickets, repeated manual tasks, monthly close, weekly reporting, daily workflow friction. |
-| Intensity | How painful is it when it happens? | Angry customers, executive escalation, team stress, weekend work, public embarrassment, process breakdown. |
-| Cost | What does it cost? | Hours lost, payroll waste, revenue leakage, churn, fines, missed deadlines, rework, opportunity cost, reputation damage. |
-| Urgency | Why solve it now? | Deadline, audit, board meeting, launch, hiring wave, churn spike, customer complaint, regulatory change, budget cycle. |
-| Ownership | Who personally cares and who can approve change? | Named user, manager, buyer, budget owner, executive sponsor, compliance owner. |
+### 03. Map the current workflow and workaround
+Write what happens today before proposing what should happen tomorrow:
 
-#### Problem strength guide
-| Strength | Signal |
-| --- | --- |
-| Strong | Customer has paid, built a workaround, searched recently, committed time, escalated internally, or accepted an imperfect solution. |
-| Medium | Customer complains and spends time manually, but has no clear timetable, budget, or owner yet. |
-| Weak | Customer says it is annoying but has not tried to solve it. |
+- Before: what happens right before the problem appears.
+- People: users, managers, buyers, blockers, and support roles.
+- Tools: software, spreadsheets, agencies, contractors, internal systems, or meetings.
+- Breakpoint: where the process fails, slows, duplicates work, creates risk, or causes stress.
 
-### 06. Identify the trigger event
-Ask: What changed immediately before this became a priority?
+- Aftermath: what gets delayed, abandoned, escalated, reworked, or tolerated.
 
-| Trigger category | Examples |
-| --- | --- |
-| Leadership or funding | New role, promotion, team change, funding round, budget cycle, or board meeting. |
-| Risk or compliance | Audit, compliance change, legal requirement, security review, SLA failure, or regulatory change. |
-| Customer or revenue pressure | Customer complaint, churn event, renewal risk, missed revenue target, pipeline gap, margin pressure, or forecast miss. |
-| Company change | Product launch, migration, acquisition, reorg, new market entry, hiring wave, or headcount freeze. |
-| Operational strain | Manual process collapse, operational incident, seasonal deadline, tax period, enrollment period, end-of-quarter push, or annual planning. |
-| External or personal pressure | Competitor pressure, public embarrassment, press event, reputation risk, personal life transition, emotional breaking point, or repeated failure of the old way. |
+Every real problem has an alternative, even if the alternative is ugly or "do nothing for another quarter."
 
-### 07. Name who feels pain vs. who pays
-For B2B, pain often splits across roles.
+### 04. Score the pain with evidence
+Score each dimension from 1-5, then attach proof:
 
-| Role | Question to answer |
-| --- | --- |
-| User pain | Who suffers the workflow friction? |
-| Manager pain | Who owns performance, quality, risk, or throughput? |
-| Economic buyer pain | Who cares about cost, revenue, compliance, margin, retention, or strategic risk? |
-| Blockers | Who could stop adoption even if the user wants it? |
+- Frequency: how often it happens.
+- Intensity: how painful it feels when it happens.
+- Cost: hours, dollars, revenue leakage, churn, risk, fines, rework, or opportunity cost.
+- Urgency: why now instead of someday.
+
+- Ownership: who personally cares and who can approve change.
+
+Strong evidence: the customer recently spent money, built a workaround, searched, escalated, missed a deadline, or committed time to solving it.
+
+Weak evidence: the customer says "that's interesting" but has no recent example, no workaround, no owner, and no cost.
+
+### 05. Name the trigger, stakeholders, and cost of inaction
+Identify what changes the pain from background annoyance into priority:
+
+- Trigger event: funding round, board meeting, audit, launch, hiring wave, churn spike, customer complaint, budget cycle, compliance change, team reorg, or operational failure.
+- Stakeholders: user, manager, economic buyer, decision-maker, blocker, and anyone who owns risk.
+- Inaction cost: what gets worse in 30 days, 90 days, and one year if nothing changes.
 
 A user annoyance is not enough if the buyer sees no business consequence.
 
-### 08. Find the cost of inaction
-Ask what happens if nothing changes.
-
-| Time horizon | Question to answer |
-| --- | --- |
-| 30 days | What happens after one month? |
-| 90 days | What happens after one quarter? |
-| 365 days | What happens after one year? |
-| Compounding effect | What gets worse, more expensive, riskier, slower, or politically harder? |
-| Change pressure | If nothing bad happens, why would the customer change behavior now? |
-
-### 09. Apply the Early-Adopter Quality Bar
-Use Steve Blank's earlyvangelist filter to judge whether the painful job is strong enough for early pull.
-
-| Quality bar | What to verify |
-| --- | --- |
-| Problem exists | They have the problem. |
-| Problem is recognized | They know they have the problem. |
-| Motion exists | They are actively searching or have a timetable. |
-| Interim solution exists | They have cobbled together an interim solution. |
-| Capacity exists | They have or can quickly access budget, time, authority, or permission to change. |
-
-The best early customers are not just interested. They are already in motion.
-
-### 10. Write the problem hypothesis
+### 06. Write the hypothesis and disconfirmation test
 Use this format:
 
-> We believe [ICP] has [problem] when [trigger/context], causing [cost/consequence], and they currently solve it by [alternative/workaround]. We will know this is true if [behavioral evidence]. We will know this is false if [disconfirming evidence].
+> We believe [Ideal Customer Profile] has [problem] when [trigger/context], causing [cost/consequence], and they currently solve it by [alternative/workaround]. We will know this is true if [behavioral evidence]. We will know this is false if [disconfirming evidence].
 
-#### Strong example
-> We believe seed-stage B2B founders with fewer than three sales hires lose qualified pipeline after discovery calls when CRM updates and follow-up tasks are delayed, causing missed next steps and weaker investor-visible sales discipline. They currently solve it with manual note cleanup, spreadsheets, and Sunday-night CRM catch-up. We will know this is true if at least five founders can describe a recent missed or delayed follow-up, show their current manual workflow, and have already tried templates, assistants, or CRM automation. We will know this is false if founders cannot name a recent incident, do not track the cost, or treat the issue as a minor annoyance.
+Prioritize the riskiest assumptions:
 
-#### Weak example
-> We believe sales teams need an AI CRM because CRMs are annoying and people would like something easier.
+- The problem exists in the chosen customer segment.
+- Customers recognize the problem.
+- The pain is frequent or urgent enough to motivate change.
+- The current workaround is materially unsatisfying.
 
-The weak version is broad, solution-led, and unsupported. It does not name the circumstance, consequence, workaround, trigger, or evidence.
+- A buyer, budget, authority path, or internal champion exists.
+- The founder can reach enough people with this problem.
 
-### 11. List assumptions and disconfirmation tests
-Treat the problem as a hypothesis, not a belief.
+## Deliverable
+Create a **Painful Job Brief** and make it visible to the founding team and key employees. This becomes the north-star problem artifact for product, discovery, sales, and messaging.
 
-| Test area | Disconfirming question |
-| --- | --- |
-| Pain strength | What evidence would convince us this problem is not painful enough? |
-| Recognition | What would prove customers do not recognize the problem? |
-| Workaround | What would prove the workaround is acceptable? |
-| Buyer | What would prove the buyer will not pay even if the user complains? |
-| Trigger | What would prove the trigger event is too rare or too weak? |
+Include:
 
-Prioritize the riskiest assumptions.
+- Jobs to Be Done statement.
+- Ideal Customer Profile.
+- Recent customer episode.
+- Current workflow and workaround.
 
-| Risky assumption | What must be true |
-| --- | --- |
-| Problem | The problem exists in the chosen ICP. |
-| Recognition | The customer recognizes the problem. |
-| Motivation | The pain is frequent or urgent enough to motivate change. |
-| Alternative | The current workaround is materially unsatisfying. |
-| Access | The customer has budget, authority, or motivation to change. |
-| Reach | The founder can reach enough people with this problem. |
+- Pain score with evidence for frequency, intensity, cost, urgency, and ownership.
+- Trigger event.
+- User, manager, buyer, and blocker map.
+- Cost of inaction.
 
-## Optional B2B Sales Sidebar
-For B2B or prosumer startups, qualify the painful job like an early sales opportunity.
+- Early-adopter signals.
+- Problem hypothesis.
+- Disconfirmation criteria.
 
-| Qualification area | Question |
-| --- | --- |
-| Outcome | What business outcome is at risk? |
-| Current state | How is the customer solving it now, and why is that solution failing? |
-| Ownership | Who owns the pain, and who owns the budget or approval path? |
-| Urgency | Why now, and what happens if they wait? |
-| Commitment | What is the next concrete commitment: another meeting, data access, pilot scope, budget conversation, intro to buyer, or proof of current workflow? |
+The brief should state the customer struggle without naming the founder's product.
 
-This does not turn discovery into pitching. It forces the founder to connect pain, authority, urgency, and commitment.
+## Exit Criteria
+Move on when:
 
-## Do Not Move Forward If
-Do not advance this problem into solution validation yet if any of these conditions are true.
+- A named customer can describe the last time the pain happened.
+- The painful job is stated without describing the product.
+- The current workaround or alternative is documented.
+- Pain is backed by behavior, not compliments.
 
-| Stop signal | Why it matters |
-| --- | --- |
-| No recent episode | No named customer can describe a recent occurrence. |
-| No current behavior | The customer cannot explain what they do today when the problem appears. |
-| No alternative | No current workaround, alternative, search behavior, spending, or time allocation exists. |
-| No consequence | The consequence of inaction is vague or harmless. |
-| No buyer path | The founder cannot identify who feels the pain and who pays for change. |
-| Weak evidence | The problem is mostly supported by compliments, opinions, or future-tense promises. |
-| No disconfirmation | The hypothesis cannot be disproven by customer evidence. |
-
-## Guide Deliverable
-Create a structured painful-job brief.
-
-| Deliverable section | What to include |
-| --- | --- |
-| JTBD statement | The customer circumstance, desired progress, and deeper goal. |
-| Problem hypothesis | The ICP, problem, trigger/context, cost/consequence, workaround, confirming evidence, and disconfirming evidence. |
-| Recent episode | The last-time-it-happened example. |
-| Trigger event | What changed immediately before the problem became a priority. |
-| Current state | Workflow map plus workaround or alternative map. |
-| Pain evidence | Frequency, intensity, cost, urgency, and ownership. |
-| Inaction cost | 30/90/365-day consequences. |
-| Stakeholders | Who feels pain vs. who pays. |
-| Early-adopter signals | Evidence that the customer is already in motion. |
-| Validation risk | Riskiest assumptions and disconfirmation criteria. |
+- Frequency, cost, urgency, and owner are documented.
+- User and buyer are separated where relevant.
+- The hypothesis includes what would prove it false.
 
 ## References
-| Source | Author / publisher |
+| Source | Author / organization |
 | --- | --- |
-| [Competing Against Luck](https://www.christenseninstitute.org/book/competing-against-luck/) | Clayton M. Christensen, Taddy Hall, Karen Dillon, David S. Duncan / Christensen Institute |
-| [Competing Against Luck](https://www.hbs.edu/faculty/Pages/item.aspx"num=51754) | Harvard Business School Faculty page |
+| [Jobs to Be Done theory](https://www.christenseninstitute.org/theory/jobs-to-be-done/) | Christensen Institute |
+| [Competing Against Luck](https://www.christenseninstitute.org/book/competing-against-luck/) | Clayton M. Christensen, Taddy Hall, Karen Dillon, David S. Duncan |
 | [Value Proposition Canvas](https://www.strategyzer.com/library/the-value-proposition-canvas) | Strategyzer |
 | [Get Out of My Building](https://steveblank.com/2009/10/08/get-out-of-my-building/) | Steve Blank |
 | [Perfection by Subtraction - The Minimum Feature Set](https://steveblank.com/2010/03/04/perfection-by-subtraction-the-minimum-feature-set/) | Steve Blank |
 | [The Mom Test](https://www.momtestbook.com) | Rob Fitzpatrick |
-| [The Lean Startup](https://theleanstartup.com/book) | Eric Ries |
-| [The Real Product Market Fit](https://www.michaelseibel.com/blog/the-real-product-market-fit) | Michael Seibel |
-| [YC's Essential Startup Advice](https://www.ycombinator.com/blog/ycs-essential-startup-advice) | Y Combinator |
-| [How to Get Startup Ideas](https://paulgraham.com/startupideas.html) | Paul Graham |
-| [Founding Sales](https://www.foundingsales.com/) | Pete Kazanjy |

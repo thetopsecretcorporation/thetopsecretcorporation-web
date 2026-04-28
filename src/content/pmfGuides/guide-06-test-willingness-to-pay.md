@@ -4,217 +4,168 @@ guideNumber: 6
 slug: "test-willingness-to-pay"
 summary: "Ask for commitments that cost something, then judge whether prospects will trade money, time, access, or authority for the outcome."
 phase: "Validation"
-expectedOutput: "A commitment evidence log showing willingness to pay, budget fit, buying process, and pilot criteria."
+expectedOutput: "A visible Commitment Evidence Log showing willingness to pay, budget fit, buying process, signal strength, and the next decision."
 status: draft
 draft: false
-updatedAt: 2026-04-26
+updatedAt: 2026-04-27
 ---
-## Field Brief
-Test whether prospects will commit something scarce before you build too much. Do not count compliments, opinions, or hypothetical enthusiasm as demand. Learn whether the problem is painful enough for the customer to advance the process with money, calendar time, internal reputation, operational access, buyer introductions, data access, or a concrete commercial next step.
+## Brief
+**Willingness to pay** is proven by scarce-resource commitment, not compliments.
 
-A willingness-to-pay test is a business model experiment. You are testing whether this customer segment values the problem and proposed outcome enough to trade real resources for it.
+Do not count:
 
-## Why It Matters
-Founders get false positives when customers say "interesting," "I'd use that," "send me the beta," or "keep me posted." PMF requires behavior, not compliments.
+- "Interesting."
+- "I'd use that."
+- "Send me the beta."
+- "Keep me posted."
 
-Use the commitment and advancement standard from *The Mom Test*: a conversation only counts as positive evidence if the prospect commits something meaningful or advances the process. If nothing changes after the call, the evidence is weak no matter how enthusiastic the prospect sounded.
+- "We will pay once you build X," unless it is tied to a real commitment.
 
-## Learning Objectives
-By the end of this guide, founders should be able to:
+Do count, with increasing strength:
 
-| Skill | What founders should be able to do |
-| --- | --- |
-| Test demand | Test willingness to pay through commitment and advancement, not verbal approval. |
-| Recognize commitment | Identify the currencies that matter: money, time, reputation, operational access, buyer introductions, and data access. |
-| Separate offer types | Distinguish between paid pilots, design partners, LOIs, and free betas. |
-| Qualify the deal | Ask direct price, budget, authority, urgency, and buying-process questions. |
-| Produce evidence | Create a commitment evidence log with signal strength, objections, next steps, and stage decision. |
+- Specific calendar time with a real next step.
+- Introduction to the budget owner or economic buyer.
+- Data, workflow, or system access.
+- Security, legal, procurement, or technical movement.
 
-## Core Concepts
+- Signed design partner agreement or scoped letter of intent (LOI), meaning a written statement that a customer intends to buy or partner under stated conditions.
+- Deposit, paid pilot, prepayment, contract, or purchase order.
 
-### Commitment is behavior that costs something
-A commitment is any action that costs the prospect something scarce and moves the deal or learning process forward.
+For business-to-business products, interest is not enough. You need to know who owns the budget, who can approve or block the purchase, and what procurement steps are required. The **economic buyer** is the person who controls or approves budget.
 
-| Commitment currency | What it can look like |
-| --- | --- |
-| **Money** | Paid pilot, deposit, prepayment, signed contract, paid waitlist, purchase order. |
-| **Time** | Recurring feedback sessions, stakeholder meetings, implementation planning, executive review. |
-| **Reputation** | Internal sponsorship, reference permission, public association, championing the project to a buyer. |
-| **Operational access** | Sandbox or production access, workflow access, security review, implementation resources. |
-| **Buyer introduction** | Introduction to the budget owner, procurement lead, economic buyer, technical approver, or executive sponsor. |
-| **Data access** | Sample data, live data, historical data, benchmark data, or permission to analyze internal workflows. |
+The Mom Test is useful because it trains founders to look past praise and toward commitment. The book's own site describes the goal as getting "more learning and more sales out of your customer conversations. Even when everyone is lying to you." Use that standard here: if nothing changes after the meeting, the evidence is weak.
 
-Non-monetary commitments can be valid, especially before a product is fully built, but they must create real cost for the buyer and move the opportunity forward. A free beta is usually a product-learning mechanism, not willingness-to-pay evidence by itself.
+## Exercise
+Work toward one shared artifact: a **Commitment Evidence Log**. The point is to make the commercial signal visible enough for the team to decide whether to build, narrow, rework the offer, disqualify, or follow up.
 
-### Separate pilots, design partners, LOIs, and betas
-Do not treat every "yes" the same.
-
-| Offer type | How to evaluate it |
-| --- | --- |
-| **Paid pilot** | A timeboxed commercial test of a defined solution. It should include scope, price, success metric, owner, timeline, access needed, and a scheduled decision about what happens if it works. |
-| **Design partner** | An early co-creation relationship with a right-fit customer who has urgent pain. It should require recurring feedback, access, stakeholder involvement, and ideally payment or another meaningful commitment. |
-| **Letter of intent (LOI)** | Written intent to buy or partner. It is useful only if it names the buyer, problem, scope, timing, next step, and conditions. A vague LOI is weaker than a concrete operational commitment. |
-| **Free beta** | A way to learn about usage and product quality. It does not prove willingness to pay unless paired with budget, authority, urgency, conversion criteria, or a committed next step. |
-
-A prospect saying "we'll pay once you build X" is conditional demand. Treat it as weaker than payment, access, buyer involvement, or a signed agreement tied to a specific scope and timeline.
-
-### Qualify B2B opportunities before counting them
-For B2B, willingness to pay depends on more than interest.
-
-| Dimension | Questions to answer before counting the opportunity |
-| --- | --- |
-| **Budget** | What budget owns this problem? Is money already allocated? If not, how would they get it? |
-| **Authority** | Who can approve the purchase? Who can block it? Who is the economic buyer? |
-| **Urgency** | Why now? What happens if they do nothing this quarter? |
-| **Buying process** | What steps are required: security, legal, procurement, technical review, pilot, executive approval, purchase order? |
-
-A right-fit early customer usually has the problem, knows they have it, has tried or cobbled together a workaround, is actively looking for a better answer, and has or can get budget.
-
-## Recommended Exercise
-
-### 01. Define the riskiest willingness-to-pay assumption
+### 01. Define the riskiest willingness-to-pay assumption.
 Write one sentence:
 
 > We believe [ICP] will commit [money/time/access/authority/reputation] to solve [problem] because [business outcome].
 
-This keeps the exercise focused on the specific belief that must be true before heavier product investment makes sense.
+Use the course ICP: the specific customer type most likely to have the painful problem and buy.
 
-### 02. Decide the minimum acceptable commitment
-Before each conversation, define what would count as real evidence. Choose the minimum acceptable signal for this stage.
+### 02. Choose the minimum acceptable commitment before the call.
+Decide what would count as evidence before you hear the prospect's praise. Options include:
+- Money: paid pilot, deposit, prepayment, signed contract, or purchase order.
+- Written intent: scoped LOI or design partner agreement.
+- Buyer access: introduction to the budget owner, approver, or blocker.
+- Operational movement: implementation planning, security review, or procurement step.
 
-| Commitment type | Example signals |
-| --- | --- |
-| **Money** | Paid pilot; deposit or prepayment; signed contract or purchase order. |
-| **Written intent** | Signed LOI with named scope, buyer, timeline, and next step; design partner agreement. |
-| **Buyer access** | Intro to budget owner or economic buyer; stakeholder meeting with decision-makers. |
-| **Operational movement** | Implementation or technical kickoff; security, legal, or procurement next step. |
-| **Product access** | Data, workflow, or system access; weekly feedback sessions with a named owner. |
-| **Reputation** | Permission to be a public or private reference. |
+- Product or data access: workflow review, sample data, system access, or weekly feedback sessions with a named owner.
+- Reputation: permission to be a reference or introduce peers.
 
-Minimum evidence should match the business model. If the business depends on customers paying, include at least one monetary signal before treating the evidence as strong.
+### 03. Build a risk-reducing commitment offer.
+A good offer is narrow enough to say yes to and concrete enough to reject. Define:
+- Target customer and use case.
+- Painful problem and expected business outcome.
+- Included and excluded scope.
+- Timeline, meeting cadence, start date, end date, and decision date.
 
-### 03. Build a risk-reducing commitment offer
-Create an offer that makes it easier for a serious customer to say yes without removing the commitment entirely.
+- Price, deposit, or proposed commercial terms.
+- Customer commitments: access, data, stakeholder time, baseline metric, and success measurement.
 
-| Offer element | What to define |
-| --- | --- |
-| **Who and why** | Target customer, use case, painful problem or job to be done, and expected business outcome. |
-| **Scope** | Narrow pilot or design-partner scope, including what is included and excluded. |
-| **Operating plan** | Timeline, meeting cadence, pilot start date, pilot end date, and decision date. |
-| **Commercial terms** | Price, deposit, proposed price range, and what happens if the pilot succeeds. |
-| **Customer commitments** | Data, access, stakeholder time, baseline metric, target outcome, and success measurement. |
+Common Paper describes design partners as early customers with "an urgent problem to solve" who are willing to take a risk on the startup. First Round's Sierra case study gives the sharper operating rule: "Ensure both sides have skin in the game."
 
-Risk-reducing design means narrowing the scope, shortening the timeline, defining success clearly, and making the next decision explicit. It does not mean making the work free, vague, or endlessly exploratory.
+### 04. Ask direct diagnostic questions.
+Keep the questions concrete:
+- What are you doing today to solve this?
+- What does this cost in time, money, risk, missed revenue, or internal pain?
+- At [price/range], is this an obvious yes, a discussion, or a no?
+- Who owns the budget for this problem?
 
-### 04. Ask direct diagnostic questions
-Use questions that reveal current behavior, value, budget, and buying mechanics.
+- Who can approve this? Who can block it?
+- What legal, security, procurement, or technical steps are required?
+- Why now?
+- What would stop this from moving forward?
 
-| Question type | Diagnostic questions |
-| --- | --- |
-| **Current behavior** | "What are you doing today to solve this?"<br>"What does this problem cost you in time, money, risk, or missed revenue?" |
-| **Value and price** | "If we could deliver [measurable outcome], would you start with a paid pilot?"<br>"What would this be worth if it worked?"<br>"At [price or range], would this be an obvious yes, a discussion, or a no?" |
-| **Price boundaries** | "What would make this too expensive?"<br>"What would make this too cheap to trust?" |
-| **Budget and authority** | "Who owns the budget for this problem?"<br>"Is there budget allocated already, or would this need a new approval?"<br>"Who else needs to be involved before this is real?" |
-| **Buying process** | "What is the normal approval process for something like this?"<br>"What legal, security, procurement, or technical steps would be required?" |
-| **Urgency and blockers** | "What would make this a top-three priority this quarter?"<br>"What would stop this from moving forward?" |
-| **Advancement** | "Should we schedule the pilot decision meeting now?"<br>"Can you introduce me to the budget owner?"<br>"Can we set up the data/access review this week?"<br>"Would you be willing to sign a short design partner agreement?"<br>"If this is not a priority now, should we call it a no?" |
+### 05. End every meeting with an advancement ask.
+**Advancement** means movement to the next real step in the sales or learning process. Ask for one of these before the call ends:
+- Paid pilot.
+- Buyer introduction.
+- Data or workflow access.
+- Stakeholder meeting.
 
-### 05. Force advancement at the end of every meeting
-End every conversation with a concrete ask. Good asks include payment, a signed document, a calendar invite with stakeholders, buyer introduction, data access, security review, procurement step, implementation kickoff, or a clear no.
+- Security/procurement review.
+- Design partner agreement.
+- Decision meeting.
+- Clear no.
 
-Do not count a meeting as positive because it felt good. Ask: **What did the prospect do after the meeting that they were not already doing before?**
-
-### 06. Score the signal strength
-Use this scale after each conversation:
+### 06. Score signal strength.
+Use the same scale for every prospect:
 
 | Level | Signal | What it means |
 | --- | --- | --- |
-| 00. | Compliment or curiosity | "This is interesting," "keep me posted," "I'd try it." |
-| 01. | Conversation only | Agrees to another call but adds no stakeholder, resource, access, or decision. |
-| 02. | Process movement | Introduces a buyer, shares the buying process, or schedules a stakeholder meeting. |
-| 03. | Resource commitment | Shares data/access, commits weekly time, starts security/procurement, or assigns an internal owner. |
-| 04. | Written or scoped commitment | Signs an LOI/design partner agreement or commits to a timeboxed pilot with success criteria. |
-| 05. | Monetary commitment | Pays a deposit, pays for a pilot, prepays, signs a contract, or issues a purchase order. |
+| 0 | Compliment or curiosity | "Interesting," "keep me posted," or "I'd try it." |
+| 1 | Conversation only | Another call, but no stakeholder, resource, access, or decision. |
+| 2 | Process movement | Buyer intro, buying-process detail, or stakeholder meeting. |
+| 3 | Resource commitment | Data/access, recurring time, security/procurement start, or named internal owner. |
+| 4 | Written or scoped commitment | LOI, design partner agreement, or pilot with success criteria. |
+| 5 | Monetary commitment | Deposit, paid pilot, prepayment, contract, or purchase order. |
 
-Strong evidence is usually Level 03. or higher. For paid products, get at least one Level 05. signal or a clearly justified reason why another commitment is more meaningful at this stage.
+Strong opportunities usually need Level 3 or higher. Paid products should produce at least one Level 5 signal or a written reason why another scarce commitment is more meaningful at this stage.
 
-### 07. Define short pilot success criteria
-Before starting a pilot, document the customer owner, buyer or executive sponsor, problem being tested, baseline metric, and target metric or outcome.
+### 07. Decide what the evidence means.
+After the batch, choose one decision:
+- **Build:** strong commitments from right-fit customers with clear budget, authority, urgency, and buying process.
+- **Narrow:** pull exists, but only in a smaller ICP, use case, or urgent segment.
+- **Rework offer:** pain is real, but price, scope, success metric, or risk design is wrong.
+- **Disqualify/pivot:** prospects will not commit scarce resources, lack urgency, cannot reach budget, or only want free custom work.
 
-Then make the operating terms explicit:
+- **Follow up:** the signal is promising but not yet decisive.
 
-| Pilot term | What to capture |
-| --- | --- |
-| **Length** | Pilot length, weekly check-in cadence, and decision date. |
-| **Customer role** | Required access and customer responsibilities. |
-| **Commercial terms** | Price or other commercial terms. |
-| **Conversion path** | What happens if the pilot succeeds. |
+## Deliverable
+Produce a **Commitment Evidence Log** that the whole founding team and key employees can review as the north-star artifact for commercial evidence.
 
-A pilot without success criteria and a decision date is likely to become unpaid consulting, vague feedback, or polite limbo.
+Use one row per prospect with these fields:
 
-### 08. Decide what the evidence means
-After 10-15 qualified asks, or a smaller number of high-quality enterprise conversations, decide:
+- Prospect and company.
+- ICP fit.
+- Problem/use case.
+- Current workaround and cost.
 
-| Decision | When to choose it |
-| --- | --- |
-| **Build** | 3-5 strong commitments from right-fit customers with clear budget, authority, urgency, and buying process. |
-| **Narrow** | Strong interest exists, but only in a smaller ICP, use case, or urgent segment. |
-| **Rework the offer** | Pain is real, but price, scope, metric, or risk design is wrong. |
-| **Disqualify or pivot** | Prospects will not commit anything scarce, cannot access budget, lack urgency, or only want a free experiment. |
+- Offer made.
+- Price or proposed commercial terms.
+- Budget owner.
+- Economic buyer, approver, and blocker.
 
-## Weak vs. Strong Signals
-Use this comparison to avoid treating friendly non-buyers as demand.
+- Buying process and blockers.
+- Commitment asked.
+- Commitment received.
+- Signal level from 0-5.
 
-| Weak signals | Strong signals |
-| --- | --- |
-| Compliments; "keep me posted"; "I'd use that." | Paid pilot, deposit, prepayment, or contract. |
-| Free beta interest only. | Introduction to the economic buyer or budget owner. |
-| No buyer access, no urgency, or no budget owner. | Stakeholder meeting scheduled before the next call ends. |
-| No willingness to share data, time, or internal process. | Data, workflow, or system access granted. |
-| Feature-contingent promises with no commitment. | Security, legal, procurement, or implementation process started. |
-| Repeated meetings that do not advance. | Signed design partner agreement or specific LOI. |
-| — | Recurring time committed by a named owner. |
-| — | Clear success metric and decision date. |
-| — | Permission to serve as a reference if the pilot succeeds. |
+- Objections.
+- Next step.
+- Owner.
+- Decision: build, narrow, rework offer, disqualify, or follow up.
 
-## Disqualification Criteria
-Disqualification is useful. It protects the roadmap from friendly non-buyers.
+The log should make weak demand obvious. A free beta signup from a curious user outside the ICP is not willingness-to-pay evidence. A prospect who pays $2,500 for a four-week pilot, introduces the buyer, grants data access, and agrees to a success metric and decision date is strong evidence.
 
-| Pattern | What it tells you |
-| --- | --- |
-| Pain is not urgent or expensive. | The problem may not justify buying behavior. |
-| No one owns the budget, or the champion cannot reach the buyer. | Interest is unlikely to convert into a purchase. |
-| The buyer will not join the process. | The opportunity is not real enough to count. |
-| Procurement or security requirements are impossible for your stage. | The account may be a poor early-customer fit. |
-| They only want free custom work. | The signal is demand for labor, not necessarily product demand. |
-| They refuse to define success. | A pilot is likely to become vague or unbounded. |
-| They will not commit time, access, money, or internal sponsorship. | The opportunity lacks scarce-resource commitment. |
-| Their requested scope pulls you away from the intended ICP. | The deal may distort the roadmap. |
-| The next step is always vague or delayed. | The process is not advancing. |
+## Exit Criteria
+Move forward only when the checklist below is complete.
 
-## Guide Deliverable
-Create a commitment evidence log with one row per prospect.
+- The riskiest willingness-to-pay assumption is written in one sentence.
+- The team defined the minimum acceptable commitment before each conversation.
+- Each prospect received a concrete ask.
+- Evidence distinguishes compliments from commitments.
 
-| Column | What to record |
-| --- | --- |
-| Prospect | Prospect and company. |
-| ICP fit | Why this prospect matches or does not match the target segment. |
-| Problem/use case | The problem, current workaround, and current cost. |
-| Commercial path | Proposed offer, price, budget owner, authority/economic buyer, urgency, and buying process/blockers. |
-| Commitment ask | Commitment requested and commitment received. |
-| Signal level | Level 00. through 05., with pilot success criteria if applicable. |
-| Objections | Objections, constraints, or disqualification notes. |
-| Next step | Next step, owner, and decision: build, narrow, rework offer, disqualify, or follow up. |
+- The log records both commitment asked and commitment received.
+- Budget owner or economic buyer is identified or marked unknown.
+- Buying process is documented or marked unknown.
+- Urgency is documented.
 
-The finished output should make the decision obvious: whether demand is strong enough to build the MVP, whether the ICP needs to narrow, or whether the offer needs to change before product work continues.
+- Objections and blockers are captured.
+- Strong opportunities have Level 3+ evidence.
+- Paid products have at least one Level 5 monetary signal or a documented reason another scarce commitment is more meaningful now.
+- The batch produces a decision: build, narrow, rework offer, disqualify, or follow up.
+
+- The Commitment Evidence Log is stored somewhere visible to the founding team and key employees.
 
 ## References
 | Resource | Source |
 | --- | --- |
 | [The Mom Test](https://www.momtestbook.com/) | Rob Fitzpatrick |
 | [Founding Sales](https://www.foundingsales.com/) | Pete Kazanjy |
-| [Perfection By Subtraction: The Minimum Feature Set](https://steveblank.com/2010/03/04/perfection-by-subtraction-the-minimum-feature-set/) | Steve Blank |
-| [The Lean Startup by Eric Ries - Book Summary](https://alumni.lincolncollege.ac.uk/files/2016/11/The-Lean-Startup-by-Eric-Ries-Book-Summary.pdf) | Lincoln College Alumni summary |
-| [The Sales Playbook For Founders](https://www.youtube.com/watch?v=DH7REvnQ1y4) | Tom Blomfield / Y Combinator Startup School |
 | [How To Work With Design Partners](https://commonpaper.com/blog/design-partner/) | Common Paper |
 | [Sierra's Design Partnership Strategy](https://review.firstround.com/sierra-design-partnership/) | First Round Review |
+| [The Sales Playbook For Founders](https://www.youtube.com/watch?v=DH7REvnQ1y4) | Tom Blomfield / Y Combinator Startup School |

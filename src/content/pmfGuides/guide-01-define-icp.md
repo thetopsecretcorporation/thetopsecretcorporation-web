@@ -1,164 +1,116 @@
 ---
-title: "Define Your ICP"
+title: "Define Your Ideal Customer Profile"
 guideNumber: 1
 slug: "define-icp"
 summary: "Pick a narrow beachhead customer, set exclusion rules, and build a reachable list of 25 discovery prospects."
 phase: "Foundation"
-expectedOutput: "A testable ICP/beachhead hypothesis, explicit exclusion rules, and a reachable list of at least 25 high-quality prospects for discovery interviews."
+expectedOutput: "A visible Ideal Customer Profile Brief with a testable beachhead hypothesis, explicit exclusion rules, and at least 25 high-quality prospects for discovery interviews."
 status: draft
 draft: false
 updatedAt: 2026-04-27
 ---
-## Field Brief
-Pick the first customer segment you will use for discovery and early traction. This is not your total market, brand identity, or forever strategy. It is a testable beachhead: the first group you can reach, understand, interview, sell to, and eventually win.
+## Brief
+An **Ideal Customer Profile (ICP)** is the narrow first customer segment the company will focus on because those customers share a painful problem, similar buying or adoption behavior, reachable channels, and enough urgency to try an early solution.
 
-The right starting segment is narrow enough to name real prospects and coherent enough that each conversation teaches you about the next one. Do not choose the biggest possible market. Choose the smallest credible market where learning, sales, and word of mouth can compound.
+This is not your total market, brand identity, or forever strategy. It is your first testable beachhead: the group where discovery, product scope, messaging, and sales can compound instead of scattering in every direction.
 
-## Why It Matters
-A broad customer definition makes every PMF step noisy. Interviews conflict, messaging gets vague, MVP scope expands, and sales becomes unfocused. A sharp ICP gives the founder one target for discovery, positioning, product scope, and early sales.
+Paul Graham puts the choice plainly: "You can either build something a large number of people want a small amount, or something a small number of people want a large amount. Choose the latter." Sam Altman makes the same point from the product side: "It's much better to first make a product a small number of users love than a product that a large number of users like."
 
-Your first ICP should be operational, not aspirational. A segment only counts if you can name real prospects, explain why they fit, reach them manually, and test whether their pain is urgent enough to act on.
+That is the job of this lesson: choose the small number first.
 
-## Key Definitions
-- **ICP / beachhead customer:** The first account, organization, or customer segment you are choosing to focus on. In B2B, this is usually an account type before it is a person.
-- **Beachhead market:** The narrow first market where customers have similar needs, similar buying or adoption paths, similar expectations of value, and enough connection to influence each other.
-- **Persona:** The person or role inside the ICP. B2B examples may include user, buyer, champion, economic buyer, technical evaluator, and blocker.
-- **Earlyvangelist:** The subset of the ICP with urgent pain, active search behavior, an existing workaround, and the budget, time, or authority to try a solution before the market is mature.
+A sharp ICP should make the company more operational, not more abstract. It should tell the team who to interview, whose problems to prioritize, what the **minimum viable product (MVP)** must solve first, which objections matter, and which tempting customers are not the target yet.
 
-## Learning Objectives
-By the end of this guide, founders should be able to:
-- Choose one beachhead segment for the next validation cycle.
-- Compare candidate segments by urgency, reachability, buying similarity, word of mouth, and ability to serve now.
-- Separate the account/customer segment from users, buyers, champions, and blockers.
-- Identify earlyvangelist signals, current alternatives, and bad-fit rules.
-- Produce the guide deliverable: an ICP hypothesis, exclusion rules, and at least 25 reachable prospects for discovery interviews.
+A good ICP definition is specific enough to find real people immediately:
 
-## Recommended Exercise
-Work through the exercise in order. The goal is not to produce a permanent market strategy. The goal is to choose one tight segment you can test immediately and carry through the rest of the field guide.
+> Extreme athletes in their thirties who do triathlons, need long-lasting sunscreen during endurance events, and have disposable income to pay for upgraded performance sunscreen.
 
-### 01. Generate Candidate Segments
-List 3-5 possible beachhead segments before choosing one. Each candidate should be specific enough that you can imagine naming real people or companies.
+That example follows Bill Aulet's MIT Sloan beachhead logic: start with a segment that has shared need, reachable demand, and enough similarity for learning to transfer.
 
-| Field | What to capture |
-| --- | --- |
-| Market type | B2B, B2C, prosumer, marketplace, or other |
-| Account/customer type | The narrow account or customer profile you can name and reach |
-| User / buyer | The user and, if different, the buyer |
-| Segment qualifiers | Industry, category, life stage, company size, geography, or behavior pattern |
-| Urgent trigger | What makes the problem matter now |
-| Current alternative | Manual workaround, substitute behavior, or existing solution |
-| Manual reach | Where you could find 25-50 prospects without paid ads or broad brand marketing |
+Bad ICP definitions are too broad to guide action:
+- People who need sunscreen.
+- Athletes.
+- Health-conscious consumers.
+- Small businesses that want better operations.
 
-**Avoid vague labels.** Terms like "SMBs," "creators," "busy professionals," "parents," or "enterprise teams" are not specific enough unless they are qualified by a workflow, trigger, context, or buying situation.
+Those labels do not identify urgency, buying behavior, reachability, or a shared adoption path.
 
-### 02. Score the Candidate Segments
-Score each candidate from 1-5 against the criteria below. The goal is not mathematical precision. The goal is to force a clear decision and expose weak assumptions.
+## Exercise
+Work through this as one decision workflow. The goal is not to write a permanent market strategy. The goal is to choose one tight segment you can test immediately and carry through the rest of the field guide.
 
-| Criterion | Question to answer |
-| --- | --- |
-| Urgency of pain | Do they have a problem that matters now? |
-| Manual reachability | Can you name and contact real prospects directly? |
-| Similarity of need/workflow | Would interviews teach you about one coherent product direction? |
-| Similarity of buying/adoption path | Would they evaluate and adopt in roughly similar ways? |
-| Word of mouth potential | Do they talk to, copy, or influence each other? |
-| Ability to serve now | Can your current team and product plausibly help them first? |
-| Learning speed | Can this segment give useful feedback quickly? |
-| Willingness or ability to pay/adopt | Is there evidence they can commit money, time, attention, or authority? |
+Bill Aulet describes a beachhead market as "the place where, once you gain a dominant market share, you will have the strength to attack adjacent markets with different opportunities." MIT Sloan's beachhead criteria also look for customers who "all buy similar products," "have a similar sales cycle and expect products to provide value in similar ways," and have "word of mouth communication" between them.
 
-After scoring, choose one primary beachhead for the next validation cycle. Capture the runner-up segments separately with a short reason for deferring each one.
+Use that standard while you work.
 
-### 03. Build the Customer Profile
-For the chosen beachhead, document the profile as a working brief.
+### 01. Generate 3-5 candidate segments.
+Each candidate should be narrow enough that you can imagine naming real people or companies. Capture market type, account or customer type, user, buyer, segment qualifiers, urgent trigger, current alternative, and where you could manually find 25-50 prospects.
 
-| Profile area | Detail to document |
-| --- | --- |
-| Segment | Account/customer segment |
-| Personas | User, buyer or economic decision-maker, champion, influencer, evaluator, or blocker |
-| Fit boundaries | Company size, customer life stage, behavior pattern, industry/category, and geography if relevant |
-| Budget path | Budget owner if B2B |
-| Workflow | Current workflow and current workaround, alternative, or substitute |
-| Urgent trigger | Event, deadline, cost, job change, compliance pressure, growth stage, workflow breakdown, or emotional pain |
+### 02. Score each candidate.
+Use a 1-5 score for each criterion:
+- Urgency of pain: do they have a problem that matters now?
+- Manual reachability: can you name and contact real prospects directly?
+- Similarity of need or workflow: would interviews teach you about one coherent product direction?
+- Similarity of buying or adoption path: would they evaluate and adopt in roughly similar ways?
 
-### 04. Identify Early Adopters
-Look for behavioral evidence, not just demographic fit. Strong early prospects usually show these signals:
-- They have the problem.
-- They know they have the problem.
-- They are actively looking for a solution or have a timetable for solving it.
-- They have built, bought, borrowed, or hacked together a workaround.
-- They have access to budget, time, authority, or organizational permission to act.
+- Word of mouth potential: do they talk to, copy, or influence each other?
+- Ability to serve now: can your current team and product plausibly help them first?
 
-If a segment has the right profile but no earlyvangelist behavior, it may be a later market, not the first beachhead.
+### 03. Choose one beachhead.
+Pick the strongest segment for the next validation cycle. Capture the runner-up segments separately with one sentence on why each is being deferred.
 
-### 05. Test the Beachhead
-A real beachhead should behave like a market, not just a collection of similar-looking people.
+### 04. Pressure-test for earlyvangelists.
+Steve Blank defines earlyvangelists as "a special breed of customers willing to take a risk on your startup's product or service." Look for evidence that prospects have the problem, know they have it, are actively looking or under time pressure, have hacked together a workaround, and have access to budget, time, authority, or permission to act.
 
-| Test | What to look for |
-| --- | --- |
-| Alternatives | Similar products, alternatives, or substitutes bought or adopted today |
-| Adoption path | Similar sales cycles, adoption steps, and value expectations |
-| Peer connection | Enough reputation, referral, or word-of-mouth flow for learning to spread |
+### 05. Write exclusion rules.
+State who you are not serving yet; this will help you stay focused. Write at least three rules, such as:
+- We are not starting with enterprise teams because the sales cycle is too slow for this validation cycle.
+- We are not starting with solo operators unless they already use a paid workaround.
+- We are not starting with adjacent workflows where the buyer, urgency, or implementation path is different.
 
-If the answers are mostly no, narrow the segment or choose a different one.
+### 06. Build the first 25 named prospects.
+Create a list of at least 25 people or companies that plausibly match the chosen ICP. For each prospect, capture name, role or persona, contact path, fit evidence, suspected trigger, visible current alternative if known, and confidence level.
 
-### 06. Define Exclusions and Bad-Fit Rules
-State who you are not serving yet. This keeps interviews, objections, and feature requests from pulling the product in every direction.
+## Deliverable
+Produce an **Ideal Customer Profile Brief** that the whole founding team and key employees can see, challenge, and use as the shared north star for discovery, product decisions, messaging, and early sales.
 
-Write at least 3 exclusion rules. Use the examples below as patterns, not final copy.
+This should not live as a private worksheet. Put it somewhere visible: the company wiki, shared strategy doc, product hub, or team operating system. The point is alignment.
 
-| Exclusion pattern | Example |
-| --- | --- |
-| Adjacent workflow | We are not starting with [adjacent segment] because their workflow is different. |
-| Slow sales cycle | We are not starting with [larger customer type] because the sales cycle is too slow for this validation cycle. |
-| Weak authority or budget | We are not starting with [price-sensitive segment] because they feel the pain but lack budget or authority. |
-| Overbroad persona | We are not starting with [broad persona] unless they also show [specific trigger/workaround]. |
+Geoffrey Moore describes the go-to-market challenge as "a segment-focused go-to-market approach that targets a single, highly challenging use case in a single industry and just nails it." Steve Blank asks the product-scope version of the same question: "What is the smallest or least complicated problem that the customer will pay us to solve?"
 
-### 07. Write the ICP Hypothesis
-Use this format:
+Your Ideal Customer Profile Brief must include:
 
-> We are starting with [specific customer/account type] who [has urgent problem/trigger] and currently [uses workaround/alternative], because they are [reachable], [similar enough to learn from], and [likely to buy/adopt now].
+- **One-sentence ICP hypothesis:**
+  "We are starting with [specific customer/account type] who [has urgent problem/trigger] and currently [uses workaround/alternative], because they are [reachable], [similar enough to learn from], and [likely to buy/adopt now]."
 
-This sentence is a hypothesis. Revise it after discovery interviews if the evidence changes.
+- **Chosen beachhead:**
+  The selected segment, why it beat the alternatives, and where the team can find these people manually.
 
-### 08. Build the First 25 Prospect List
-Create a reachable list of at least 25 named prospects.
+- **Urgent trigger or problem:**
+  The event, deadline, cost, workflow breakdown, emotional pain, compliance pressure, growth stage, or other force that makes the problem matter now.
 
-| Prospect field | What to capture |
-| --- | --- |
-| Name | Person or company name |
-| Role/persona | Known role, buyer/user/champion status, or likely persona |
-| Contact path | How you can reach them manually |
-| Fit evidence | Source of fit evidence and reason they are worth interviewing |
-| Urgent trigger | Suspected trigger or timing signal |
-| Current alternative | Workaround or alternative, if visible |
-| Confidence | High, medium, or low |
+- **Current workaround or alternative:**
+  What the customer does today instead of using your product: manual work, spreadsheets, agencies, internal tools, competitor software, ignoring the problem, or stitching together substitutes.
 
-The quality bar is high: every name should plausibly match the chosen ICP. A list of random contacts, generic leads, or aspirational logos does not satisfy this guide.
+- **Persona map where relevant:**
+  User, buyer, champion, economic decision-maker, technical evaluator, influencer, and blocker. In business-to-business markets, the ICP is often the account type; personas are the people inside it.
 
-## Guide Deliverable
-Submit a founder-ready ICP/beachhead hypothesis document.
+- **Exclusion rules:**
+  Clear bad-fit or not-now rules that protect the team from chasing every adjacent segment.
 
-| Deliverable section | Must include |
-| --- | --- |
-| Beachhead decision | Selected beachhead segment, candidate scoring summary, and where this segment can be found manually |
-| ICP hypothesis | One-sentence hypothesis, urgent trigger hypothesis, and current workaround or alternative hypothesis |
-| Persona map | User, buyer, champion, and blocker notes where relevant |
-| Evidence plan | Earlyvangelist evidence to look for, Aulet/MIT beachhead test notes, and assumptions still missing evidence |
-| Boundaries | Bad-fit / not-now exclusion rules |
-| Prospect list | First 25 named prospects with contact paths and fit evidence |
+- **First 25 named prospects:**
+  A high-quality list with contact paths and fit evidence. Random contacts, aspirational logos, or generic leads do not count.
 
 ## Exit Criteria
-Move to Guide 2 only when the deliverable passes every check below.
+Move to Guide 02 only when the criteria below are complete. They are based on the MIT Sloan beachhead test and Blank's earlyvangelist standard.
 
-| Check | Standard |
-| --- | --- |
-| Beachhead chosen | One primary beachhead has been chosen for the next validation cycle. |
-| Prospect list ready | The founder can name at least 25 reachable prospects without paid ads or broad brand marketing. |
-| Prospect quality clear | Each prospect has a contact path and a specific reason they plausibly fit. |
-| Pain is specific | The ICP includes an urgent trigger and current workaround or alternative. |
-| Boundaries are explicit | Exclusion rules make clear who is not being served yet. |
-| Segment language is tight | The founder can describe the segment without relying on vague, unqualified categories such as "anyone," "all businesses," "SMBs," or "busy professionals." |
+- One primary beachhead has been chosen for the next validation cycle.
+- The ICP can be described without vague labels like "anyone," "all businesses," "small and medium-sized businesses," or "busy professionals."
+- The urgent trigger is specific and believable.
+- The current workaround or alternative is documented.
 
-**Optional advanced refinement:** If the company already has users, identify the users who would be most disappointed if the product disappeared. Use their own language to refine the ICP and prioritize the next round of discovery.
+- The user, buyer, champion, and blocker are mapped where relevant.
+- At least three exclusion rules make clear who is not being served yet.
+- The first 25 named prospects each have a contact path and fit evidence.
+- The Ideal Customer Profile Brief is stored somewhere visible to the founding team and key employees.
 
 ## References
 | Source | Author / organization |

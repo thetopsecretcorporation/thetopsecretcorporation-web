@@ -4,193 +4,155 @@ guideNumber: 8
 slug: "deliver-value-manually"
 summary: "Serve the first customers by hand so you can prove the outcome, learn the workflow, and decide what to automate later."
 phase: "Delivery"
-expectedOutput: "A manual delivery plan that defines who does what, what the customer receives, and what must be learned."
+expectedOutput: "A visible Manual Delivery Runbook + Delivery Log showing selected customers, promised outcomes, manual workflow, delivery evidence, next commitments, and automation decisions."
 status: draft
 draft: false
-updatedAt: 2026-04-26
+updatedAt: 2026-04-27
 ---
-## Field Brief
-Deliver the promised outcome by hand for the first few customers, even if the product is incomplete and the process does not scale. Manual delivery is not a patch for a missing product. It is how founders learn what the product must become.
+## Brief
+Serve 1-3 early customers by hand.
 
-Paul Graham's "do things that don't scale" advice is the anchor: early startups rarely take off by themselves. Founders often need to recruit users manually, onboard them personally, deliver value directly, and sometimes act as the product before automation exists.
+Manual delivery is not a workaround for missing software. It is the founder-led learning loop that proves value, exposes workflow reality, and shows what to automate later.
 
-## Why It Matters
-Early PMF is found through intense customer proximity. Founders should not hide behind software, dashboards, or automated onboarding too early. Manual delivery reveals what customers actually need, what they value, where they get stuck, and what they would pay to keep.
+Paul Graham's advice is the anchor: "One of the most common types of advice we give at Y Combinator is to do things that don't scale." He is direct about why: "Actually startups take off because the founders make them take off." You cannot wait for the market to discover an unfinished product. You have to recruit, onboard, serve, observe, support, measure, and ask for the next commitment.
 
-A sale is not complete until the customer reaches the promised outcome. Onboarding, implementation, support, and early success are part of the product at this stage, not chores to delegate later.
+This is especially important before PMF. Early customers do not need the full product. They need the promised outcome.
 
-## Learning Objectives
-By the end of this guide, founders should be able to:
+## Exercise
+Work toward one shared artifact: a **Manual Delivery Runbook + Delivery Log**. The goal is to learn what should become product, what should stay manual, and what should not be built.
 
-| Capability | What it means in practice |
-| --- | --- |
-| Treat manual delivery as a learning loop | Use service work to learn what the product must become. |
-| Map the first customer journey | Define acquisition, onboarding, delivery, support, measurement, and follow-up for 1-3 early customers. |
-| Capture delivery evidence | Track founder time, friction, repeated requests, customer language, and value delivered. |
-| Make automation decisions | Decide what should stay manual, what should be automated later, and what should not be built. |
-| Produce the guide deliverable | Create a manual delivery plan, founder delivery log, next-commitment record, and automation decision list. |
+### 01. Select a tiny manual cohort.
+Choose 1-3 customers who can teach you quickly. Do not pick customers only because they are impressive logos.
 
-## Choose the Right First Customers
-Do not choose customers only because they are impressive logos. Choose customers who can teach you quickly and can realistically be served by hand.
+For each customer, capture:
+- Pain intensity.
+- Speed of access.
+- Delivery scope.
+- Commitment: payment, time, access, referral, or another hard signal.
 
-Good first manual-delivery customers usually show these traits:
+- Repeatability across a narrow customer segment.
 
-| Trait | Why it matters |
-| --- | --- |
-| Acute pain | The problem is important enough to create real behavior. |
-| Direct access | You can reach the user, buyer, or decision-maker without a long chain of intermediaries. |
-| Realistic scope | One founder-led delivery cycle can produce a useful result. |
-| Meaningful commitment | The customer is willing to pay, commit time, or make another hard signal. |
-| Candid feedback and repeatability | They will tell the truth, and the problem looks repeatable across a narrow segment. |
-
-Avoid customers whose needs pull you into broad custom consulting unrelated to the intended product. Extra attentiveness is useful; becoming an open-ended services firm by accident is not.
-
-## Recommended Exercise
-### 01. Select a Tiny Manual Cohort
-Choose 1-3 customers to serve manually this week. For each one, write a short selection note:
-
-| Selection question | Answer to capture |
-| --- | --- |
-| Pain intensity | How painful and urgent is the problem? |
-| Speed of access | How quickly can you reach the right person? |
-| Delivery scope | Can you create value by hand in one cycle? |
-| Commitment | Will they pay, commit time, or take another meaningful step? |
-| Repeatability | Does this look like a pattern in a narrow customer segment? |
-
-### 02. Write the Promised Outcome
+### 02. Write the promised outcome.
 Use this format:
 
-> "We will help [customer/persona] achieve [specific result] by [date/window] without [pain/friction]."
+> We will help [customer/persona] achieve [specific result] by [date/window] without [pain/friction].
 
 Then define how the customer will know the outcome happened.
 
-### 03. Map the Manual Delivery Loop
-Document the full loop, not just the service work:
+### 03. Map the manual delivery loop.
+Document the full workflow:
+- Acquisition: how the customer was recruited or sold.
+- Intake: information, files, context, and access needed.
+- Onboarding: how the customer is guided to first value.
+- Delivery: what the founder/team does manually.
 
-| Stage | What to define |
-| --- | --- |
-| Acquisition | How the customer was recruited or sold. |
-| Intake | What information, files, context, or access is needed. |
-| Onboarding | How the customer will be set up and guided to first value. |
-| Delivery | What work the founder will do manually. |
-| Support | How the customer will get fast help. |
-| Measurement | What result will be tracked. |
-| Follow-up | When feedback and the next commitment will be requested. |
+- Support: how the customer gets fast help.
+- Measurement: what result is tracked.
+- Follow-up: when feedback and the next commitment are requested.
 
-### 04. Run a Live Kickoff / Onboarding Call
-Treat onboarding as part of the product. Early products are usually hard to use, and customers who are not onboarded often churn even after saying yes.
+### 04. Run a live kickoff/onboarding call.
+Treat onboarding as part of the product. Confirm the customer's goal, success metric, current context, owners, deadline, and first value moment. End with a concrete next step.
 
-Structure the call around five moments:
+Graham's Stripe example is the right mindset: instead of sending a link and hoping users completed setup, the Collison brothers would say, "Right then, give me your laptop" and get users started immediately.
 
-| Moment | What to do |
-| --- | --- |
-| Align on the goal | Restate the customer's goal in your own words and confirm the promised outcome. |
-| Define success | Confirm the success metric, deadline, and consequence of failure. |
-| Understand the context | Identify stakeholders and the current workaround. |
-| Create first value | Define the earliest observable result that proves the customer is better off, and get them doing real productive work during the session when possible. |
-| Close with ownership | End with a concrete next step and owner on both sides. |
+### 05. Deliver the result manually.
+Use spreadsheets, scripts, no-code tools, manual research, internal dashboards, founder judgment, or direct service. Prioritize the promised outcome over interface polish.
 
-### 05. Deliver the Result Manually
-Do the work yourself before writing more code. Use spreadsheets, scripts, no-code tools, internal dashboards, manual research, or founder judgment as needed.
+A **concierge MVP** is a manual, high-touch delivery model used to validate demand and value before automation. A **Wizard of Oz MVP** is a product-like experience where humans perform work behind the scenes. Choose concierge when direct conversation is the learning goal; choose Wizard of Oz when interface behavior is the learning goal.
 
-Manual delivery works best when you:
+### 06. Stay close during first use.
+Use calls, screen shares, Slack, WhatsApp, texts, or office visits when appropriate. Watch where the customer hesitates, what they ask twice, what they ignore, and what they do immediately after receiving value.
 
-- Hide unnecessary internal complexity from the customer when appropriate.
-- Clarify where human judgment, sensitive data, or quality control matters.
-- Prioritize the promised outcome over interface elegance.
+### 07. Keep a founder delivery log.
+For every customer, record:
+- Manual steps.
+- Time per step.
+- Tools and workarounds.
+- Customer questions and confusion.
 
-Manual delivery can include concierge delivery, tech-enabled service, or founder-led implementation. The customer does not need a perfect app yet. They need the outcome to happen reliably enough that you can learn whether it matters.
+- Errors, rework, and quality issues.
+- Value delivered or missed.
+- Customer language.
+- Founder judgment about what should become product, process, or documentation.
 
-### 06. Stay Close During First Use
-Use whatever channel creates fast learning:
+### 08. Measure the manual cycle.
+Track simple evidence:
+- Time to first value.
+- Founder hours per customer.
+- Activation or completion.
+- Repeat use.
 
-| Channel type | Useful when |
-| --- | --- |
-| Calls and screen shares | You need to see hesitation, confusion, or workflow context live. |
-| Slack, WhatsApp, or text | Fast support will prevent delays and surface repeated questions. |
-| Office visits, if appropriate | The physical environment changes how the work actually happens. |
-| Rapid support and implementation check-ins | The customer needs help completing the first real workflow. |
+- Renewal or expansion interest.
+- Willingness to pay and amount paid.
+- Referrals or introductions.
+- Repeated steps, errors, or rework.
 
-Watch where the customer hesitates, what they ask twice, what they ignore, and what they do immediately after receiving value.
+### 09. Ask evidence-seeking follow-up questions after value is delivered.
+Keep the questions specific:
+- What changed for you because of this?
+- What would you have done if we had not helped?
+- What was most useful?
+- What was missing or frustrating?
 
-### 07. Keep a Founder Delivery Log
-For every customer, record evidence across five categories:
+- What would make this worth paying for again?
+- What would you be upset or disappointed to lose?
+- Who else has this same problem?
 
-| Category | What to record |
-| --- | --- |
-| Work performed | Manual steps, time spent per step, tools, workarounds, and internal processes used. |
-| Friction | Customer questions, confusion, errors, rework, and quality issues. |
-| Value signals | Points of delight, repeated requests, parts the customer ignored, and whether the outcome was achieved or missed. |
-| Customer language | Exact phrases about value, pain, urgency, and what they would miss. |
-| Founder judgment | Notes on what should become product, process, or documentation. |
+### 10. Ask for the next commitment.
+Do not leave with vague praise. Ask for payment, renewal, a second workflow, expansion to another user or team, an internal introduction, data access, referral, testimonial, case study, or permission to observe the next workflow.
 
-### 08. Measure the Manual Cycle
-Track simple delivery evidence:
+### 11. Decide what to automate after repetition.
+Automate steps that are repeated, low-variation, expensive, error-prone, and tied to value. Keep steps manual when they require judgment, appear rarely, are still changing, or are still teaching the team.
 
-| Metric | What it tells you |
-| --- | --- |
-| Time to first value | How quickly the customer receives the first useful result. |
-| Founder hours per customer | Whether delivery is becoming too expensive to repeat. |
-| Activation or completion | Whether the customer actually completes the workflow. |
-| Repeat use, renewal, or expansion interest | Whether value is strong enough to continue. |
-| Willingness to pay and amount paid | Whether praise turns into economic commitment. |
-| Referrals or intros | Whether the customer believes others have the same problem. |
-| Repeated steps, errors, or rework | Which parts may later deserve automation or process improvement. |
+### 12. Make the decision.
+Choose one:
+- Continue manually.
+- Automate one bottleneck.
+- Narrow the ICP.
+- Stop or pivot.
 
-### 09. Ask Evidence-Seeking Follow-Up Questions
-Ask immediately after the customer receives value. Keep the tone specific and evidence-seeking, not congratulatory.
+## Deliverable
+Produce a **Manual Delivery Runbook + Delivery Log** that the whole founding team and key employees can see and review after every delivery cycle.
 
-| Question | What it reveals |
-| --- | --- |
-| "What changed for you because of this?" | Whether the result mattered in real terms. |
-| "What would you have done if we had not helped?" | The true alternative or workaround. |
-| "What was most useful?" | The strongest value driver. |
-| "What was missing or frustrating?" | The next source of friction. |
-| "What would make this worth paying for again?" | The path to repeat commitment. |
-| "What would you be upset or disappointed to lose?" | Whether the value is becoming must-have. |
-| "Who else has this same problem?" | Whether the problem is likely to repeat. |
+Include:
 
-### 10. Ask for the Next Commitment
-Do not leave the session with vague praise. Ask for one hard signal while the customer is closest to the value.
+- **Customer selection:** 1-3 selected customers, why each was chosen, pain intensity, access speed, delivery scope, commitment, and repeatability.
+- **Promised outcome:** one sentence per customer, deadline/window, and how the customer will know the outcome happened.
+- **Delivery loop map:** acquisition, intake, onboarding, delivery, support, measurement, and follow-up.
+- **Kickoff/onboarding notes:** goals, success metric, context, owners, first value moment, and next step.
 
-| Commitment type | Examples |
-| --- | --- |
-| Economic commitment | Payment or renewal. |
-| Deeper usage | A second workflow, use case, or expansion to another user or team. |
-| Access commitment | Internal intro, referral, or data access needed to deliver again. |
-| Proof commitment | Testimonial, case study, or permission to observe the next workflow. |
+- **Founder delivery log:** manual steps, time spent, tools, workarounds, friction, quality issues, value signals, customer language, and founder judgment.
+- **Next-commitment record:** commitment asked, commitment received, decision date, and owner.
+- **Automation decision list:** automate now, automate later, keep manual, and do not build.
 
-### 11. Decide What to Automate After Repetition
-Automate only after repeated evidence. A manual step is a good automation candidate when it meets most of these conditions:
+Strong example:
 
-| Condition | Signal to look for |
-| --- | --- |
-| Repeated | It appears across at least 2-3 customers. |
-| Low variation | The step is done roughly the same way each time. |
-| Expensive | It consumes meaningful founder time. |
-| Error-prone | It causes mistakes, rework, or quality issues. |
-| Value-linked | It is directly tied to the promised outcome or blocks faster delivery of proven customer value. |
+> Founder manually audits three clinic billing files, returns a recoverable-error report within five days, logs time per step, and asks each clinic for paid continuation or referral after value is delivered.
 
-Keep work manual when it requires judgment, appears rarely, is still changing, or is central to learning why customers value the service.
+Bad example:
 
-### 12. Make the Stop / Continue / Scale Decision
-Use the delivery evidence to choose the next move:
+> Founder builds self-serve onboarding before personally watching users get stuck.
 
-| Decision | Use it when |
-| --- | --- |
-| Continue manually | Customers receive value, but the pattern is not yet clear. |
-| Automate one bottleneck | The same valuable step repeats across customers. |
-| Narrow the ICP | Customers need very different things. |
-| Stop or pivot | Customers do not complete the workflow, do not perceive value, refuse meaningful commitment, or would not be upset to lose the service. |
+## Exit Criteria
+Move forward only when the checklist below is complete.
 
-## Guide Deliverable
-A structured manual delivery package should include three parts:
+- 1-3 right-fit customers are selected.
+- Each customer has a written promised outcome.
+- Each promised outcome has a date/window.
+- The customer's value moment is defined.
 
-| Part | Contents |
-| --- | --- |
-| Customer and outcome plan | 1-3 selected customers, the reason each was chosen, and a one-sentence promised outcome for each customer. |
-| Delivery system | A mapped acquisition, onboarding, delivery, support, measurement, and follow-up loop, plus notes from live onboarding or kickoff. |
-| Evidence and decisions | A founder delivery log showing repeated value, friction, time cost, errors, and customer language; at least one next commitment requested after value was delivered; and an automation decision list explaining what should be automated now, later, or not yet. |
+- The full delivery loop is mapped end-to-end.
+- Kickoff/onboarding confirms goal, success metric, context, and owners.
+- The customer reaches or misses the value moment.
+- Founder time and manual steps are logged.
+
+- Friction, repeated questions, errors, and rework are recorded.
+- Customer language is captured as quotes where possible.
+- At least one follow-up commitment is requested after value delivery.
+- Automation candidates require repetition across 2-3 customers.
+
+- The team chooses continue manually, automate one bottleneck, narrow ICP, or stop/pivot.
+- The Manual Delivery Runbook + Delivery Log is stored somewhere visible to the founding team and key employees.
 
 ## References
 | Source | Use |
@@ -199,6 +161,5 @@ A structured manual delivery package should include three parts:
 | [How to Get Your First Customers](https://www.youtube.com/watch?v=hyYCn_kAngI) - Gustaf Alstromer / Y Combinator Startup School | Founder-led customer acquisition. |
 | [Growth AMA with YC Partner Gustaf Alstromer](https://www.ycombinator.com/blog/growth-ama-with-yc-partner-gustaf-alstromer) - Y Combinator | Early growth and customer learning. |
 | [Founding Sales](https://www.foundingsales.com/) - Pete Kazanjy | Founder-led sales process. |
-| [Customer Success Basics-Implementation, Ongoing Success & Renewals](https://www.youtube.com/watch?v=_xcHEeDClnk) - Founding Sales Chapter 9 | Implementation and renewals. |
-| [My First 16: Doubling Down on Founder-Led Sales with Pilot's Waseem Daher](https://a16z.com/podcast/my-first-16-doubling-down-on-founder-led-sales-with-pilots-waseem-daher/) - a16z | Founder-led sales takeaways. |
+| [Customer Success Basics: Implementation, Ongoing Success & Renewals](https://www.youtube.com/watch?v=_xcHEeDClnk) - Founding Sales Chapter 9 | Implementation and renewals. |
 | [Concierge MVP Experiment](https://learningloop.io/plays/concierge) - Learning Loop | Concierge MVP framing. |
